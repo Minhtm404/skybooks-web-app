@@ -1,8 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+import 'mapbox-gl/dist/mapbox-gl.css';
+import ReactMapGl, { Marker } from 'react-map-gl';
+
 import { Button, Breadcrumb, TextInput, Textarea } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 
 const ContactInfo = () => {
+  const [viewport, setViewport] = useState({
+    latitude: 21.03287159870468,
+    longitude: 105.84461947287288,
+    width: '100vw',
+    height: '100vh',
+    zoom: 14
+  });
+
   return (
     <div>
       <Breadcrumb
@@ -14,12 +26,22 @@ const ContactInfo = () => {
             Home
           </Breadcrumb.Item>
           <Breadcrumb.Item href="/about-us">About us</Breadcrumb.Item>
-          <Breadcrumb.Item href="/about-us/stores">Stores</Breadcrumb.Item>
+          <Breadcrumb.Item href="/about-us/contact-info">Contact info</Breadcrumb.Item>
         </div>
       </Breadcrumb>
 
       <div className="py-3 grid grid-cols-2 divide-x">
-        <div>Mapbox</div>
+        <div className="px-14 py-3">
+          <ReactMapGl
+            mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+            mapStyle="mapbox://styles/ngoctong421/clnsb5bf100hy01qwclyr8ekb"
+            {...viewport}
+            onDrag={viewport => setViewport(viewport)}
+            onZoom={viewport => setViewport(viewport)}
+          >
+            <Marker latitude={21.03287159870468} longitude={105.84461947287288}></Marker>
+          </ReactMapGl>
+        </div>
 
         <div className="px-14 py-3">
           <p className="text-3xl font-bold my-9">Contact info</p>
