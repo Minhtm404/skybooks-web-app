@@ -14,7 +14,7 @@ const PrivacyPolicy = () => {
           <Breadcrumb.Item href="/" icon={HiHome}>
             Home
           </Breadcrumb.Item>
-          <Breadcrumb.Item href="/terms-of-service">Privacy Policy</Breadcrumb.Item>
+          <Breadcrumb.Item href="/privacy-policy">Privacy Policy</Breadcrumb.Item>
         </div>
       </Breadcrumb>
 

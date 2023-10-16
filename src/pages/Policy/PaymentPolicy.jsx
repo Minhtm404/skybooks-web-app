@@ -14,7 +14,7 @@ const PaymentPolicy = () => {
           <Breadcrumb.Item href="/" icon={HiHome}>
             Home
           </Breadcrumb.Item>
-          <Breadcrumb.Item href="/terms-of-service">Payment Policy</Breadcrumb.Item>
+          <Breadcrumb.Item href="/payment-policy">Payment Policy</Breadcrumb.Item>
         </div>
       </Breadcrumb>
 
