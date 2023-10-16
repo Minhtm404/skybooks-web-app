@@ -60,12 +60,12 @@ const AppLayout = () => {
                     Skybooks Company Limited
                   </span>
                   <span>
-                    Company tax code: 0xxxxxxxxx
+                    by Cao Minh Tam
                     <br />
-                    Issued by Department of Planning and investment HN - License date:
-                    xx/xx/20xx
+                    This site has been designed as a school project. It is for educational
+                    purposes only.
                     <br />
-                    Address: 1 Somewhere St., Dist X, HN
+                    All content is based upon a fictional company.
                   </span>
                 </Footer.LinkGroup>
               </div>
@@ -73,11 +73,11 @@ const AppLayout = () => {
             <div>
               <Footer.Title title="Policy" className="text-xl" />
               <Footer.LinkGroup col>
-                <Footer.Link href="#">Terms of Service</Footer.Link>
-                <Footer.Link href="#">Privacy Policy</Footer.Link>
-                <Footer.Link href="#">Payment Policy</Footer.Link>
-                <Footer.Link href="#">Delivery Policy</Footer.Link>
-                <Footer.Link href="#">Exchange/Return Policy</Footer.Link>
+                <Footer.Link href="/terms-of-service">Terms of Service</Footer.Link>
+                <Footer.Link href="/privacy-policy">Privacy Policy</Footer.Link>
+                <Footer.Link href="/payment-policy">Payment Policy</Footer.Link>
+                <Footer.Link href="/delivery-policy">Delivery Policy</Footer.Link>
+                <Footer.Link href="/exchange-policy">Exchange/Return Policy</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
