@@ -5,7 +5,7 @@ import { HiOutlineMinusSm, HiOutlinePlusSm } from 'react-icons/hi';
 
 const SidebarCustom = () => {
   return (
-    <Sidebar>
+    <Sidebar className='py-5'>
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <Sidebar.Collapse

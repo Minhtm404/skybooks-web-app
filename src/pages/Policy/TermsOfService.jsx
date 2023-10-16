@@ -20,10 +20,10 @@ const TermsOfService = () => {
 
       <div className="mx-40 px-5 py-3 grid grid-cols-4">
         <Sidebar />
-        <div className="col-span-3">
+        <div className="col-span-3 mb-3">
           <p className="text-3xl font-semibold my-5">Terms of Service</p>
 
-          <div className="text-sm text-gray-500 space-y-2">
+          <div className="text-sm text-gray-900 space-y-2">
             <p className="bg-gray-100 border-2 rounded-lg p-2">
               <span>
                 General principles

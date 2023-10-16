@@ -48,19 +48,19 @@ const ContactInfo = () => {
           <hr />
           <ul className="text-sm space-y-8 mt-14 mb-14">
             <li>
-              <p className="text-gray-500 font-medium">Our address</p>
+              <p className="text-gray-900 font-medium">Our address</p>
               <p className="font-bold">01 Somewhere St., Dist. X, Hanoi</p>
             </li>
             <li>
-              <p className="text-gray-500 font-medium">Email us</p>
+              <p className="text-gray-900 font-medium">Email us</p>
               <p className="font-bold uppercase">info@skybooks.io</p>
             </li>
             <li>
-              <p className="text-gray-500 font-medium">Phone</p>
+              <p className="text-gray-900 font-medium">Phone</p>
               <p className="font-bold">+84 28xxxxxxxx</p>
             </li>
             <li>
-              <p className="text-gray-500 font-medium">Working time</p>
+              <p className="text-gray-900 font-medium">Working time</p>
               <p className="font-bold">Monday to Friday from 8:30 AM to 05:30 PM</p>
             </li>
           </ul>
