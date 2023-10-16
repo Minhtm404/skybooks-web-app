@@ -37,7 +37,7 @@ const ExchangePolicy = () => {
               <div className="space-y-2">
                 <p className="font-semibold">1. Requirement</p>
                 <p className="text-gray-900">
-                  Artbook accepts exchanges and returns for the following cases:
+                  Skybooks accepts exchanges and returns for the following cases:
                   <br /> - The product is damaged during the delivery process.
                   <br />
                   Example: the product is dented, torn, damaged, the product no longer has
