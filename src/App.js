@@ -7,6 +7,7 @@ import {
   DeliveryPolicy,
   ExchangePolicy,
   Home,
+  NewArrival,
   PaymentPolicy,
   PrivacyPolicy,
   Stores,
@@ -21,9 +22,13 @@ function App() {
         <Routes>
           <Route element={<AppLayout />}>
             <Route index element={<Home />} />
+
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/about-us/stores" element={<Stores />} />
             <Route path="/about-us/contact-info" element={<ContactInfo />} />
+
+            <Route path="/new-arrival" element={<NewArrival />} />
+
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/payment-policy" element={<PaymentPolicy />} />
