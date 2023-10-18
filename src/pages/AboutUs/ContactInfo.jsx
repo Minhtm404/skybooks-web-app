@@ -34,7 +34,7 @@ const ContactInfo = () => {
         <div className="px-14 py-3">
           <ReactMapGl
             mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-            mapStyle="mapbox://styles/ngoctong421/clnsb5bf100hy01qwclyr8ekb"
+            mapStyle={process.env.REACT_APP_MAPBOX_STYLE}
             {...viewport}
             onDrag={viewport => setViewport(viewport)}
             onZoom={viewport => setViewport(viewport)}
