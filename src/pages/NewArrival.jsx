@@ -1,6 +1,7 @@
 import React from 'react';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
+import { ProductBar } from '../components/index';
 
 const NewArrival = () => {
   return (
@@ -18,7 +19,11 @@ const NewArrival = () => {
       </Breadcrumb>
 
       <div className="mx-40 px-5 py-3">
-        New Arrival
+        <p className="text-3xl font-semibold my-5">New Arrival</p>
+
+        <ProductBar />
+
+        <div className="grid grid-cols-4 gap-4"></div>
       </div>
     </div>
   );
