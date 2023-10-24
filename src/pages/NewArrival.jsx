@@ -32,22 +32,24 @@ const NewArrival = () => {
 
         <ProductBar />
 
-        <div className="grid grid-cols-4 gap-4">
-          {products.map(p => (
-            <Card
-              imgAlt="Meaningful alt text for an image that is not purely decorative"
-              imgSrc="https://product.hstatic.net/200000090679/product/a11eaq8thkl_757a0ddca7b74dc7b30dfd32680930be_grande.jpg"
-            >
-              <h5 className="font-bold tracking-tight text-gray-900">
-                <p className="uppercase">
-                  {p.name.length > 25 ? p.name.slice(0, 25).concat('...') : p.name}
+        <div className="py-4 grid grid-cols-4 gap-4">
+          {products.map(p => {
+            const href = `/products/${p.slug}`;
+
+            return (
+              <Card
+                imgSrc="https://product.hstatic.net/200000090679/product/a11eaq8thkl_757a0ddca7b74dc7b30dfd32680930be_grande.jpg"
+                href={href}
+              >
+                <p className="uppercase text-sm">
+                  {p.name.length > 25 ? p.name.slice(0, 30).concat('...') : p.name}
                 </p>
-              </h5>
-              <p className="font-normal text-gray-700">
-                <p>{p.price.toLocaleString().concat('₫')}</p>
-              </p>
-            </Card>
-          ))}
+                <p className="text-sm font-semibold">
+                  {p.price.toLocaleString().concat('₫')}
+                </p>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </div>
