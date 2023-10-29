@@ -10,6 +10,7 @@ import {
   NewArrival,
   PaymentPolicy,
   PrivacyPolicy,
+  ProductDetails,
   Stores,
   TermsOfService
 } from './pages/index';
@@ -26,6 +27,8 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/about-us/stores" element={<Stores />} />
             <Route path="/about-us/contact-info" element={<ContactInfo />} />
+
+            <Route path="/products/:alias" element={<ProductDetails />} />
 
             <Route path="/new-arrival" element={<NewArrival />} />
 

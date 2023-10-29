@@ -4,6 +4,8 @@ export { default as AboutUs } from './AboutUs/index';
 export { default as Stores } from './AboutUs/Stores';
 export { default as ContactInfo } from './AboutUs/ContactInfo';
 
+export { default as ProductDetails } from './ProductDetails';
+
 export { default as NewArrival } from './NewArrival';
 
 export { default as TermsOfService } from './Policy/TermsOfService';
