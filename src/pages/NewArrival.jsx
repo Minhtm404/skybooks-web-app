@@ -42,11 +42,9 @@ const NewArrival = () => {
                 href={href}
               >
                 <p className="uppercase text-sm">
-                  {p.name.length > 25 ? p.name.slice(0, 30).concat('...') : p.name}
+                  {p.price?.toLocaleString().concat('₫')}
                 </p>
-                <p className="text-sm font-semibold">
-                  {p.price.toLocaleString().concat('₫')}
-                </p>
+                <p className="text-sm font-semibold">{p.price}</p>
               </Card>
             );
           })}
