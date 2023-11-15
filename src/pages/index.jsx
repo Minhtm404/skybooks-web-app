@@ -8,6 +8,8 @@ export { default as ProductDetails } from './ProductDetails';
 
 export { default as NewArrival } from './NewArrival';
 
+export { default as Login } from './Login';
+
 export { default as TermsOfService } from './Policy/TermsOfService';
 export { default as PrivacyPolicy } from './Policy/PrivacyPolicy';
 export { default as PaymentPolicy } from './Policy/PaymentPolicy';

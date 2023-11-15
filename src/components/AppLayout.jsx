@@ -1,5 +1,5 @@
 import React from 'react';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { Button, Footer, Navbar } from 'flowbite-react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import { MdOutlineAccountCircle, MdOutlineShoppingCart } from 'react-icons/md';
@@ -17,7 +17,7 @@ const AppLayout = () => {
         </Navbar.Brand>
 
         <div className="flex md:order-2 gap-3">
-          <Button>
+          <Button as={Link} to={`/login`}>
             <MdOutlineAccountCircle className="mr-2 h-5 w-5" />
             <span>Account</span>
           </Button>
