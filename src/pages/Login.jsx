@@ -79,7 +79,10 @@ const Login = () => {
           <Checkbox id="remember" />
           <Label htmlFor="remember">Remember me</Label>
         </div>
-        <Link to="#" className="text-sm text-cyan-700 hover:underline dark:text-cyan-500">
+        <Link
+          to="/account/forgot-password"
+          className="text-sm text-cyan-700 hover:underline dark:text-cyan-500"
+        >
           Lost Password?
         </Link>
       </div>
@@ -98,7 +101,10 @@ const Login = () => {
       </div>
       <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
         Not registered?&nbsp;
-        <Link to="#" className="text-cyan-700 hover:underline dark:text-cyan-500">
+        <Link
+          to="/account/register"
+          className="text-cyan-700 hover:underline dark:text-cyan-500"
+        >
           Create account
         </Link>
       </div>

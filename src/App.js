@@ -6,12 +6,14 @@ import {
   ContactInfo,
   DeliveryPolicy,
   ExchangePolicy,
+  ForgotPassword,
   Home,
   Login,
   NewArrival,
   PaymentPolicy,
   PrivacyPolicy,
   ProductDetails,
+  Register,
   Stores,
   TermsOfService
 } from './pages/index';
@@ -33,7 +35,9 @@ function App() {
 
             <Route path="/new-arrival" element={<NewArrival />} />
 
-            <Route path="/login" element={<Login />} />
+            <Route path="/account/login" element={<Login />} />
+            <Route path="/account/register" element={<Register />} />
+            <Route path="/account/forgot-password" element={<ForgotPassword />} />
 
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
