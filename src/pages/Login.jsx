@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Checkbox, Label, TextInput } from 'flowbite-react';
 
 const Login = () => {
@@ -6,8 +7,8 @@ const Login = () => {
   const [password, setPassword] = useState(undefined);
 
   return (
-    <div
-      className="grid content-center justify-center gap-9 my-16"
+    <form
+      className="grid content-center justify-center gap-4 my-16"
       style={{ 'grid-template-columns': '30rem' }}
     >
       <h3 className="text-4xl font-bold text-center text-gray-900 dark:text-white">
@@ -41,25 +42,26 @@ const Login = () => {
           required
         />
       </div>
+
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
           <Checkbox id="remember" />
           <Label htmlFor="remember">Remember me</Label>
         </div>
-        <a href="#" className="text-sm text-cyan-700 hover:underline dark:text-cyan-500">
+        <Link to="#" className="text-sm text-cyan-700 hover:underline dark:text-cyan-500">
           Lost Password?
-        </a>
+        </Link>
       </div>
       <div className="w-full">
         <Button>Log in to your account</Button>
       </div>
       <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
         Not registered?&nbsp;
-        <a href="#" className="text-cyan-700 hover:underline dark:text-cyan-500">
+        <Link to="#" className="text-cyan-700 hover:underline dark:text-cyan-500">
           Create account
-        </a>
+        </Link>
       </div>
-    </div>
+    </form>
   );
 };
 

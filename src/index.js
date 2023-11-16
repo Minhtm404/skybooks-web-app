@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
+import { Provider as AuthProvider } from './contexts/AuthContext';
 import { Provider as ProductProvider } from './contexts/ProductContext';
 
 import './index.css';
@@ -9,7 +10,9 @@ import App from './App';
 const root = createRoot(document.getElementById('root'));
 
 root.render(
-  <ProductProvider>
-    <App />
-  </ProductProvider>
+  <AuthProvider>
+    <ProductProvider>
+      <App />
+    </ProductProvider>
+  </AuthProvider>
 );
