@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button, Checkbox, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
@@ -6,12 +6,19 @@ import { HiExclamation } from 'react-icons/hi';
 import { Context as AuthContext } from '../../contexts/AuthContext';
 
 const Login = () => {
-  const { login, isLoading, setIsLoading, error } = useContext(AuthContext);
+  const { isAuthenticated, login, isLoading, setIsLoading, error } =
+    useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/account');
+    }
+  });
 
   const handleSubmit = async e => {
     e.preventDefault();
