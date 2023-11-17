@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { AppLayout } from './components/index';
 import {
   AboutUs,
+  Account,
   ContactInfo,
   DeliveryPolicy,
   ExchangePolicy,
@@ -35,6 +36,7 @@ function App() {
 
             <Route path="/new-arrival" element={<NewArrival />} />
 
+            <Route path="/account" element={<Account />} />
             <Route path="/account/login" element={<Login />} />
             <Route path="/account/register" element={<Register />} />
             <Route path="/account/forgot-password" element={<ForgotPassword />} />

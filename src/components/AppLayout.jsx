@@ -17,7 +17,7 @@ const AppLayout = () => {
         </Navbar.Brand>
 
         <div className="flex md:order-2 gap-3">
-          <Button as={Link} to={`/account/login`}>
+          <Button as={Link} to={`/account`}>
             <MdOutlineAccountCircle className="mr-2 h-5 w-5" />
             <span>Account</span>
           </Button>

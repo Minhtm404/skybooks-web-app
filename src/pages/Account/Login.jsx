@@ -1,29 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
+import { Button, Checkbox, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
-import { Context as AuthContext } from '../contexts/AuthContext';
+import { Context as AuthContext } from '../../contexts/AuthContext';
 
-const Register = () => {
-  const { register, isLoading, setIsLoading, error } = useContext(AuthContext);
+const Login = () => {
+  const { login, isLoading, setIsLoading, error } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
-  const [name, setName] = useState(undefined);
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
-  const [passwordConfirm, setPasswordConfirm] = useState(undefined);
 
   const handleSubmit = async e => {
     e.preventDefault();
 
-    if (!name || !email || !password || !passwordConfirm) return;
+    if (!email || !password) return;
 
     setIsLoading(true);
-    await register({ name, email, password, passwordConfirm });
+    await login({ email, password });
 
-    navigate('/');
+    navigate('/account');
   };
 
   return (
@@ -45,23 +43,9 @@ const Register = () => {
       )}
 
       <h3 className="text-4xl font-bold text-center text-gray-900 dark:text-white">
-        Register
+        Login
       </h3>
 
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="name" value="Your name" />
-        </div>
-        <TextInput
-          id="name"
-          name="name"
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={e => setName(e.target.value)}
-          required
-        />
-      </div>
       <div>
         <div className="mb-2 block">
           <Label htmlFor="email" value="Your email" />
@@ -70,7 +54,7 @@ const Register = () => {
           id="email"
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder="Enter your email"
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
@@ -84,30 +68,25 @@ const Register = () => {
           id="password"
           name="password"
           type="password"
-          placeholder="Password"
-          minLength={8}
           value={password}
           onChange={e => setPassword(e.target.value)}
           required
         />
       </div>
-      <div>
-        <div className="mb-2 block">
-          <Label htmlFor="Confirm" value="Confirm password" />
-        </div>
-        <TextInput
-          id="passwordConfirm"
-          name="passwordConfirm"
-          type="password"
-          placeholder="Confirm password"
-          minLength={8}
-          value={passwordConfirm}
-          onChange={e => setPasswordConfirm(e.target.value)}
-          required
-        />
-      </div>
 
-      <div className="flex flex-wrap gap-2">
+      <div className="flex justify-between">
+        <div className="flex items-center gap-2">
+          <Checkbox id="remember" />
+          <Label htmlFor="remember">Remember me</Label>
+        </div>
+        <Link
+          to="/account/forgot-password"
+          className="text-sm text-cyan-700 hover:underline dark:text-cyan-500"
+        >
+          Lost Password?
+        </Link>
+      </div>
+      <div className="w-full">
         <Button type="submit">
           <div className="flex flex-row gap-2">
             {!isLoading ? (
@@ -116,15 +95,21 @@ const Register = () => {
               <Spinner aria-label="Alternate spinner button example" size="sm" />
             )}
 
-            <span>Register</span>
+            <span>Log in to your account</span>
           </div>
         </Button>
-        <Button color="light" as={Link} to="/account/login">
-          Back
-        </Button>
+      </div>
+      <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
+        Not registered?&nbsp;
+        <Link
+          to="/account/register"
+          className="text-cyan-700 hover:underline dark:text-cyan-500"
+        >
+          Create account
+        </Link>
       </div>
     </form>
   );
 };
 
-export default Register;
+export default Login;

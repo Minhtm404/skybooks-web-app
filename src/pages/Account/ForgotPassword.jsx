@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
-import { Context as AuthContext } from '../contexts/AuthContext';
+import { Context as AuthContext } from '../../contexts/AuthContext';
 
 const ForgotPassword = () => {
   const { forgotPassword, isLoading, setIsLoading, error } = useContext(AuthContext);
