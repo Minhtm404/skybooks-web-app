@@ -8,7 +8,8 @@ const authReducer = (state, action) => {
     case ACTIONS.SET_IS_LOADING:
       return {
         ...state,
-        isLoading: action.payload
+        isLoading: action.payload,
+        error: undefined
       };
     case ACTIONS.SET_ERROR:
       return {
@@ -49,6 +50,12 @@ const authReducer = (state, action) => {
         token: action.payload.token,
         user: action.payload.user
       };
+    case ACTIONS.FORGOT_PASSWORD:
+      return {
+        ...state,
+        isLoading: false,
+        error: undefined
+      };
     default:
       return state;
   }
@@ -57,6 +64,31 @@ const authReducer = (state, action) => {
 const setIsLoading = dispatch => async isLoading => {
   dispatch({ type: ACTIONS.SET_IS_LOADING, payload: isLoading });
 };
+
+const register =
+  dispatch =>
+  async ({ name, email, password, passwordConfirm }) => {
+    try {
+      const { data } = await apiHelper.post('/users/signup', {
+        name,
+        email,
+        password,
+        passwordConfirm
+      });
+
+      localStorage.setItem('token', data.token);
+
+      dispatch({
+        type: ACTIONS.SET_LOGIN,
+        payload: { token: data.token, user: data.data.user }
+      });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
 
 const login =
   dispatch =>
@@ -152,6 +184,10 @@ const forgotPassword =
       await apiHelper.post('/users/forgot-password', {
         email
       });
+
+      dispatch({
+        type: ACTIONS.FORGOT_PASSWORD
+      });
     } catch (err) {
       dispatch({
         type: ACTIONS.SET_ERROR,
@@ -164,6 +200,7 @@ export const { Provider, Context } = contextFactory(
   authReducer,
   {
     setIsLoading,
+    register,
     login,
     localLogin,
     logout,
