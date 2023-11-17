@@ -145,6 +145,21 @@ const updatePassword =
     }
   };
 
+const forgotPassword =
+  dispatch =>
+  async ({ email }) => {
+    try {
+      await apiHelper.post('/users/forgot-password', {
+        email
+      });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
+
 export const { Provider, Context } = contextFactory(
   authReducer,
   {
@@ -153,7 +168,8 @@ export const { Provider, Context } = contextFactory(
     localLogin,
     logout,
     updateMe,
-    updatePassword
+    updatePassword,
+    forgotPassword
   },
   {
     isLoading: false,
