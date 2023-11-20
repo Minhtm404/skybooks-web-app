@@ -1,14 +1,21 @@
 import React, { useState } from 'react';
-import { Link, Outlet } from 'react-router-dom';
-import { Button, Footer, Navbar } from 'flowbite-react';
+import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Button, Footer, Label, Navbar, TextInput } from 'flowbite-react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
-import { MdOutlineAccountCircle, MdOutlineShoppingCart } from 'react-icons/md';
+import {
+  MdEmail,
+  MdInfo,
+  MdOutlineAccountCircle,
+  MdOutlineShoppingCart
+} from 'react-icons/md';
 import { SiSass } from 'react-icons/si';
 import { Cart } from './index';
 
 const AppLayout = () => {
   const [openCart, setOpenCart] = useState(false);
 
+  const location = useLocation();
+  console.log(`location ${location.pathname}`);
   return (
     <div>
       <Navbar fluid rounded className="mx-40 sticky">
@@ -51,6 +58,62 @@ const AppLayout = () => {
       </Navbar>
 
       <Outlet />
+
+      {location && !['/login', '/register', '/account'].includes(location.pathname) && (
+        <div>
+          <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6">
+            <img
+              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              alt=""
+              class="w-full h-auto"
+            />
+            <img
+              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              alt=""
+              class="w-full h-auto"
+            />
+            <img
+              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              alt=""
+              class="w-full h-auto"
+            />
+            <img
+              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              alt=""
+              class="w-full h-auto"
+            />
+            <img
+              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              alt=""
+              class="w-full h-auto"
+            />
+            <img
+              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              alt=""
+              class="w-full h-auto"
+            />
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center justify-center mt-8 space-y-4 md:space-y-0 md:space-x-4">
+            <div className="flex items-center justify-center">
+              <MdEmail className="mr-2" />
+              <Label htmlFor="email">Sign up for new info</Label>
+            </div>
+            <TextInput
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Your email"
+              className="py-2 px-4 w-80"
+            />
+            <Button>Register</Button>
+            <p className="mt-2 text-sm flex items-center">
+              <MdInfo className="mr-2" />
+              Support/purchase: +xx xxxxxxxxxx
+            </p>
+          </div>
+        </div>
+      )}
 
       <Footer>
         <div className="w-full text-gray-900">
