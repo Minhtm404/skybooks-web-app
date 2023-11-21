@@ -20,10 +20,11 @@ const ExchangePolicy = () => {
 
       <div className="mx-40 px-5 py-3 grid grid-cols-4">
         <Sidebar />
+
         <div className="col-span-3 mb-3">
           <p className="text-3xl font-semibold my-5">Exchange/Return Policy</p>
 
-          <div className="text-sm space-y-4 gap-2">
+          <div className="text-sm space-y-4 gap-2 text-justify">
             <div className="space-y-2">
               <div className="space-y-2">
                 <p className="text-gray-900">

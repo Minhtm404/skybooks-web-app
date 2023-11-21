@@ -49,7 +49,7 @@ const Post = () => {
         </Breadcrumb>
 
         <div className="mx-40 px-5 py-3 grid grid-cols-4">
-          <div className=" col-span-1 border-2 mt-4 mr-4 py-5">
+          <div className="col-span-1 border-2 mt-4 mr-4 py-5">
             <h3 className="text-center font-semibold uppercase mb-4">New Posts</h3>
 
             <hr />
@@ -79,7 +79,7 @@ const Post = () => {
                 const href = `/posts/${p.slug}`;
 
                 return (
-                  <div className="flex items-center gap-5">
+                  <div className="flex items-center gap-5 text-justify">
                     <div className="space-y-2">
                       <Link to={href} className="font-medium text-base">
                         {p.title}

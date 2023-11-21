@@ -20,10 +20,11 @@ const PrivacyPolicy = () => {
 
       <div className="mx-40 px-5 py-3 grid grid-cols-4">
         <Sidebar />
+
         <div className="col-span-3 mb-3">
           <p className="text-3xl font-semibold my-5">Privacy Policy</p>
 
-          <div className="text-base space-y-4">
+          <div className="text-base space-y-4 text-justify">
             <div className="space-y-2">
               <p className="font-semibold">a. Personal information gathering goals</p>
               <p className="text-gray-900">
