@@ -54,8 +54,8 @@ const AppLayout = () => {
           <Navbar.Link href="/posts" className="text-sm font-semibold uppercase">
             Blog
           </Navbar.Link>
-          <Navbar.Link href="/sale-art" className="text-sm font-semibold uppercase">
-            Sale Art
+          <Navbar.Link href="/sale" className="text-sm font-semibold uppercase">
+            Sale
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>

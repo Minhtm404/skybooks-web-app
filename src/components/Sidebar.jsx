@@ -5,7 +5,7 @@ import { HiOutlineMinusSm, HiOutlinePlusSm } from 'react-icons/hi';
 
 const SidebarCustom = () => {
   return (
-    <Sidebar className='py-5'>
+    <Sidebar className="py-5">
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <Sidebar.Collapse
@@ -41,23 +41,7 @@ const SidebarCustom = () => {
           </Sidebar.Collapse>
           <Sidebar.Item href="/new-arrival">New arrival</Sidebar.Item>
           <Sidebar.Item href="/posts">Blog</Sidebar.Item>
-          <Sidebar.Collapse
-            label="Sale art"
-            renderChevronIcon={(theme, open) => {
-              const IconComponent = open ? HiOutlineMinusSm : HiOutlinePlusSm;
-              return (
-                <IconComponent
-                  aria-hidden
-                  className={twMerge(theme.label.icon.open[open ? 'on' : 'off'])}
-                />
-              );
-            }}
-          >
-            <Sidebar.Item href="/sale-art/15">Sale 15%</Sidebar.Item>
-            <Sidebar.Item href="/sale-art/20">Sale 20%</Sidebar.Item>
-            <Sidebar.Item href="/sale-art/25">Sale 25%</Sidebar.Item>
-            <Sidebar.Item href="/sale-art/35">Sale 35%</Sidebar.Item>
-          </Sidebar.Collapse>
+          <Sidebar.Item href="/sale">Sale</Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>

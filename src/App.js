@@ -18,6 +18,7 @@ import {
   ProductDetails,
   Products,
   Register,
+  Sale,
   Stores,
   TermsOfService
 } from './pages/index';
@@ -43,6 +44,8 @@ function App() {
 
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/:alias" element={<PostDetails />} />
+
+            <Route path="/sale" element={<Sale />} />
 
             <Route path="/account" element={<Account />} />
             <Route path="/account/login" element={<Login />} />
