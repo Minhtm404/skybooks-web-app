@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Breadcrumb, Button, Carousel, Spinner, TextInput } from 'flowbite-react';
+import { Breadcrumb, Button, Carousel, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
-import { HiHome } from 'react-icons/hi';
+import { HiExclamation, HiHome } from 'react-icons/hi';
 
 import { Context as ProductContext } from '../../contexts/ProductContext';
 
@@ -14,6 +14,7 @@ const ProductDetails = () => {
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
+    setIsLoading(true);
     getProductByAlias(alias);
   }, []);
 
@@ -38,6 +39,18 @@ const ProductDetails = () => {
   if (product) {
     return (
       <div className="my-4">
+        {error ? (
+          <Toast className="absolute top-4 left-4">
+            <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-500 dark:bg-orange-700 dark:text-orange-200">
+              <HiExclamation className="h-5 w-5" />
+            </div>
+            <div className="ml-3 text-sm font-normal">{error}</div>
+            <Toast.Toggle />
+          </Toast>
+        ) : (
+          <></>
+        )}
+
         <Breadcrumb
           aria-label="Solid background breadcrumb example"
           className="bg-gray-50 px-5 py-3 dark:bg-gray-900"
@@ -50,7 +63,6 @@ const ProductDetails = () => {
             <Breadcrumb.Item>{product.name}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
-
         <div className="mx-40 mb-20 px-5 py-3 grid grid-cols-2 space-x-4">
           <Carousel>
             <img
@@ -146,7 +158,6 @@ const ProductDetails = () => {
             </div>
           </div>
         </div>
-
         <div className="text-center text-2xl font-medium my-8">RELATED PRODUCTS</div>
       </div>
     );

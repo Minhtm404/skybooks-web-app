@@ -11,6 +11,8 @@ const postReducer = (state, action) => {
       return { ...state, isLoading: false, error: action.payload };
     case ACTIONS.SET_POSTS:
       return { ...state, isLoading: false, posts: action.payload };
+    case ACTIONS.SET_POST:
+      return { ...state, isLoading: false, post: action.payload };
     default:
       return state;
   }
@@ -33,15 +35,30 @@ const getAllPosts = dispatch => async () => {
   }
 };
 
+const getPostByAlias = dispatch => async alias => {
+  try {
+    const { data } = await apiHelper.get(`/posts/aliases/${alias}`);
+
+    dispatch({ type: ACTIONS.SET_POST, payload: data.data });
+  } catch (err) {
+    dispatch({
+      type: ACTIONS.SET_ERROR,
+      payload: err.response ? err.response.data.message : err.message
+    });
+  }
+};
+
 export const { Provider, Context } = contextFactory(
   postReducer,
   {
     setIsLoading,
-    getAllPosts
+    getAllPosts,
+    getPostByAlias
   },
   {
     isLoading: false,
     error: undefined,
-    posts: undefined
+    posts: undefined,
+    post: undefined
   }
 );

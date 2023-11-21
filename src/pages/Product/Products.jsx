@@ -53,7 +53,7 @@ const Products = () => {
           </div>
         </Breadcrumb>
 
-        <div className="mx-40 px-5 py-3">
+        <div className="mx-40 mb-8 px-5 py-3">
           <p className="text-3xl font-semibold capitalize my-5">{alias}</p>
 
           <ProductBar />
