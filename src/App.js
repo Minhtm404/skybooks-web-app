@@ -12,6 +12,8 @@ import {
   Login,
   NewArrival,
   PaymentPolicy,
+  PostDetails,
+  Posts,
   PrivacyPolicy,
   ProductDetails,
   Products,
@@ -38,6 +40,9 @@ function App() {
             <Route path="/products/:alias" element={<ProductDetails />} />
 
             <Route path="/new-arrival" element={<NewArrival />} />
+
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/:alias" element={<PostDetails />} />
 
             <Route path="/account" element={<Account />} />
             <Route path="/account/login" element={<Login />} />

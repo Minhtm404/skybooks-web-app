@@ -48,7 +48,7 @@ const AppLayout = () => {
           <Navbar.Link href="/new-arrival" className="text-sm font-semibold uppercase">
             New Arrival
           </Navbar.Link>
-          <Navbar.Link href="/blog" className="text-sm font-semibold uppercase">
+          <Navbar.Link href="/posts" className="text-sm font-semibold uppercase">
             Blog
           </Navbar.Link>
           <Navbar.Link href="/sale-art" className="text-sm font-semibold uppercase">

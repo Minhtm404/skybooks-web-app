@@ -9,6 +9,9 @@ export { default as ProductDetails } from './Product/ProductDetails';
 
 export { default as NewArrival } from './Product/NewArrival';
 
+export { default as Posts } from './Post/Posts';
+export { default as PostDetails } from './Post/PostDetails';
+
 export { default as Account } from './Account/Account';
 export { default as Login } from './Account/Login';
 export { default as Register } from './Account/Register';

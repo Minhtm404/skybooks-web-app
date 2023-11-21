@@ -40,7 +40,7 @@ const SidebarCustom = () => {
             <Sidebar.Item href="/collections/souvenirs">Souvenirs</Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Item href="/new-arrival">New arrival</Sidebar.Item>
-          <Sidebar.Item href="/blog">Blog</Sidebar.Item>
+          <Sidebar.Item href="/posts">Blog</Sidebar.Item>
           <Sidebar.Collapse
             label="Sale art"
             renderChevronIcon={(theme, open) => {
