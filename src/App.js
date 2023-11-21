@@ -14,6 +14,7 @@ import {
   PaymentPolicy,
   PrivacyPolicy,
   ProductDetails,
+  Products,
   Register,
   Stores,
   TermsOfService
@@ -31,6 +32,8 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/about-us/stores" element={<Stores />} />
             <Route path="/about-us/contact-info" element={<ContactInfo />} />
+
+            <Route path="/collections/:alias" element={<Products />} />
 
             <Route path="/products/:alias" element={<ProductDetails />} />
 

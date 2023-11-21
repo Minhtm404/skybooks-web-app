@@ -4,7 +4,7 @@ import { Breadcrumb, Button, Carousel, Spinner, TextInput } from 'flowbite-react
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiHome } from 'react-icons/hi';
 
-import { Context as ProductContext } from '../contexts/ProductContext';
+import { Context as ProductContext } from '../../contexts/ProductContext';
 
 const ProductDetails = () => {
   const { alias } = useParams();

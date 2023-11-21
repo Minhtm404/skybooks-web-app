@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { Label, TextInput } from 'flowbite-react';
 
 import { Context as ProductContext } from '../contexts/ProductContext';
 
 const ProductBar = () => {
+  const { alias } = useParams();
   const { getAllProducts } = useContext(ProductContext);
 
   const [keyword, setKeyword] = useState(undefined);
@@ -23,7 +25,7 @@ const ProductBar = () => {
                 value={keyword}
                 onChange={e => {
                   setKeyword(e.target.value);
-                  getAllProducts(e.target.value);
+                  getAllProducts({ category: alias, keyword: e.target.value });
                 }}
               />
             </div>

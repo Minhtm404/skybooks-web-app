@@ -42,7 +42,7 @@ const AppLayout = () => {
           <Navbar.Link href="/about-us" className="text-sm font-semibold uppercase">
             About Us
           </Navbar.Link>
-          <Navbar.Link href="/products" className="text-sm font-semibold uppercase">
+          <Navbar.Link href="/collections/books" className="text-sm font-semibold uppercase">
             Products
           </Navbar.Link>
           <Navbar.Link href="/new-arrival" className="text-sm font-semibold uppercase">

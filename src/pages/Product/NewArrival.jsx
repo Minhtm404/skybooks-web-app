@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { Breadcrumb, Card, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
-import { Context as ProductContext } from '../contexts/ProductContext';
+import { Context as ProductContext } from '../../contexts/ProductContext';
 
-import { ProductBar } from '../components/index';
+import { ProductBar } from '../../components/index';
 
 const NewArrival = () => {
   const { products, getAllProducts, isLoading, setIsLoading, error } =
@@ -12,7 +12,7 @@ const NewArrival = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    getAllProducts();
+    getAllProducts({});
   }, []);
 
   if (isLoading) {

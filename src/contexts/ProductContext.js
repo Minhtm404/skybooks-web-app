@@ -21,20 +21,22 @@ const setIsLoading = dispatch => async isLoading => {
   dispatch({ type: ACTIONS.SET_IS_LOADING, payload: isLoading });
 };
 
-const getAllProducts = dispatch => async keyword => {
-  try {
-    const { data } = keyword
-      ? await apiHelper.get(`/products?keyword=${keyword}`)
-      : await apiHelper.get('/products');
+const getAllProducts =
+  dispatch =>
+  async ({ category = '', keyword = '' }) => {
+    try {
+      const { data } = await apiHelper.get(
+        `/products?category=${category}&keyword=${keyword}`
+      );
 
-    dispatch({ type: ACTIONS.SET_PRODUCTS, payload: data.data });
-  } catch (err) {
-    dispatch({
-      type: ACTIONS.SET_ERROR,
-      payload: err.response ? err.response.data.message : err.message
-    });
-  }
-};
+      dispatch({ type: ACTIONS.SET_PRODUCTS, payload: data.data });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
 
 const getProductByAlias = dispatch => async alias => {
   try {

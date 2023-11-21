@@ -35,9 +35,9 @@ const SidebarCustom = () => {
               );
             }}
           >
-            <Sidebar.Item href="/products/books">Books</Sidebar.Item>
-            <Sidebar.Item href="/products/posters">Posters</Sidebar.Item>
-            <Sidebar.Item href="/products/souvenirs">Souvenirs</Sidebar.Item>
+            <Sidebar.Item href="/collections/books">Books</Sidebar.Item>
+            <Sidebar.Item href="/collections/posters">Posters</Sidebar.Item>
+            <Sidebar.Item href="/collections/souvenirs">Souvenirs</Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Item href="/new-arrival">New arrival</Sidebar.Item>
           <Sidebar.Item href="/blog">Blog</Sidebar.Item>
