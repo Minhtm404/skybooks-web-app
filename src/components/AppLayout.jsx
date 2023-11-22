@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { Button, Footer, Label, Navbar, TextInput } from 'flowbite-react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
@@ -9,10 +9,26 @@ import {
   MdOutlineShoppingCart
 } from 'react-icons/md';
 import { SiSass } from 'react-icons/si';
+
+import { Context as CartItemContext } from '../contexts/CartItemContext';
+
 import { Cart } from './index';
 
 const AppLayout = () => {
+  const {
+    cartItems,
+    getAllCartItems,
+    isLoading: cartItemIsLoading,
+    setIsLoading: cartItemSetIsLoading,
+    error: cartItemError
+  } = useContext(CartItemContext);
+
   const [openCart, setOpenCart] = useState(false);
+
+  useEffect(() => {
+    cartItemSetIsLoading(true);
+    getAllCartItems();
+  }, []);
 
   const location = useLocation();
 
@@ -176,7 +192,7 @@ const AppLayout = () => {
         </div>
       </Footer>
 
-      {openCart && <Cart closeCart={() => setOpenCart(false)} />}
+      {openCart && <Cart cartItems={cartItems} closeCart={() => setOpenCart(false)} />}
     </div>
   );
 };
