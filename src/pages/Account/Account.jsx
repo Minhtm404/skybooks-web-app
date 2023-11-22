@@ -51,9 +51,10 @@ const Account = () => {
     localLogin();
 
     if (!isAuthenticated) {
+      setIsLoading(false);
       navigate('/account/login');
     }
-  }, []);
+  }, [isAuthenticated]);
 
   if (isLoading) {
     return (

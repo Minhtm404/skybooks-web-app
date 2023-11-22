@@ -11,6 +11,7 @@ import {
   Home,
   Login,
   NewArrival,
+  Orders,
   PaymentPolicy,
   PostDetails,
   Posts,
@@ -51,6 +52,7 @@ function App() {
             <Route path="/account/login" element={<Login />} />
             <Route path="/account/register" element={<Register />} />
             <Route path="/account/forgot-password" element={<ForgotPassword />} />
+            <Route path="/account/orders" element={<Orders />} />
 
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
