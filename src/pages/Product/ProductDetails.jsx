@@ -5,17 +5,34 @@ import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
 import { Context as ProductContext } from '../../contexts/ProductContext';
+import { Context as CartItemContext } from '../../contexts/CartItemContext';
 
 const ProductDetails = () => {
   const { alias } = useParams();
-  const { product, getProductByAlias, isLoading, setIsLoading, error } =
-    useContext(ProductContext);
+  const {
+    product,
+    getProductByAlias,
+    isLoading: productIsLoading,
+    setIsLoading: productSetIsLoading,
+    error: productError
+  } = useContext(ProductContext);
+
+  const {
+    cartItems,
+    getAllCartItems,
+    isLoading: cartItemIsLoading,
+    setIsLoading: cartItemSetIsLoading,
+    error: cartItemError
+  } = useContext(CartItemContext);
 
   const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
-    setIsLoading(true);
+    productSetIsLoading(true);
     getProductByAlias(alias);
+
+    cartItemSetIsLoading(true);
+    getAllCartItems();
   }, []);
 
   const increaseValue = () => {
@@ -28,7 +45,7 @@ const ProductDetails = () => {
     }
   };
 
-  if (isLoading) {
+  if (productIsLoading) {
     return (
       <div className="relative w-full h-screen flex justify-center items-center">
         <Spinner size="xl" />
@@ -39,12 +56,12 @@ const ProductDetails = () => {
   if (product) {
     return (
       <div className="my-4">
-        {error ? (
+        {productError ? (
           <Toast className="absolute top-4 left-4">
             <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-500 dark:bg-orange-700 dark:text-orange-200">
               <HiExclamation className="h-5 w-5" />
             </div>
-            <div className="ml-3 text-sm font-normal">{error}</div>
+            <div className="ml-3 text-sm font-normal">{productError}</div>
             <Toast.Toggle />
           </Toast>
         ) : (
