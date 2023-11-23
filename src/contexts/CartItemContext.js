@@ -32,11 +32,32 @@ const getAllCartItems = dispatch => async () => {
   }
 };
 
+const addCartItem =
+  dispatch =>
+  async ({ product, quantity }) => {
+    try {
+      await apiHelper.post(`/users/cart`, {
+        product,
+        quantity
+      });
+
+      const { data } = await apiHelper.get(`/users/cart`);
+
+      dispatch({ type: ACTIONS.SET_CART_ITEMS, payload: data.data });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
+
 export const { Provider, Context } = contextFactory(
   cartItemReducer,
   {
     setIsLoading,
-    getAllCartItems
+    getAllCartItems,
+    addCartItem
   },
   {
     isLoading: false,

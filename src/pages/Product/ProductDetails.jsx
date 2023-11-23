@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useOutletContext, useParams } from 'react-router-dom';
 import { Breadcrumb, Button, Carousel, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
@@ -7,8 +7,9 @@ import { HiExclamation, HiHome } from 'react-icons/hi';
 import { Context as ProductContext } from '../../contexts/ProductContext';
 import { Context as CartItemContext } from '../../contexts/CartItemContext';
 
-const ProductDetails = () => {
+const ProductDetails = props => {
   const { alias } = useParams();
+
   const {
     product,
     getProductByAlias,
@@ -17,33 +18,16 @@ const ProductDetails = () => {
     error: productError
   } = useContext(ProductContext);
 
-  const {
-    cartItems,
-    getAllCartItems,
-    isLoading: cartItemIsLoading,
-    setIsLoading: cartItemSetIsLoading,
-    error: cartItemError
-  } = useContext(CartItemContext);
+  const { addCartItem, error: cartItemError } = useContext(CartItemContext);
 
-  const [quantity, setQuantity] = useState(0);
+  const [, setOpenCart] = useOutletContext();
+
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     productSetIsLoading(true);
     getProductByAlias(alias);
-
-    cartItemSetIsLoading(true);
-    getAllCartItems();
   }, []);
-
-  const increaseValue = () => {
-    setQuantity(quantity + 1);
-  };
-
-  const decreaseValue = () => {
-    if (quantity > 0) {
-      setQuantity(quantity - 1);
-    }
-  };
 
   if (productIsLoading) {
     return (
@@ -53,15 +37,33 @@ const ProductDetails = () => {
     );
   }
 
+  const increaseValue = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decreaseValue = () => {
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
+    }
+  };
+
+  const handleAddToCard = async () => {
+    await addCartItem({ product: product._id, quantity });
+    setQuantity(1);
+    setOpenCart(true);
+  };
+
   if (product) {
     return (
       <div className="my-4">
-        {productError ? (
+        {productError || cartItemError ? (
           <Toast className="absolute top-4 left-4">
             <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-500 dark:bg-orange-700 dark:text-orange-200">
               <HiExclamation className="h-5 w-5" />
             </div>
-            <div className="ml-3 text-sm font-normal">{productError}</div>
+            <div className="ml-3 text-sm font-normal">
+              {productError || cartItemError}
+            </div>
             <Toast.Toggle />
           </Toast>
         ) : (
@@ -146,7 +148,9 @@ const ProductDetails = () => {
 
             <hr />
 
-            <Button className="uppercase w-full">Add to cart</Button>
+            <Button onClick={handleAddToCard} className="uppercase w-full">
+              Add to cart
+            </Button>
 
             <div className="space-y-2">
               <p className="text-sm">

@@ -12,7 +12,7 @@ const PostDetails = () => {
     useContext(PostContext);
 
   useEffect(() => {
-    setIsLoading(true);console.log(alias)
+    setIsLoading(true);
     getPostByAlias(alias);
   }, [alias]);
 

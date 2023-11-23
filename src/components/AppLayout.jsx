@@ -76,7 +76,7 @@ const AppLayout = () => {
         </Navbar.Collapse>
       </Navbar>
 
-      <Outlet />
+      <Outlet context={[openCart, setOpenCart]} />
 
       {location && !['/login', '/register', '/account'].includes(location.pathname) && (
         <div>
