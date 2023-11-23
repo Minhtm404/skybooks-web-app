@@ -19,6 +19,7 @@ export { default as Login } from './Account/Login';
 export { default as Register } from './Account/Register';
 export { default as ForgotPassword } from './Account/ForgotPassword';
 export { default as Cart } from './Account/Cart';
+export { default as CheckOut } from './Account/CheckOut';
 export { default as Orders } from './Account/Orders';
 
 export { default as TermsOfService } from './Policy/TermsOfService';

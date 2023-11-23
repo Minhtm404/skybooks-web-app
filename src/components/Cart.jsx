@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { MdOutlineCancel } from 'react-icons/md';
@@ -7,6 +8,8 @@ import { Context as CartItemContext } from '../contexts/CartItemContext';
 
 const Cart = ({ cartItems = [], closeCart }) => {
   const { updateCartItem } = useContext(CartItemContext);
+
+  const navigate = useNavigate();
 
   const [total, setTotal] = useState(
     cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
@@ -26,6 +29,18 @@ const Cart = ({ cartItems = [], closeCart }) => {
         cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
       );
     }
+  };
+
+  const handleViewCart = async () => {
+    closeCart();
+
+    navigate('/account/cart');
+  };
+
+  const handleCheckOut = async () => {
+    closeCart();
+
+    navigate('/account/checkout');
   };
 
   return (
@@ -91,10 +106,12 @@ const Cart = ({ cartItems = [], closeCart }) => {
           </div>
         </div>
         <div className=" flex flex-row gap-2 mt-5">
-          <Button color="light" className="w-full uppercase">
+          <Button color="light" className="w-full uppercase" onClick={handleViewCart}>
             View Cart
           </Button>
-          <Button className="w-full uppercase">Check Out</Button>
+          <Button className="w-full uppercase" onClick={handleCheckOut}>
+            Check Out
+          </Button>
         </div>
       </div>
     </div>
