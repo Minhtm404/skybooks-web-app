@@ -17,6 +17,10 @@ const Cart = () => {
     error: cartItemError
   } = useContext(CartItemContext);
 
+  const [quantity, setQuantity] = useState(
+    cartItems.reduce((count, item) => count + item.quantity, 0) ?? 0
+  );
+
   const [total, setTotal] = useState(
     cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
   );
@@ -36,6 +40,7 @@ const Cart = () => {
   const decreaseValue = async (cartItemId, currentQuantity) => {
     if (currentQuantity > 1) {
       await updateCartItem({ cartItemId, quantity: currentQuantity - 1 });
+      setQuantity(cartItems.reduce((count, item) => count + item.quantity, 0) ?? 0);
       setTotal(
         cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
       );
@@ -81,7 +86,9 @@ const Cart = () => {
         <div className="mx-40 mb-20 px-5 py-3">
           <div>
             <p className="text-3xl font-semibold text-center my-4">Your cart</p>
-            <p className="text-center mb-8">Have 0 product in your cart</p>
+            <p className="text-center mb-8">
+              Have {quantity} product{quantity > 1 ? 's' : ''} in your cart
+            </p>
           </div>
 
           <hr />
