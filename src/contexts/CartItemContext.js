@@ -52,12 +52,32 @@ const addCartItem =
     }
   };
 
+const updateCartItem =
+  dispatch =>
+  async ({ cartItemId, quantity }) => {
+    try {
+      await apiHelper.patch(`/users/cart/${cartItemId}`, {
+        quantity
+      });
+
+      const { data } = await apiHelper.get(`/users/cart`);
+
+      dispatch({ type: ACTIONS.SET_CART_ITEMS, payload: data.data });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
+
 export const { Provider, Context } = contextFactory(
   cartItemReducer,
   {
     setIsLoading,
     getAllCartItems,
-    addCartItem
+    addCartItem,
+    updateCartItem
   },
   {
     isLoading: false,

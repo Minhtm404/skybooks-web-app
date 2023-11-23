@@ -4,6 +4,7 @@ import { AppLayout } from './components/index';
 import {
   AboutUs,
   Account,
+  Cart,
   ContactInfo,
   DeliveryPolicy,
   ExchangePolicy,
@@ -52,6 +53,7 @@ function App() {
             <Route path="/account/login" element={<Login />} />
             <Route path="/account/register" element={<Register />} />
             <Route path="/account/forgot-password" element={<ForgotPassword />} />
+            <Route path="/account/cart" element={<Cart />} />
             <Route path="/account/orders" element={<Orders />} />
 
             <Route path="/terms-of-service" element={<TermsOfService />} />

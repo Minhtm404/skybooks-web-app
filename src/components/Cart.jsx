@@ -1,12 +1,32 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { MdOutlineCancel } from 'react-icons/md';
 
-const Cart = ({ cartItems, closeCart }) => {
+import { Context as CartItemContext } from '../contexts/CartItemContext';
+
+const Cart = ({ cartItems = [], closeCart }) => {
+  const { updateCartItem } = useContext(CartItemContext);
+
   const [total, setTotal] = useState(
     cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
   );
+
+  const increaseValue = async (cartItemId, currentQuantity) => {
+    await updateCartItem({ cartItemId, quantity: currentQuantity + 1 });
+    setTotal(
+      cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
+    );
+  };
+
+  const decreaseValue = async (cartItemId, currentQuantity) => {
+    if (currentQuantity > 1) {
+      await updateCartItem({ cartItemId, quantity: currentQuantity - 1 });
+      setTotal(
+        cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
+      );
+    }
+  };
 
   return (
     <div
@@ -15,7 +35,7 @@ const Cart = ({ cartItems, closeCart }) => {
     >
       <div className="float-right h-screen duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-96 p-8">
         <div className="flex justify-between items-center">
-          <p className="font-semibold text-lg">Shopping Cart</p>
+          <p className="font-semibold text-lg">Cart</p>
           <button
             type="button"
             onClick={() => closeCart()}
@@ -46,13 +66,17 @@ const Cart = ({ cartItems, closeCart }) => {
                   </p>
                   <div className="flex items-center border-2 rounded">
                     <p className="px-2 dark:border-gray-600 text-red-600">
-                      <AiOutlineMinus />
+                      <AiOutlineMinus
+                        onClick={() => decreaseValue(item._id, item.quantity)}
+                      />
                     </p>
                     <p className="px-2 border-x-2 dark:border-gray-600">
                       {item.quantity}
                     </p>
                     <p className="px-2 dark:border-gray-600 text-green-600">
-                      <AiOutlinePlus />
+                      <AiOutlinePlus
+                        onClick={() => increaseValue(item._id, item.quantity)}
+                      />
                     </p>
                   </div>
                 </div>
@@ -66,8 +90,11 @@ const Cart = ({ cartItems, closeCart }) => {
             <p className="font-semibold">{total.toLocaleString().concat('₫')}</p>
           </div>
         </div>
-        <div className="mt-5">
-          <Button className="w-full">Place Order</Button>
+        <div className=" flex flex-row gap-2 mt-5">
+          <Button color="light" className="w-full uppercase">
+            View Cart
+          </Button>
+          <Button className="w-full uppercase">Check Out</Button>
         </div>
       </div>
     </div>
