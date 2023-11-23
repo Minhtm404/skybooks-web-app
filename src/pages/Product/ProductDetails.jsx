@@ -78,7 +78,7 @@ const ProductDetails = props => {
             <Breadcrumb.Item href="/" icon={HiHome}>
               Home
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="/products">Products</Breadcrumb.Item>
+            <Breadcrumb.Item href="/new-arrival">Products</Breadcrumb.Item>
             <Breadcrumb.Item>{product.name}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
