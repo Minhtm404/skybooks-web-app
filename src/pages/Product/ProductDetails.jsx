@@ -172,7 +172,7 @@ const ProductDetails = props => {
                 <span className="font-bold">Publish date: </span>
                 {product.publishDate}
               </p>
-              <p className="text-sm">{product.description}</p>
+              <p className="text-sm text-justify">{product.description}</p>
               <p className="text-sm">
                 <span className="font-bold">PRODUCT REVIEWS</span>
               </p>
