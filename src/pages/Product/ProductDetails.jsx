@@ -82,6 +82,7 @@ const ProductDetails = props => {
             <Breadcrumb.Item>{product.name}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
+
         <div className="mx-40 mb-20 px-5 py-3 grid grid-cols-2 space-x-4">
           <Carousel>
             <img

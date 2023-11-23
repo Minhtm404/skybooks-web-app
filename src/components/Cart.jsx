@@ -105,6 +105,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
             <p className="font-semibold">{total.toLocaleString().concat('₫')}</p>
           </div>
         </div>
+
         <div className=" flex flex-row gap-2 mt-5">
           <Button color="light" className="w-full uppercase" onClick={handleViewCart}>
             View Cart
