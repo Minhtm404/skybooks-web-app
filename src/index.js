@@ -5,6 +5,7 @@ import { Provider as AuthProvider } from './contexts/AuthContext';
 import { Provider as ProductProvider } from './contexts/ProductContext';
 import { Provider as PostProvider } from './contexts/PostContext';
 import { Provider as CartItemProvider } from './contexts/CartItemContext';
+import { Provider as OrderProvider } from './contexts/OrderContext';
 
 import './index.css';
 import App from './App';
@@ -16,7 +17,9 @@ root.render(
     <ProductProvider>
       <PostProvider>
         <CartItemProvider>
-          <App />
+          <OrderProvider>
+            <App />
+          </OrderProvider>
         </CartItemProvider>
       </PostProvider>
     </ProductProvider>

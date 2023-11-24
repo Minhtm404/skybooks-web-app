@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Avatar,
   Button,
@@ -14,6 +14,7 @@ import { HiExclamation } from 'react-icons/hi';
 
 import { Context as AuthContext } from '../../contexts/AuthContext';
 import { Context as CartItemContext } from '../../contexts/CartItemContext';
+import { Context as OrderContext } from '../../contexts/OrderContext';
 
 const CheckOut = () => {
   const {
@@ -28,11 +29,19 @@ const CheckOut = () => {
   const {
     cartItems,
     getAllCartItems,
-
     isLoading: cartItemIsLoading,
     setIsLoading: cartItemSetIsLoading,
     error: cartItemError
   } = useContext(CartItemContext);
+
+  const {
+    createOrder,
+    isLoading: orderIsLoading,
+    setIsLoading: orderSetIsLoading,
+    error: orderError
+  } = useContext(OrderContext);
+
+  const navigate = useNavigate();
 
   const [name, setName] = useState(user?.name);
   const [phoneNumber, setPhoneNumber] = useState(user?.phoneNumber);
@@ -52,6 +61,25 @@ const CheckOut = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
+
+    orderSetIsLoading(true);
+    await createOrder({
+      name,
+      phoneNumber,
+      address,
+      products: cartItems,
+      price:
+        (cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ??
+          0) +
+        (!deliveryCheck
+          ? 0
+          : cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) >
+            500000
+          ? 0
+          : 50000)
+    });
+
+    navigate('/account/orders');
   };
 
   if (accountIsLoading || cartItemIsLoading) {
@@ -64,8 +92,8 @@ const CheckOut = () => {
 
   if (user && cartItems) {
     return (
-      <div className="h-screen py-14 px-40 bg-gray-50">
-        {accountError || cartItemError ? (
+      <div className="py-14 px-40 bg-gray-50">
+        {accountError || cartItemError || orderError ? (
           <Toast className="absolute top-4 left-4">
             <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-500 dark:bg-orange-700 dark:text-orange-200">
               <HiExclamation className="h-5 w-5" />
@@ -191,7 +219,16 @@ const CheckOut = () => {
                 <Button as={Link} to={'/account/cart'} color="light">
                   Cart
                 </Button>
-                <Button type="submit">Complete order</Button>
+                <Button type="submit">
+                  <div className="flex flex-row gap-2">
+                    {!orderIsLoading ? (
+                      ''
+                    ) : (
+                      <Spinner aria-label="Alternate spinner button example" size="sm" />
+                    )}
+                    <span> Complete order</span>
+                  </div>
+                </Button>
               </div>
             </form>
           </div>
