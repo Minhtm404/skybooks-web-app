@@ -23,7 +23,7 @@ const getAllOrders = dispatch => async () => {
   try {
     const { data } = await apiHelper.get(`/users/orders`);
 
-    dispatch({ type: ACTIONS.SET_CART_ITEMS, payload: data.data });
+    dispatch({ type: ACTIONS.SET_ORDERS, payload: data.data });
   } catch (err) {
     dispatch({
       type: ACTIONS.SET_ERROR,
@@ -46,7 +46,7 @@ const createOrder =
 
       const { data } = await apiHelper.get(`/users/orders`);
 
-      dispatch({ type: ACTIONS.SET_CART_ITEMS, payload: data.data });
+      dispatch({ type: ACTIONS.SET_ORDERS, payload: data.data });
     } catch (err) {
       dispatch({
         type: ACTIONS.SET_ERROR,
