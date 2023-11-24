@@ -80,18 +80,18 @@ const Cart = ({ cartItems = [], closeCart }) => {
                     {item.product.price.toLocaleString().concat('₫')}
                   </p>
                   <div className="flex items-center border-2 rounded">
-                    <p className="px-2 dark:border-gray-600 text-red-600">
-                      <AiOutlineMinus
-                        onClick={() => decreaseValue(item._id, item.quantity)}
-                      />
+                    <p
+                      className="px-2 py-2 text-red-600"
+                      onClick={() => decreaseValue(item._id, item.quantity)}
+                    >
+                      <AiOutlineMinus />
                     </p>
-                    <p className="px-2 border-x-2 dark:border-gray-600">
-                      {item.quantity}
-                    </p>
-                    <p className="px-2 dark:border-gray-600 text-green-600">
-                      <AiOutlinePlus
-                        onClick={() => increaseValue(item._id, item.quantity)}
-                      />
+                    <p className="px-4 border-x-2">{item.quantity}</p>
+                    <p
+                      className="px-2 py-2 text-green-600"
+                      onClick={() => increaseValue(item._id, item.quantity)}
+                    >
+                      <AiOutlinePlus />
                     </p>
                   </div>
                 </div>
