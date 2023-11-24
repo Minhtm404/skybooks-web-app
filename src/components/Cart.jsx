@@ -7,28 +7,22 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { Context as CartItemContext } from '../contexts/CartItemContext';
 
 const Cart = ({ cartItems = [], closeCart }) => {
-  const { updateCartItem } = useContext(CartItemContext);
+  const { updateCartItem, deleteCartItem } = useContext(CartItemContext);
 
   const navigate = useNavigate();
 
-  const [total, setTotal] = useState(
-    cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
-  );
-
   const increaseValue = async (cartItemId, currentQuantity) => {
     await updateCartItem({ cartItemId, quantity: currentQuantity + 1 });
-    setTotal(
-      cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
-    );
   };
 
   const decreaseValue = async (cartItemId, currentQuantity) => {
     if (currentQuantity > 1) {
       await updateCartItem({ cartItemId, quantity: currentQuantity - 1 });
-      setTotal(
-        cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ?? 0
-      );
     }
+  };
+
+  const handleDelete = async cartItemId => {
+    await deleteCartItem({ cartItemId });
   };
 
   const handleViewCart = async () => {
@@ -48,7 +42,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
       className="bg-transparent w-full fixed top-0 right-0"
       style={{ 'z-index': 1000 }}
     >
-      <div className="float-right h-screen duration-1000 ease-in-out dark:text-gray-200 transition-all dark:bg-[#484B52] bg-white md:w-96 p-8">
+      <div className="float-right h-screen duration-1000 ease-in-out transition-all bg-white md:w-96 p-8">
         <div className="flex justify-between items-center">
           <p className="font-semibold text-lg">Cart</p>
           <button
@@ -71,7 +65,13 @@ const Cart = ({ cartItems = [], closeCart }) => {
                 alt=""
               />
               <div>
-                <p className="font-semibold ">{item.product.name}</p>
+                <div className="flex justify-between">
+                  <p className="font-semibold ">{item.product.name}</p>
+                  <button onClick={() => handleDelete(item._id)}>
+                    <MdOutlineCancel />
+                  </button>
+                </div>
+
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
                   {item.product.mainCollection.name}
                 </p>
@@ -102,7 +102,16 @@ const Cart = ({ cartItems = [], closeCart }) => {
         <div className="mt-3 mb-3">
           <div className="flex justify-between items-center mt-3">
             <p className="text-gray-500 dark:text-gray-200">Total</p>
-            <p className="font-semibold">{total.toLocaleString().concat('₫')}</p>
+            <p className="font-semibold">
+              {(
+                cartItems.reduce(
+                  (sum, item) => sum + item.product.price * item.quantity,
+                  0
+                ) ?? 0
+              )
+                .toLocaleString()
+                .concat('₫')}
+            </p>
           </div>
         </div>
 

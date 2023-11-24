@@ -71,13 +71,31 @@ const updateCartItem =
     }
   };
 
+const deleteCartItem =
+  dispatch =>
+  async ({ cartItemId }) => {
+    try {
+      await apiHelper.delete(`/users/cart/${cartItemId}`);
+
+      const { data } = await apiHelper.get(`/users/cart`);
+
+      dispatch({ type: ACTIONS.SET_CART_ITEMS, payload: data.data });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
+
 export const { Provider, Context } = contextFactory(
   cartItemReducer,
   {
     setIsLoading,
     getAllCartItems,
     addCartItem,
-    updateCartItem
+    updateCartItem,
+    deleteCartItem
   },
   {
     isLoading: false,
