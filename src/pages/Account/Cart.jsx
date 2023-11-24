@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Breadcrumb, Button, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
@@ -151,7 +152,9 @@ const Cart = () => {
             </div>
 
             <div className=" flex flex-row justify-end gap-2 mt-8">
-              <Button className="w-fit uppercase">Check Out</Button>
+              <Button as={Link} to={`/account/checkout`} className="w-fit uppercase">
+                Check Out
+              </Button>
             </div>
           </div>
         </div>

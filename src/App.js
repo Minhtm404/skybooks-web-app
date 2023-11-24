@@ -55,7 +55,6 @@ function App() {
             <Route path="/account/register" element={<Register />} />
             <Route path="/account/forgot-password" element={<ForgotPassword />} />
             <Route path="/account/cart" element={<Cart />} />
-            <Route path="/account/checkout" element={<CheckOut />} />
             <Route path="/account/orders" element={<Orders />} />
 
             <Route path="/terms-of-service" element={<TermsOfService />} />
@@ -64,6 +63,8 @@ function App() {
             <Route path="/delivery-policy" element={<DeliveryPolicy />} />
             <Route path="/exchange-policy" element={<ExchangePolicy />} />
           </Route>
+
+          <Route path="/account/checkout" element={<CheckOut />} />
         </Routes>
       </BrowserRouter>
     </div>
