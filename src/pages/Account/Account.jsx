@@ -85,9 +85,7 @@ const Account = () => {
           <div className="flex flex-wrap justify-center gap-1">
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-xl w-full pt-8 m-6">
               <form className="space-y-6" onSubmit={handleUpdateData}>
-                <h3 className="text-2xl font-medium text-gray-900 dark:text-white">
-                  Update user data
-                </h3>
+                <h3 className="text-2xl font-medium text-gray-900">Update user data</h3>
 
                 <div>
                   <div className="mb-2 block">

@@ -15,7 +15,7 @@ const UserSidebar = () => {
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <Sidebar.Item href="/account">Account info</Sidebar.Item>
-          <Sidebar.Item href="/account/orders">Your orders</Sidebar.Item>
+          <Sidebar.Item href="/account/orders">My orders</Sidebar.Item>
           <Sidebar.Item
             onClick={() => {
               handleLogout();

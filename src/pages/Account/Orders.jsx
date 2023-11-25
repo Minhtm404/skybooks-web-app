@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
+import { Badge, Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
 import { Context as AuthContext } from '../../contexts/AuthContext';
@@ -59,12 +59,49 @@ const Orders = () => {
 
         <UserSidebar />
 
-        <div className="col-span-3 m-10">
-          {orders.map(o => (
-            <div>
-              <p className="">{o.orderStatus}</p>
-            </div>
-          ))}
+        <div className="col-span-3 m-16 pt-8">
+          <p className="text-2xl font-medium text-gray-900">My orders</p>
+
+          <div className="mt-6 space-y-6">
+            {orders.map(o => (
+              <div className="border rounded p-4 space-y-4">
+                <Badge className="capitalize w-fit">{o.orderStatus}</Badge>
+
+                <hr />
+
+                {o.products.map(item => (
+                  <div className="flex items-center leading-8 gap-4 py-4">
+                    <img
+                      className="rounded-lg h-20 w-16"
+                      src="https://product.hstatic.net/200000090679/product/a11eaq8thkl_757a0ddca7b74dc7b30dfd32680930be_grande.jpg"
+                      alt=""
+                    />
+
+                    <div className="w-full">
+                      <p className="text-sm">{item.product.name}</p>
+                      <p className="border rounded px-2 bg-gray-100 text-xs w-fit">
+                        {item.quantity}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+
+                <hr />
+
+                <div className="flex justify-between mt-6">
+                  <p>Total</p>
+
+                  <div className="flex flex-col items-end gap-2">
+                    <p className="text-2xl font-medium">
+                      {o.price.toLocaleString().concat('₫')}
+                    </p>
+
+                    <Button color="light">Details</Button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );
