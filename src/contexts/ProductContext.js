@@ -10,6 +10,10 @@ const productReducer = (state, action) => {
       return { ...state, isLoading: false, error: action.payload };
     case ACTIONS.SET_PRODUCTS:
       return { ...state, isLoading: false, products: action.payload };
+    case ACTIONS.SET_ARCHITECTURE_PRODUCTS:
+      return { ...state, isLoading: false, architectureProducts: action.payload };
+    case ACTIONS.SET_ART_PRODUCTS:
+      return { ...state, isLoading: false, artProducts: action.payload };
     case ACTIONS.SET_PRODUCT:
       return { ...state, isLoading: false, product: action.payload };
     default:
@@ -38,6 +42,40 @@ const getAllProducts =
     }
   };
 
+const getAllArchitectureProducts =
+  dispatch =>
+  async ({ keyword = '' }) => {
+    try {
+      const { data } = await apiHelper.get(
+        `/products?category=books&subCategory=architecture&keyword=${keyword}`
+      );
+
+      dispatch({ type: ACTIONS.SET_ARCHITECTURE_PRODUCTS, payload: data.data });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
+
+const getAllArtProducts =
+  dispatch =>
+  async ({ keyword = '' }) => {
+    try {
+      const { data } = await apiHelper.get(
+        `/products?category=books&subCategory=art&keyword=${keyword}`
+      );
+
+      dispatch({ type: ACTIONS.SET_ART_PRODUCTS, payload: data.data });
+    } catch (err) {
+      dispatch({
+        type: ACTIONS.SET_ERROR,
+        payload: err.response ? err.response.data.message : err.message
+      });
+    }
+  };
+
 const getProductByAlias = dispatch => async alias => {
   try {
     const { data } = await apiHelper.get(`/products/aliases/${alias}`);
@@ -56,12 +94,16 @@ export const { Provider, Context } = contextFactory(
   {
     setIsLoading,
     getAllProducts,
+    getAllArchitectureProducts,
+    getAllArtProducts,
     getProductByAlias
   },
   {
     isLoading: false,
     error: undefined,
     products: undefined,
+    architectureProducts: undefined,
+    artProducts: undefined,
     product: undefined
   }
 );

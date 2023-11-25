@@ -82,32 +82,32 @@ const AppLayout = () => {
         <div>
           <div class="mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6">
             <img
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              src="118156607_3574023635963060_7912547870699405354_o_ae6777cb0ee84ea998b4a248295eca1a.jpg"
               alt=""
               class="w-full h-auto"
             />
             <img
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              src="117737784_3567533693278721_3948937277101992230_n_db3ef1eee31e44999422ed787c3c8e52.jpg"
               alt=""
               class="w-full h-auto"
             />
             <img
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              src="110149557_3492080410824050_37431610927477581_o_46e0be6540a844abae493918b73439d8.jpg"
               alt=""
               class="w-full h-auto"
             />
             <img
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              src="92073616_3187417081290386_1520794563134881792_o_64e5d2d8464c4c1c8531eff170e67f37.jpg"
               alt=""
               class="w-full h-auto"
             />
             <img
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              src="91157893_3189263284439099_4452761306373554176_o_5ad7202f0cbb45fa9ae0feff895b0c5d.jpg"
               alt=""
               class="w-full h-auto"
             />
             <img
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
+              src="91689386_3189724504392977_4782049710154186752_o_c71c5dd291d646909e4ccb2fadba8c85.jpg"
               alt=""
               class="w-full h-auto"
             />
