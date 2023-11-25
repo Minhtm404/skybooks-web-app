@@ -78,7 +78,9 @@ const Orders = () => {
                     />
 
                     <div className="w-full">
-                      <p className="text-sm">{item.product.name}</p>
+                      <p className="text-sm">
+                        {item.product?.name ?? 'This product no longer exist'}
+                      </p>
                       <p className="border rounded px-2 bg-gray-100 text-xs w-fit">
                         {item.quantity}
                       </p>

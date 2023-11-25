@@ -66,18 +66,20 @@ const Cart = ({ cartItems = [], closeCart }) => {
               />
               <div>
                 <div className="flex justify-between">
-                  <p className="font-semibold ">{item.product.name}</p>
+                  <p className="font-semibold ">
+                    {item.product?.name ?? 'This product no longer exist'}
+                  </p>
                   <button onClick={() => handleDelete(item._id)}>
                     <MdOutlineCancel />
                   </button>
                 </div>
 
                 <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
-                  {item.product.mainCollection.name}
+                  {item.product?.mainCollection.name}
                 </p>
                 <div className="flex gap-4 mt-2 items-center">
                   <p className="font-semibold text-lg">
-                    {item.product.price.toLocaleString().concat('₫')}
+                    {(item.product?.price ?? 0).toLocaleString().concat('₫')}
                   </p>
                   <div className="flex items-center border-2 rounded">
                     <p
@@ -105,7 +107,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
             <p className="font-semibold">
               {(
                 cartItems.reduce(
-                  (sum, item) => sum + item.product.price * item.quantity,
+                  (sum, item) => sum + (item.product?.price ?? 0) * item.quantity,
                   0
                 ) ?? 0
               )
