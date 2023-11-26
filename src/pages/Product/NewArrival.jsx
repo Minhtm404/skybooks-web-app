@@ -56,21 +56,14 @@ const NewArrival = () => {
           <ProductBar />
 
           <div className="py-4 grid grid-cols-4 gap-4">
-            {products.map(p => {
-              const href = `/products/${p.slug}`;
-
-              return (
-                <Card
-                  imgSrc="https://product.hstatic.net/200000090679/product/a11eaq8thkl_757a0ddca7b74dc7b30dfd32680930be_grande.jpg"
-                  href={href}
-                >
-                  <p className="uppercase text-sm">{p.name}</p>
-                  <p className="text-sm font-semibold">
-                    {p.price?.toLocaleString().concat('₫')}
-                  </p>
-                </Card>
-              );
-            })}
+            {products.map(p => (
+              <Card imgSrc={`${p.imageCover}/`} href={`/products/${p.slug}`}>
+                <p className="uppercase text-sm">{p.name}</p>
+                <p className="text-sm font-semibold">
+                  {p.price?.toLocaleString().concat('₫')}
+                </p>
+              </Card>
+            ))}
           </div>
         </div>
       </div>

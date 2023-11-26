@@ -59,21 +59,14 @@ const Sale = () => {
             {products
               .filter(p => p.discount && p.discount > 0)
               .sort((a, b) => a.discount - b.discount)
-              .map(p => {
-                const href = `/products/${p.slug}`;
-
-                return (
-                  <Card
-                    imgSrc="https://product.hstatic.net/200000090679/product/a11eaq8thkl_757a0ddca7b74dc7b30dfd32680930be_grande.jpg"
-                    href={href}
-                  >
-                    <p className="uppercase text-sm">{p.name}</p>
-                    <p className="text-sm font-semibold">
-                      {p.price?.toLocaleString().concat('₫')}
-                    </p>
-                  </Card>
-                );
-              })}
+              .map(p => (
+                <Card imgSrc={`${p.imageCover}/`} href={`/products/${p.slug}`}>
+                  <p className="uppercase text-sm">{p.name}</p>
+                  <p className="text-sm font-semibold">
+                    {p.price?.toLocaleString().concat('₫')}
+                  </p>
+                </Card>
+              ))}
           </div>
         </div>
       </div>

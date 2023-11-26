@@ -84,28 +84,9 @@ const ProductDetails = props => {
         </Breadcrumb>
 
         <div className="mx-40 mb-20 px-5 py-3 grid grid-cols-2 space-x-4">
-          <Carousel>
-            <img
-              alt="..."
-              src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-            />
-            <img
-              alt="..."
-              src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-            />
-            <img
-              alt="..."
-              src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-            />
-            <img
-              alt="..."
-              src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-            />
-            <img
-              alt="..."
-              src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-            />
-          </Carousel>
+          <div className="w-full">
+            <img alt="..." src={`${product.imageCover}/`} className="w-full" />
+          </div>
 
           <div className="text-slate-900 space-y-4">
             <div>

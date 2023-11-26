@@ -63,13 +63,10 @@ const Home = () => {
           </div>
 
           {architectureProducts.slice(0, 6).map(i => (
-            <Card
-              imgSrc="https://product.hstatic.net/200000090679/product/a11eaq8thkl_757a0ddca7b74dc7b30dfd32680930be_grande.jpg"
-              href=""
-            >
-              <p className="uppercase text-sm">{'name'}</p>
+            <Card imgSrc={`${i.imageCover}/`} href={`/products/${i.slug}`}>
+              <p className="uppercase text-sm">{i.name}</p>
               <p className="text-sm font-semibold">
-                {Number(100000)?.toLocaleString().concat('₫')}
+                {Number(i.price)?.toLocaleString().concat('₫')}
               </p>
             </Card>
           ))}
