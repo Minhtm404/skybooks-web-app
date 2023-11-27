@@ -31,7 +31,7 @@ const Account = () => {
 
   const handleUpdateData = async () => {
     setIsLoading(true);
-    await updateMe({ name, email });
+    await updateMe({ name, email, phoneNumber, address });
     setName(user.name);
     setEmail(user.email);
     setPhoneNumber(user.phoneNumber);

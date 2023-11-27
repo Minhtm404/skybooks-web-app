@@ -137,11 +137,13 @@ const logout = dispatch => async () => {
 
 const updateMe =
   dispatch =>
-  async ({ name, email }) => {
+  async ({ name, email, phoneNumber, address }) => {
     try {
       const { data } = await apiHelper.patch('/users/me', {
         name,
-        email
+        email,
+        phoneNumber,
+        address
       });
 
       dispatch({ type: ACTIONS.UPDATE_DATA, payload: data.data.user });
