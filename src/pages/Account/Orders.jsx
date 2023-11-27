@@ -73,7 +73,7 @@ const Orders = () => {
                   <div className="flex items-center leading-8 gap-4 py-4">
                     <img
                       className="rounded-lg h-20 w-16"
-                      src="https://product.hstatic.net/200000090679/product/a11eaq8thkl_757a0ddca7b74dc7b30dfd32680930be_grande.jpg"
+                      src={`${item.product?.imageCover}/-/preview/130x130/-/quality/smart_retina/-/format/auto/`}
                       alt=""
                     />
 
