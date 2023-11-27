@@ -60,7 +60,10 @@ const Sale = () => {
               .filter(p => p.discount && p.discount > 0)
               .sort((a, b) => a.discount - b.discount)
               .map(p => (
-                <Card imgSrc={`${p.imageCover}/`} href={`/products/${p.slug}`}>
+                <Card
+                  imgSrc={`${p.imageCover}/-/scale_crop/521x600/-/format/auto/-/quality/smart_retina/`}
+                  href={`/products/${p.slug}`}
+                >
                   <p className="uppercase text-sm">{p.name}</p>
                   <p className="text-sm font-semibold">
                     {p.price?.toLocaleString().concat('₫')}

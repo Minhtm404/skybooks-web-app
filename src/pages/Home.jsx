@@ -63,7 +63,10 @@ const Home = () => {
           </div>
 
           {architectureProducts.slice(0, 6).map(i => (
-            <Card imgSrc={`${i.imageCover}/`} href={`/products/${i.slug}`}>
+            <Card
+              imgSrc={`${i.imageCover}/-/scale_crop/521x600/-/format/auto/-/quality/smart_retina/`}
+              href={`/products/${i.slug}`}
+            >
               <p className="uppercase text-sm">{i.name}</p>
               <p className="text-sm font-semibold">
                 {Number(i.price)?.toLocaleString().concat('₫')}

@@ -57,7 +57,10 @@ const NewArrival = () => {
 
           <div className="py-4 grid grid-cols-4 gap-4">
             {products.map(p => (
-              <Card imgSrc={`${p.imageCover}/`} href={`/products/${p.slug}`}>
+              <Card
+                imgSrc={`${p.imageCover}/-/scale_crop/521x600/-/format/auto/-/quality/smart_retina/`}
+                href={`/products/${p.slug}`}
+              >
                 <p className="uppercase text-sm">{p.name}</p>
                 <p className="text-sm font-semibold">
                   {p.price?.toLocaleString().concat('₫')}
