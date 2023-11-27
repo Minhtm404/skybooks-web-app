@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Breadcrumb, Card, Spinner, Toast } from 'flowbite-react';
+import { Breadcrumb, Card, Pagination, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
 import { Context as ProductContext } from '../../contexts/ProductContext';
@@ -9,13 +9,15 @@ import { ProductBar } from '../../components/index';
 
 const Products = () => {
   const { alias } = useParams();
-  const { products, getAllProducts, isLoading, setIsLoading, error } =
+  const { products, totalProduct, getAllProducts, isLoading, setIsLoading, error } =
     useContext(ProductContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setIsLoading(true);
-    getAllProducts({ category: alias });
-  }, []);
+    getAllProducts({ category: alias, page: currentPage, limit: 12 });
+  }, [currentPage]);
 
   if (isLoading) {
     return (
@@ -53,7 +55,7 @@ const Products = () => {
           </div>
         </Breadcrumb>
 
-        <div className="mx-40 mb-8 px-5 py-3">
+        <div className="mx-40 px-6 py-4 mb-4 flex flex-col">
           <p className="text-3xl font-semibold capitalize my-5">{alias}</p>
 
           <ProductBar />
@@ -71,6 +73,14 @@ const Products = () => {
               </Card>
             ))}
           </div>
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(totalProduct / 12)}
+            onPageChange={page => setCurrentPage(page)}
+            className="self-end"
+            showIcons
+          />
         </div>
       </div>
     );

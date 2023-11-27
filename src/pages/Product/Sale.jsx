@@ -1,5 +1,5 @@
-import React, { useContext, useEffect } from 'react';
-import { Breadcrumb, Card, Spinner, Toast } from 'flowbite-react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Breadcrumb, Card, Pagination, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
 import { Context as ProductContext } from '../../contexts/ProductContext';
@@ -7,12 +7,14 @@ import { Context as ProductContext } from '../../contexts/ProductContext';
 import { ProductBar } from '../../components/index';
 
 const Sale = () => {
-  const { products, getAllProducts, isLoading, setIsLoading, error } =
+  const { products, totalProduct, getAllProducts, isLoading, setIsLoading, error } =
     useContext(ProductContext);
+
+  const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
     setIsLoading(true);
-    getAllProducts({});
+    getAllProducts({ page: currentPage, limit: 100 });
   }, []);
 
   if (isLoading) {
@@ -50,7 +52,7 @@ const Sale = () => {
           </div>
         </Breadcrumb>
 
-        <div className="mx-40 px-5 py-3">
+        <div className="mx-40 px-6 py-4 mb-4 flex flex-col">
           <p className="text-3xl font-semibold my-5">Sale</p>
 
           <ProductBar />
@@ -71,6 +73,16 @@ const Sale = () => {
                 </Card>
               ))}
           </div>
+
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Number.parseInt(
+              products.filter(p => p.discount && p.discount > 0).length / 10
+            )}
+            onPageChange={page => setCurrentPage(page)}
+            className="self-end"
+            showIcons
+          />
         </div>
       </div>
     );

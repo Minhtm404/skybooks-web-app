@@ -9,11 +9,26 @@ const productReducer = (state, action) => {
     case ACTIONS.SET_ERROR:
       return { ...state, isLoading: false, error: action.payload };
     case ACTIONS.SET_PRODUCTS:
-      return { ...state, isLoading: false, products: action.payload };
+      return {
+        ...state,
+        isLoading: false,
+        products: action.payload.products,
+        totalProduct: action.payload.totalProduct
+      };
     case ACTIONS.SET_ARCHITECTURE_PRODUCTS:
-      return { ...state, isLoading: false, architectureProducts: action.payload };
+      return {
+        ...state,
+        isLoading: false,
+        architectureProducts: action.payload.products,
+        totalProduct: action.payload.totalProduct
+      };
     case ACTIONS.SET_ART_PRODUCTS:
-      return { ...state, isLoading: false, artProducts: action.payload };
+      return {
+        ...state,
+        isLoading: false,
+        artProducts: action.payload.products,
+        totalProduct: action.payload.totalProduct
+      };
     case ACTIONS.SET_PRODUCT:
       return { ...state, isLoading: false, product: action.payload };
     default:
@@ -27,13 +42,19 @@ const setIsLoading = dispatch => async isLoading => {
 
 const getAllProducts =
   dispatch =>
-  async ({ category = '', keyword = '' }) => {
+  async ({ category = '', keyword = '', page = 1, limit = 10 }) => {
     try {
       const { data } = await apiHelper.get(
-        `/products?category=${category}&keyword=${keyword}`
+        `/products?category=${category}&keyword=${keyword}&page=${page}&limit=${limit}`
       );
 
-      dispatch({ type: ACTIONS.SET_PRODUCTS, payload: data.data });
+      dispatch({
+        type: ACTIONS.SET_PRODUCTS,
+        payload: {
+          products: data.data,
+          totalProduct: data.results
+        }
+      });
     } catch (err) {
       dispatch({
         type: ACTIONS.SET_ERROR,
@@ -50,7 +71,13 @@ const getAllArchitectureProducts =
         `/products?category=books&subCategory=architecture&keyword=${keyword}`
       );
 
-      dispatch({ type: ACTIONS.SET_ARCHITECTURE_PRODUCTS, payload: data.data });
+      dispatch({
+        type: ACTIONS.SET_ARCHITECTURE_PRODUCTS,
+        payload: {
+          architectureProducts: data.data,
+          totalProduct: data.results
+        }
+      });
     } catch (err) {
       dispatch({
         type: ACTIONS.SET_ERROR,
@@ -67,7 +94,13 @@ const getAllArtProducts =
         `/products?category=books&subCategory=art&keyword=${keyword}`
       );
 
-      dispatch({ type: ACTIONS.SET_ART_PRODUCTS, payload: data.data });
+      dispatch({
+        type: ACTIONS.SET_ART_PRODUCTS,
+        payload: {
+          artProducts: data.data,
+          totalProduct: data.results
+        }
+      });
     } catch (err) {
       dispatch({
         type: ACTIONS.SET_ERROR,
@@ -102,6 +135,7 @@ export const { Provider, Context } = contextFactory(
     isLoading: false,
     error: undefined,
     products: undefined,
+    totalProduct: undefined,
     architectureProducts: undefined,
     artProducts: undefined,
     product: undefined
