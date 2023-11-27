@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useOutletContext, useParams } from 'react-router-dom';
-import { Breadcrumb, Button, Carousel, Spinner, Toast } from 'flowbite-react';
+import { Breadcrumb, Button, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
 import { Context as ProductContext } from '../../contexts/ProductContext';
 import { Context as CartItemContext } from '../../contexts/CartItemContext';
 
-const ProductDetails = props => {
+const ProductDetails = () => {
   const { alias } = useParams();
 
   const {

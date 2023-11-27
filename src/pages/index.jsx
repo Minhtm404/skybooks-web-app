@@ -21,6 +21,7 @@ export { default as ForgotPassword } from './Account/ForgotPassword';
 export { default as Cart } from './Account/Cart';
 export { default as CheckOut } from './Account/CheckOut';
 export { default as Orders } from './Account/Orders';
+export { default as OrderDetails } from './Account/OrderDetails';
 
 export { default as TermsOfService } from './Policy/TermsOfService';
 export { default as PrivacyPolicy } from './Policy/PrivacyPolicy';

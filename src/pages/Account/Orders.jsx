@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Badge, Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
@@ -98,7 +98,9 @@ const Orders = () => {
                       {o.price.toLocaleString().concat('₫')}
                     </p>
 
-                    <Button color="light">Details</Button>
+                    <Button as={Link} to={`/account/orders/${o._id}`} color="light">
+                      Details
+                    </Button>
                   </div>
                 </div>
               </div>

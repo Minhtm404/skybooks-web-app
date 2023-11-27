@@ -10,6 +10,8 @@ const orderReducer = (state, action) => {
       return { ...state, isLoading: false, error: action.payload };
     case ACTIONS.SET_ORDERS:
       return { ...state, isLoading: false, orders: action.payload };
+    case ACTIONS.SET_ORDER:
+      return { ...state, isLoading: false, order: action.payload };
     default:
       return state;
   }
@@ -55,16 +57,31 @@ const createOrder =
     }
   };
 
+const getOrder = dispatch => async id => {
+  try {
+    const { data } = await apiHelper.get(`/users/orders/${id}`);
+
+    dispatch({ type: ACTIONS.SET_ORDER, payload: data.data });
+  } catch (err) {
+    dispatch({
+      type: ACTIONS.SET_ERROR,
+      payload: err.response ? err.response.data.message : err.message
+    });
+  }
+};
+
 export const { Provider, Context } = contextFactory(
   orderReducer,
   {
     setIsLoading,
     getAllOrders,
+    getOrder,
     createOrder
   },
   {
     isLoading: false,
     error: undefined,
-    orders: undefined
+    orders: undefined,
+    order: undefined
   }
 );

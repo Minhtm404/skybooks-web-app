@@ -13,6 +13,7 @@ import {
   Home,
   Login,
   NewArrival,
+  OrderDetails,
   Orders,
   PaymentPolicy,
   PostDetails,
@@ -56,6 +57,7 @@ function App() {
             <Route path="/account/forgot-password" element={<ForgotPassword />} />
             <Route path="/account/cart" element={<Cart />} />
             <Route path="/account/orders" element={<Orders />} />
+            <Route path="/account/orders/:id" element={<OrderDetails />} />
 
             <Route path="/terms-of-service" element={<TermsOfService />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
