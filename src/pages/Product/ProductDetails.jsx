@@ -47,7 +47,8 @@ const ProductDetails = () => {
     }
   };
 
-  const handleAddToCard = async () => {
+  const handleAddToCard = async e => {
+    e.preventDefault();
     await addCartItem({ product: product._id, quantity });
     setQuantity(1);
     setOpenCart(true);

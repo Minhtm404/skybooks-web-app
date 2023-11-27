@@ -76,7 +76,16 @@ const AppLayout = () => {
         </Navbar.Collapse>
       </Navbar>
 
-      <Outlet context={[openCart, setOpenCart]} />
+      <div>
+        <div>
+          <Outlet context={[openCart, setOpenCart]} />
+        </div>
+        <div className="fixed md:static bg-main-bg w-full">
+          {openCart && (
+            <Cart cartItems={cartItems} closeCart={() => setOpenCart(false)} />
+          )}
+        </div>
+      </div>
 
       {location && !['/login', '/register', '/account'].includes(location.pathname) && (
         <div>
@@ -191,8 +200,6 @@ const AppLayout = () => {
           </div>
         </div>
       </Footer>
-
-      {openCart && <Cart cartItems={cartItems} closeCart={() => setOpenCart(false)} />}
     </div>
   );
 };

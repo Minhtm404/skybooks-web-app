@@ -38,11 +38,8 @@ const Cart = ({ cartItems = [], closeCart }) => {
   };
 
   return (
-    <div
-      className="bg-transparent w-full fixed top-0 right-0"
-      style={{ 'z-index': 1000 }}
-    >
-      <div className="float-right h-screen duration-1000 ease-in-out transition-all bg-white md:w-96 p-8">
+    <div className="bg-half-transparent w-full h-full fixed top-0 right-0 p-0 overflow-y-scroll">
+      <div className="float-right h-fit duration-1000 ease-in-out transition-all bg-gray-50 md:w-96 p-8">
         <div className="flex justify-between items-center">
           <p className="font-semibold text-lg">Cart</p>
           <button
@@ -58,7 +55,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
         {cartItems &&
           cartItems.length > 0 &&
           cartItems.map(item => (
-            <div className="flex items-center leading-8 gap-5 border-b-2 dark:border-gray-600 p-4">
+            <div className="flex items-center leading-8 gap-5 border-b-2 p-4">
               <img
                 className="rounded-lg h-24 w-20"
                 src={`${item.product?.imageCover}/-/preview/130x130/-/quality/smart_retina/-/format/auto/`}
@@ -74,7 +71,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
                   </button>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-400 text-sm font-semibold">
+                <p className="text-gray-600 text-sm font-semibold">
                   {item.product?.mainCollection.name}
                 </p>
                 <div className="flex gap-4 mt-2 items-center">
@@ -117,7 +114,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
           </div>
         </div>
 
-        <div className=" flex flex-row gap-2 mt-5">
+        <div className=" flex flex-row gap-2 mt-4">
           <Button color="light" className="w-full uppercase" onClick={handleViewCart}>
             View Cart
           </Button>
