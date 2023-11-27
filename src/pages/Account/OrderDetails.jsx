@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Spinner, Toast } from 'flowbite-react';
+import { Badge, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
 import { Context as OrderContext } from '../../contexts/OrderContext';
@@ -42,11 +42,108 @@ const OrderDetails = () => {
 
         <UserSidebar />
 
-        <div className="col-span-3 m-16 pt-8">
-          <p className="text-2xl font-medium text-gray-900">My orders</p>
+        <div className="col-span-3 m-16 pt-8 space-y-12">
+          <p className="text-2xl font-medium text-gray-900 flex items-center gap-2">
+            Order details {`#${order._id}`}
+            {' - '}
+            <Badge className="w-fit capitalize">{order.orderStatus}</Badge>
+          </p>
 
-          <div className="mt-6 space-y-6">
-           
+          <div className="grid grid-cols-3 gap-4">
+            <div className="space-y-2">
+              <p className="uppercase text-xs font-semibold">Address</p>
+              <div className="border rounded p-2 bg-gray-50 h-full">
+                <p className="uppercase text-sm font-bold">{order.name}</p>
+                {order.address ? (
+                  <p className="text-sm">{`Address: ${order.address}`}</p>
+                ) : (
+                  <></>
+                )}
+                <p className="text-sm">{`Phone number: ${order.phoneNumber}`}</p>
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <p className="uppercase text-xs font-semibold">Delivery</p>
+              <div className="border rounded p-2 bg-gray-50 h-full">
+                {order.address ? (
+                  <p className="text-sm">Deliver by Skybooks's shippers</p>
+                ) : (
+                  <p className="text-sm">Receive at our store</p>
+                )}
+              </div>
+            </div>
+
+            <div className="space-y-2">
+              <p className="uppercase text-xs font-semibold">Payment</p>
+              <div className="border rounded p-2 bg-gray-50 h-full">
+                <p className="text-sm">Cash on delivery</p>
+                <p className="text-sm italic">
+                  {order.paymentStatus === true
+                    ? 'This order has been paid'
+                    : 'Please pay upon receipt'}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-2 border rounded p-4">
+            <p>Products</p>
+
+            <hr />
+
+            <div>
+              {order.products.map(product => (
+                <div className="flex items-start leading-8 gap-4 py-4">
+                  <img
+                    className="rounded-lg h-20 w-16"
+                    src={`${product.product?.imageCover}/-/preview/130x130/-/quality/smart_retina/-/format/auto/`}
+                    alt=""
+                  />
+
+                  <div className="w-full">
+                    <p className="text-sm">{product.product.name}</p>
+
+                    <div className="flex items-start justify-between">
+                      <p className="border rounded px-2 bg-gray-100 text-xs">
+                        {product.quantity}
+                      </p>
+
+                      <p className="text-sm">
+                        {(product.quantity * product.product.price)
+                          .toLocaleString()
+                          .concat('₫')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <hr />
+
+            <div className="my-6 space-y-2">
+              <div className="flex justify-between">
+                <p className="text-gray-500 text-sm">Amount</p>
+                <p className="text-sm">
+                  {Number(order.price).toLocaleString().concat('₫')}
+                </p>
+              </div>
+
+              <div className="flex justify-between">
+                <p className="text-gray-500 text-sm">Delivery fee</p>
+                <p className="text-sm">---</p>
+              </div>
+            </div>
+
+            <hr />
+
+            <div className="flex justify-between mt-6">
+              <p>Total</p>
+              <p className="text-2xl font-medium">
+                {Number(order.price).toLocaleString().concat('₫')}
+              </p>
+            </div>
           </div>
         </div>
       </div>

@@ -66,7 +66,7 @@ const CheckOut = () => {
     await createOrder({
       name,
       phoneNumber,
-      address,
+      address: deliveryCheck ? address : undefined,
       products: cartItems,
       price:
         (cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ??
@@ -198,6 +198,7 @@ const CheckOut = () => {
                       checked={!deliveryCheck}
                       onClick={() => {
                         setDeliveryCheck(false);
+                        setAddress(undefined);
                       }}
                     />
                     <Label htmlFor="store">Receive at our store</Label>
