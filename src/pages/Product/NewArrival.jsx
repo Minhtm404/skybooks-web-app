@@ -7,7 +7,7 @@ import { Context as ProductContext } from '../../contexts/ProductContext';
 import { ProductBar } from '../../components/index';
 
 const NewArrival = () => {
-  const { products, totalProduct, getAllProducts, isLoading, setIsLoading, error } =
+  const { products, totalProducts, getAllProducts, isLoading, setIsLoading, error } =
     useContext(ProductContext);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -73,7 +73,7 @@ const NewArrival = () => {
 
           <Pagination
             currentPage={currentPage}
-            totalPages={Math.ceil(totalProduct / 12)}
+            totalPages={Math.ceil(totalProducts / 12)}
             onPageChange={page => setCurrentPage(page)}
             className="self-end"
             showIcons

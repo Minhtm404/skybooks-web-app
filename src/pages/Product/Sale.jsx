@@ -7,7 +7,7 @@ import { Context as ProductContext } from '../../contexts/ProductContext';
 import { ProductBar } from '../../components/index';
 
 const Sale = () => {
-  const { products, totalProduct, getAllProducts, isLoading, setIsLoading, error } =
+  const { products, totalProducts, getAllProducts, isLoading, setIsLoading, error } =
     useContext(ProductContext);
 
   const [currentPage, setCurrentPage] = useState(1);

@@ -30,7 +30,7 @@ const Home = () => {
       </div>
     );
   }
-
+console.log(architectureProducts, artProducts)
   if (architectureProducts && artProducts) {
     return (
       <div>

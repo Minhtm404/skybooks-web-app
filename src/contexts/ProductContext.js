@@ -13,21 +13,19 @@ const productReducer = (state, action) => {
         ...state,
         isLoading: false,
         products: action.payload.products,
-        totalProduct: action.payload.totalProduct
+        totalProducts: action.payload.totalProducts
       };
     case ACTIONS.SET_ARCHITECTURE_PRODUCTS:
       return {
         ...state,
         isLoading: false,
-        architectureProducts: action.payload.products,
-        totalProduct: action.payload.totalProduct
+        architectureProducts: action.payload
       };
     case ACTIONS.SET_ART_PRODUCTS:
       return {
         ...state,
         isLoading: false,
-        artProducts: action.payload.products,
-        totalProduct: action.payload.totalProduct
+        artProducts: action.payload
       };
     case ACTIONS.SET_PRODUCT:
       return { ...state, isLoading: false, product: action.payload };
@@ -52,7 +50,7 @@ const getAllProducts =
         type: ACTIONS.SET_PRODUCTS,
         payload: {
           products: data.data,
-          totalProduct: data.results
+          totalProducts: data.results
         }
       });
     } catch (err) {
@@ -65,7 +63,7 @@ const getAllProducts =
 
 const getAllArchitectureProducts =
   dispatch =>
-  async ({ keyword = '' }) => {
+  async ({ keyword = '', page = 1, limit = 5 }) => {
     try {
       const { data } = await apiHelper.get(
         `/products?category=books&subCategory=architecture&keyword=${keyword}`
@@ -73,10 +71,7 @@ const getAllArchitectureProducts =
 
       dispatch({
         type: ACTIONS.SET_ARCHITECTURE_PRODUCTS,
-        payload: {
-          architectureProducts: data.data,
-          totalProduct: data.results
-        }
+        payload: data.data
       });
     } catch (err) {
       dispatch({
@@ -88,7 +83,7 @@ const getAllArchitectureProducts =
 
 const getAllArtProducts =
   dispatch =>
-  async ({ keyword = '' }) => {
+  async ({ keyword = '', page = 1, limit = 5 }) => {
     try {
       const { data } = await apiHelper.get(
         `/products?category=books&subCategory=art&keyword=${keyword}`
@@ -96,10 +91,7 @@ const getAllArtProducts =
 
       dispatch({
         type: ACTIONS.SET_ART_PRODUCTS,
-        payload: {
-          artProducts: data.data,
-          totalProduct: data.results
-        }
+        payload: data.data
       });
     } catch (err) {
       dispatch({
@@ -135,7 +127,7 @@ export const { Provider, Context } = contextFactory(
     isLoading: false,
     error: undefined,
     products: undefined,
-    totalProduct: undefined,
+    totalProducts: undefined,
     architectureProducts: undefined,
     artProducts: undefined,
     product: undefined
