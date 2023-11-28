@@ -41,7 +41,7 @@ const Home = () => {
       </div>
     );
   }
-  console.log(architectureProducts, artProducts);
+
   if (architectureProducts && artProducts) {
     return (
       <div className="space-y-8 mb-8">
