@@ -127,7 +127,7 @@ const Home = () => {
           ))}
         </div>
 
-        <div className="mx-40 px-6 grid grid-cols-2 gap-4">
+        <div className="mx-40 px-6 grid grid-cols-2 gap-8">
           <Link to={`/about-us`}>
             <div
               className="h-auto relative"
