@@ -80,6 +80,7 @@ const PostDetails = () => {
               <span className="text-gray-600">Written by {post.user.name} on </span>
               {new Date(post.createdAt).toDateString()}
             </p>
+            <img src={`${post.imageCover}/`} alt="" />
             <div className="space-y-2 text-justify">
               {post.content.split('/n').map(p => (
                 <p className="text-sm">{p}</p>

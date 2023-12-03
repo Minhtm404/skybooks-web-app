@@ -80,6 +80,15 @@ const Post = () => {
 
                 return (
                   <div className="flex items-center gap-5 text-justify">
+                    {p.imageCover && (
+                      <div className="w-[600] h-[521]">
+                        <img
+                          src={`${p.imageCover}/-/scale_crop/600x521/-/format/auto/-/quality/smart_retina/`}
+                          alt=""
+                        />
+                      </div>
+                    )}
+
                     <div className="space-y-2">
                       <Link to={href} className="font-medium text-base">
                         {p.title}
