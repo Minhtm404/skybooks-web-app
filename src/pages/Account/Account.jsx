@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
-import { HiExclamation } from 'react-icons/hi';
+import { Button, Label, Modal, Spinner, TextInput, Toast } from 'flowbite-react';
+import { HiExclamation, HiOutlineExclamationCircle } from 'react-icons/hi';
 
 import { Context as AuthContext } from '../../contexts/AuthContext';
 
@@ -14,6 +14,7 @@ const Account = () => {
     localLogin,
     updateMe,
     updatePassword,
+    deleteAccount,
     isLoading,
     setIsLoading,
     error
@@ -30,6 +31,8 @@ const Account = () => {
   const [passwordConfirm, setPasswordConfirm] = useState(undefined);
   const [comparePassword, setComparePassword] = useState(true);
 
+  const [openModal, setOpenModal] = useState(false);
+
   const handleUpdateData = async e => {
     e.preventDefault();
     setIsLoading(true);
@@ -45,6 +48,10 @@ const Account = () => {
       setPassword(undefined);
       setPasswordConfirm(undefined);
     }
+  };
+
+  const handleDeleteAccount = async () => {
+    await deleteAccount();
   };
 
   useEffect(() => {
@@ -80,7 +87,7 @@ const Account = () => {
           <></>
         )}
 
-        <UserSidebar />
+        <UserSidebar showModal={() => setOpenModal(true)} />
 
         <div className="col-span-3 m-2 md:m-10">
           <div className="flex flex-wrap justify-center gap-1">
@@ -221,6 +228,26 @@ const Account = () => {
             </div>
           </div>
         </div>
+
+        <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
+          <Modal.Header />
+          <Modal.Body>
+            <div className="text-center">
+              <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
+              <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+                Are you sure you want to delete this account?
+              </h3>
+              <div className="flex justify-center gap-4">
+                <Button color="failure" onClick={() => handleDeleteAccount()}>
+                  {"Yes, I'm sure"}
+                </Button>
+                <Button color="gray" onClick={() => setOpenModal(false)}>
+                  No, cancel
+                </Button>
+              </div>
+            </div>
+          </Modal.Body>
+        </Modal>
       </div>
     );
   }

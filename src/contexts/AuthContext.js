@@ -198,6 +198,23 @@ const forgotPassword =
     }
   };
 
+const deleteAccount = dispatch => async () => {
+  try {
+    await apiHelper.delete('/users/me');
+
+    localStorage.removeItem('token');
+    
+    dispatch({
+      type: ACTIONS.SET_LOGOUT
+    });
+  } catch (err) {
+    dispatch({
+      type: ACTIONS.SET_ERROR,
+      payload: err.response ? err.response.data.message : err.message
+    });
+  }
+};
+
 export const { Provider, Context } = contextFactory(
   authReducer,
   {
@@ -208,7 +225,8 @@ export const { Provider, Context } = contextFactory(
     logout,
     updateMe,
     updatePassword,
-    forgotPassword
+    forgotPassword,
+    deleteAccount
   },
   {
     isLoading: false,

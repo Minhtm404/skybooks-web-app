@@ -3,8 +3,12 @@ import { Sidebar } from 'flowbite-react';
 
 import { Context as AuthContext } from '../contexts/AuthContext';
 
-const UserSidebar = () => {
+const UserSidebar = ({ showModal }) => {
   const { logout } = useContext(AuthContext);
+
+  const handleOpenModal = async () => {
+    showModal();
+  };
 
   const handleLogout = async () => {
     logout();
@@ -16,6 +20,13 @@ const UserSidebar = () => {
         <Sidebar.ItemGroup>
           <Sidebar.Item href="/account">Account info</Sidebar.Item>
           <Sidebar.Item href="/account/orders">My orders</Sidebar.Item>
+          <Sidebar.Item
+            onClick={() => {
+              handleOpenModal();
+            }}
+          >
+            Delete account
+          </Sidebar.Item>
           <Sidebar.Item
             onClick={() => {
               handleLogout();
