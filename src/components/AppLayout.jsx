@@ -15,18 +15,11 @@ import { Context as CartItemContext } from '../contexts/CartItemContext';
 import { Cart } from './index';
 
 const AppLayout = () => {
-  const {
-    cartItems,
-    getAllCartItems,
-    isLoading: cartItemIsLoading,
-    setIsLoading: cartItemSetIsLoading,
-    error: cartItemError
-  } = useContext(CartItemContext);
+  const { cartItems, getAllCartItems } = useContext(CartItemContext);
 
   const [openCart, setOpenCart] = useState(false);
 
   useEffect(() => {
-    cartItemSetIsLoading(true);
     getAllCartItems();
   }, []);
 
