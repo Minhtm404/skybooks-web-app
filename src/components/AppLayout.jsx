@@ -10,16 +10,19 @@ import {
 } from 'react-icons/md';
 import { SiSass } from 'react-icons/si';
 
+import { Context as AuthContext } from '../contexts/AuthContext';
 import { Context as CartItemContext } from '../contexts/CartItemContext';
 
 import { Cart } from './index';
 
 const AppLayout = () => {
+  const { user, localLogin } = useContext(AuthContext);
   const { cartItems, getAllCartItems } = useContext(CartItemContext);
 
   const [openCart, setOpenCart] = useState(false);
 
   useEffect(() => {
+    localLogin();
     getAllCartItems();
   }, []);
 
@@ -38,7 +41,7 @@ const AppLayout = () => {
         <div className="flex md:order-2 gap-3">
           <Button as={Link} to={`/account`}>
             <MdOutlineAccountCircle className="mr-2 h-5 w-5" />
-            <span>Account</span>
+            <span>{user ? user.name : 'Account'}</span>
           </Button>
           <Button onClick={() => setOpenCart(true)}>
             <MdOutlineShoppingCart className="mr-2 h-5 w-5" />
