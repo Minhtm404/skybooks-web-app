@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { Button, Footer, Label, Navbar, TextInput } from 'flowbite-react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import {
@@ -16,8 +16,11 @@ import { Context as CartItemContext } from '../contexts/CartItemContext';
 import { Cart } from './index';
 
 const AppLayout = () => {
-  const { user, localLogin } = useContext(AuthContext);
+  const { user, isAuthenticated, localLogin } = useContext(AuthContext);
   const { cartItems, getAllCartItems } = useContext(CartItemContext);
+
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const [openCart, setOpenCart] = useState(false);
 
@@ -26,7 +29,13 @@ const AppLayout = () => {
     getAllCartItems();
   }, []);
 
-  const location = useLocation();
+  const handleOpenCart = async () => {
+    if (!user || !isAuthenticated) {
+      navigate('/account/login');
+    } else {
+      setOpenCart(true);
+    }
+  };
 
   return (
     <div>
@@ -43,7 +52,7 @@ const AppLayout = () => {
             <MdOutlineAccountCircle className="mr-2 h-5 w-5" />
             <span>{user ? user.name : 'Account'}</span>
           </Button>
-          <Button onClick={() => setOpenCart(true)}>
+          <Button onClick={handleOpenCart}>
             <MdOutlineShoppingCart className="mr-2 h-5 w-5" />
             <span>Cart</span>
           </Button>

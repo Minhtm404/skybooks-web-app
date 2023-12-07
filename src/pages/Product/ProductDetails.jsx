@@ -1,14 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useOutletContext, useParams } from 'react-router-dom';
+import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
 import { Breadcrumb, Button, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
+import { Context as AuthContext } from '../../contexts/AuthContext';
 import { Context as ProductContext } from '../../contexts/ProductContext';
 import { Context as CartItemContext } from '../../contexts/CartItemContext';
 
 const ProductDetails = () => {
   const { alias } = useParams();
+
+  const { user, isAuthenticated, localLogin } = useContext(AuthContext);
 
   const {
     product,
@@ -18,13 +21,16 @@ const ProductDetails = () => {
     error: productError
   } = useContext(ProductContext);
 
-  const { addCartItem, error: cartItemError } = useContext(CartItemContext);
+  const { cartItems, addCartItem, error: cartItemError } = useContext(CartItemContext);
 
   const [, setOpenCart] = useOutletContext();
+
+  const navigate = useNavigate();
 
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
+    localLogin();
     productSetIsLoading(true);
     getProductByAlias(alias);
   }, []);
@@ -49,15 +55,19 @@ const ProductDetails = () => {
 
   const handleAddToCard = async e => {
     e.preventDefault();
-    await addCartItem({ product: product._id, quantity });
-    setQuantity(1);
-    setOpenCart(true);
+    if (!user || !isAuthenticated) {
+      navigate('/account/login');
+    } else {
+      await addCartItem({ product: product._id, quantity });
+      setQuantity(1);
+      setOpenCart(true);
+    }
   };
 
   if (product) {
     return (
       <div className="my-4">
-        {productError || cartItemError ? (
+        {productError || (cartItemError && cartItems) ? (
           <Toast className="absolute top-4 left-4">
             <div className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-orange-100 text-orange-500 dark:bg-orange-700 dark:text-orange-200">
               <HiExclamation className="h-5 w-5" />
