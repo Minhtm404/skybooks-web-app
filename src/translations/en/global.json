@@ -1,0 +1,250 @@
+{
+  "header": {
+    "about_us": "About Us",
+    "stores": "Store",
+    "contact_info": "Contact info",
+    "products": "Products",
+    "books": "Books",
+    "posters": "Posters",
+    "souvenirs": "Souvenirs",
+    "new_arrival": "New Arrival",
+    "blog": "Blog",
+    "sale": "Sale",
+    "account": "Account",
+    "cart": "Cart"
+  },
+  "body": {
+    "home": "Home",
+    "category": "Category",
+    "products": "Products",
+    "sign_up_for_new_info": "Sign up for new info",
+    "your_email": "Your email",
+    "register": "Register",
+    "support_purchase": "Support / Purchase"
+  },
+  "footer": {
+    "about_us": "About us",
+    "company_name": "Skybooks Company Limited",
+    "product_by": "by Minh Tam Cao",
+    "description_1": "This site has been designed as a school project. It is for educational purposes only.",
+    "description_2": "All content is based upon a fictional company.",
+    "policy": "Policy",
+    "terms_of_service": "Terms of Service",
+    "privacy_policy": "Provacy Policy",
+    "payment_policy": "Payment Policy",
+    "delivery_policy": "Delivery Policy",
+    "exchange_policy": "Exchange/Return Policy",
+    "head_office": "Head Office",
+    "address": "Address: 1 Somewhere St., Dist X, Ha Noi",
+    "follow_us": "Follow us"
+  },
+  "home": {
+    "architecture": "Architecture",
+    "art": "Art",
+    "see_more": "See more",
+    "books_of_the_month": "Books of the month",
+    "description": "Every month, some books will be chosen by Skybooks and giving out detail information. It helps you save time.",
+    "recommendation": "This month recommendation",
+    "about_us": "About us",
+    "our_products": "Our products"
+  },
+  "terms_of_service": {
+    "description_1": {
+      "1": "General principles",
+      "2": "Electronic website skybooks.xxx operated and operated by SKYBOOKS CO., LTD (\"the Company\").",
+      "3": "Products and services participating in transactions on the skybooks.xxx E-commerce Website always satisfy all relevant provisions of law, not in the cases of business ban, advertising ban in accordance with the law.",
+      "4": "Goods purchase and sale through skybooks.xxx E-commerce Website is always made public and transparent, ensuring the interests of consumers.",
+      "5": "All contents in this Regulation must comply with the current legal system of Vietnam."
+    },
+    "description_2": {
+      "1": "General rules",
+      "2": "E-commerce Website Domain Name:",
+      "3": "skybooks.xxx E-commerce Website is developed by Skybooks Company Limited with the domain name Website: www.skybooks.xxx (hereinafter referred to as \"skybooks.xxx E-commerce Website\")",
+      "4": "General definition:",
+      "5": "- Buyers: are traders, organizations and individuals wishing to find out information about products and services posted on skybooks.xxx. Buyers may or may not need to register for an account on the website.",
+      "6": "- Members participating in transactions on the Website skybooks.xxx are traders, organizations and individuals wishing to buy and sell products and services on the website.",
+      "7": "- Members who register initially declare relevant personal information, are officially recognized by the Management Board of skybooks.xxx e-commerce and are allowed to use the services provided by skybooks.xxx E-commerce Website.",
+      "8": "- The content of this Regulation complies with the current regulations of Vietnam. Members participating in the skybooks.xxx E-commerce Website must find out about their legal responsibilities for the current laws of Vietnam and commit to strictly comply with the contents of the Regulations of skybooks.xxx"
+    }
+  },
+  "privacy_policy": {
+    "part_1": {
+      "header": "a. Personal information gathering goals",
+      "1": "Data collected on the website includes:",
+      "2": "- Full name",
+      "3": "- Email",
+      "4": "- Phone number",
+      "5": "- Address",
+      "6": "Purpose: for us to confirm link when customers register to buy goods on the website to ensure the interests of customers.",
+      "7": "Customer will be solely responsible for the security and keep all activities using the service under registration of his name, password and email. In addition, the customer is responsible for promptly informing Skybooks of any unauthorized use, applicable, or third party information confidentiality scope for appropriate solutions."
+    },
+    "part_2": {
+      "header": "b. Scope of using information",
+      "1": "Skybooks uses the information provided by the customer to:",
+      "2": "- Providing customer related services.",
+      "3": "- Send notifications about information exchange activities between customers and Skybooks",
+      "4": "- Prevent activities that sabotage customer user accounts or activities that impersonate customers",
+      "5": "- Contacting and dealing with customers in special cases",
+      "6": "- In case of the request of competent law, Skybooks is responsible for cooperating in providing personal information to customers, including: Procuracy, court, police agency investigating behavior. violate any law of the customer. In addition, no one has the right to compromise the personal information of customers."
+    },
+    "part_3": {
+      "header": "c. Time to store information",
+      "1": "Skybooks will store the personal information provided by the customer on our internal systems during service provision to customers or until the purpose of information collection is completed or when the customer requests. request to destroy the information provided."
+    },
+    "part_4": {
+      "header": "d. People or organizations that may have access to that information",
+      "1": "Personal information on the website is allowed to be accessed by:",
+      "2": "- Website management",
+      "3": "- The customer owns that personal information",
+      "4": "- Legal authorities of Vietnam (when required)"
+    },
+    "part_5": {
+      "header": "e. The address of the unit that collects and manages the information",
+      "1": "Skybooks",
+      "2": "- Address: 1Bis Somewhere, Ward Y, District X, Hanoi City",
+      "3": "- Phone: +8428xxxxxxxx - Email: info@skybooks.io"
+    },
+    "part_6": {
+      "header": "f. Means and tools for users to access and correct their personal data",
+      "1": "Customers can exercise the right to access and correct personal data by accessing the account section on the website."
+    }
+  },
+  "payment_policy": {
+    "description": "With our interest to deliver the best shopping online experience. Skybooks accepts 2 types of payment that offer more flexibility and convenience during the purchase process.",
+    "part_1": {
+      "header": "1. COD - Cash on delivery",
+      "1": "With COD, our customer only pays when the products are delivered and pay the exact amount that is written on the bill. If the deliver demands an additional fee outside of the bill, please contact us for help",
+      "2": "- Hotline: +8428xxxxxxxx",
+      "3": "- Email: info@arskybooks.io"
+    },
+    "part_2": {
+      "header": "2. Bank transfer",
+      "1": "With this method, after the products are successfully ordered on the website, please finalize your payment follow instructions.",
+      "2": "After the payment is done and Skybooks receives the money, we will deliver products according to the time specified in Delivery Policy."
+    },
+    "part_3": {
+      "1": "If you have any further questions, please contact:",
+      "2": "Hotline: +8428 xxxx xxxx",
+      "3": "Website: skybooks.xxx",
+      "4": "Email: info@skybooks.io",
+      "5": "Let start shopping with Skybooks."
+    }
+  },
+  "delivery_policy": {
+    "description": "Products can be delivered all over the world.",
+    "part_1": {
+      "header": "1. Delivery Time",
+      "1": "The domestic delivery time would take approximately 3-4 days.",
+      "2": "For worldwide delivery, it might take up to 1-2 weeks for the item to arrive."
+    },
+    "part_2": {
+      "header": "2. Cancellation",
+      "1": "The order would be cancelled if our staffs failed to contact the customer 3 times.",
+      "2": "Customers can cancel the order without being charged, if the order has not been shipped yet.",
+      "3": "If the order is on the way being delivered and you still wish to cancel it, then only delivery fee will be charged."
+    },
+    "part_3": {
+      "header": "3. International Delivery",
+      "1": "For any delivery outside territory of Vietnam, please contact us."
+    }
+  },
+  "exchange_policy": {
+    "part_1": {
+      "1": "Dear customers!",
+      "2": "With our interest to deliver the best shopping online experience.",
+      "3": "Skybooks would like to announce our exchange/return policy as below:"
+    },
+    "part_2": {
+      "header": "1. Requirement",
+      "1": "Skybooks accepts exchanges and returns for the following cases:",
+      "2": "- The product is damaged during the delivery process.",
+      "3": "Example: the product is dented, torn, damaged, the product no longer has the same shape as the original during the delivery process to your place.",
+      "4": "- The product you receive is not the same as the description on the website or from a salesman.",
+      "5": "Example: wrong code, color, or size, etc.",
+      "6": "- If your product is not on the list above, we have the right to reject your exchange/ refund request."
+    },
+    "part_3": {
+      "header": "2. Exchanging time",
+      "1": "The time depends on customers who send defective goods to Kakapo's address and the delivery time from the shipping company.",
+      "2": "We guarantee to exchange or return products as soon as possible."
+    },
+    "part_4": {
+      "header": "3. Regulations on exchange/return",
+      "1": "- Same code: free exchange",
+      "2": "- Different product code but with the same price: free exchange",
+      "3": "- If the product you want that has a higher value than the one you currently have (based on the bill): You will pay an additional amount to get the new product according to the following formula:",
+      "4": "Additional amount = (new product’s value) – (old product’s value)",
+      "5": "- If the product you want that has a lower value than the one you currently have (based on the bill): You will receive an amount of money according to the following formula:",
+      "6": "The amount you receive = (Old product’s value) – (new product’s value)"
+    },
+    "part_5": {
+      "1": "If you have any further questions, please contact:",
+      "2": "Hotline: +8428 xxxx xxxx",
+      "3": "Website: skybooks.xxx",
+      "4": "Email: info@skybooks.io",
+      "5": "Let start shopping with Skybooks."
+    }
+  },
+  "about_us": {
+    "1": "After nearly two decades of development, our Skybooks Stores are now a chain of stores, covering the capital city of Hanoi, the ancient coastal village of Hoi An in the central of Vietnam, and Ho Chi Minh City, where you can find books on Vietnam in foreign languages and souvenirs from Vietnam.",
+    "2": "Apart from being a large distributor of foreign languages books on Vietnam, Skybooks is also the official distributor of the world famous publishers i.e. Cambridge, Cengage, Elsevier, John Wiley, Pearson, McGraw-Hill, Macmillan, Springer, Hachette, Penguin, Random House, Simon& Schuster, Wordsworth, Phaidon, Taschen, Page One, APD, Berkeley…",
+    "3": "The individual clients are always our important sector, however, Skybooks is proud to be the long term supplier for the Universities, Research Institutes, the famous international resorts/hotels and tourist sites in Vietnam and other local retail distributors with text books, reference books, books on international architecture, graphic design, fine art and literature, books introducing the land and peoples of Vietnam, and also souvenirs from Vietnam.",
+    "4": "The Skybooks Stores are highlighted in many travel guide books as well as tourism web sites as ‘the spots that can not be omitted while you are in Vietnam’. The Skybooks Stores have become the frequently visited sides of many resident as well as visiting foreigners.",
+    "5": "Visiting Skybooks Stores also means you are visiting a cozy ambient of Vietnam culture where your quest for exploration Vietnam is satisfied."
+  },
+  "stores": {
+    "part_1": {
+      "header": "- Ha Noi",
+      "1": "01 Somewhere St., Dist. X, Hanoi. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "2": "01 Somewhere St., Dist. X, Hanoi. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "3": "01 Somewhere St., Dist. X, Hanoi. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)"
+    },
+    "part_2": {
+      "header": "- Ho Chi Minh",
+      "1": "01 Somewhere St., Dist. X, HCMC. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "2": "01 Somewhere St., Dist. X, HCMC. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "3": "01 Somewhere St., Dist. X, HCMC. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "4": "01 Somewhere St., Dist. X, HCMC. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)"
+    },
+    "part_3": {
+      "header": "- Hoi An",
+      "1": "01 Somewhere St., Hoi An, Quang Nam. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "2": "01 Somewhere St., Hoi An, Quang Nam. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)"
+    }
+  },
+  "contact_info": {
+    "part_1": {
+      "1": "Our address",
+      "2": "01 Somewhere St., Dist. X, Hanoi",
+      "3": "Email us",
+      "4": "INFO@SKYBOOKS.IO",
+      "5": "Phone",
+      "6": "+84 28 xxxx xxxx",
+      "7": "Working time",
+      "8": "Monday to Friday from 8:30 AM to 05:30 PM"
+    },
+    "part_2": {
+      "header": "Send us a question",
+      "fullname": "Fullname",
+      "email": "Email",
+      "phone_number": "Phone number",
+      "message": "Message",
+      "submit": "Submit"
+    }
+  },
+  "products": {
+    "search_product": "Search product...",
+    "previous_label": "Previous",
+    "next_label": "Next",
+    "supplier": "Supplier",
+    "out_of_stock": "Out of stock",
+    "add_to_cart": "Add to cart",
+    "description": "Description",
+    "author": "Author",
+    "format": "Format",
+    "dimensions": "Dimensions",
+    "publish_date": "Publish date",
+    "product_reviews": "Product reviews",
+    "related_products": "Related products"
+  }
+}

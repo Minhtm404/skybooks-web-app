@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import 'mapbox-gl/dist/mapbox-gl.css';
 import ReactMapGl, { Marker } from 'react-map-gl';
@@ -15,6 +16,8 @@ const ContactInfo = () => {
     zoom: 14
   });
 
+  const [t, i18n] = useTranslation('global');
+
   return (
     <div>
       <Breadcrumb
@@ -23,10 +26,12 @@ const ContactInfo = () => {
       >
         <div className="flex mx-40">
           <Breadcrumb.Item href="/" icon={HiHome}>
-            Home
+            {t('body.home')}
           </Breadcrumb.Item>
-          <Breadcrumb.Item href="/about-us">About us</Breadcrumb.Item>
-          <Breadcrumb.Item href="/about-us/contact-info">Contact info</Breadcrumb.Item>
+          <Breadcrumb.Item href="/about-us">{t('header.about_us')}</Breadcrumb.Item>
+          <Breadcrumb.Item href="/about-us/contact-info">
+            {t('header.contact_info')}
+          </Breadcrumb.Item>
         </div>
       </Breadcrumb>
 
@@ -44,38 +49,58 @@ const ContactInfo = () => {
         </div>
 
         <div className="px-14 py-3">
-          <p className="text-3xl font-bold my-9">Contact info</p>
+          <p className="text-3xl font-bold my-9">{t('header.contact_info')}</p>
           <hr />
           <ul className="text-sm space-y-8 mt-14 mb-14">
             <li>
-              <p className="text-gray-900 font-medium">Our address</p>
-              <p className="font-bold">01 Somewhere St., Dist. X, Hanoi</p>
+              <p className="text-gray-900 font-medium">{t('contact_info.part_1.1')}</p>
+              <p className="font-bold">{t('contact_info.part_1.2')}</p>
             </li>
             <li>
-              <p className="text-gray-900 font-medium">Email us</p>
-              <p className="font-bold uppercase">info@skybooks.io</p>
+              <p className="text-gray-900 font-medium">{t('contact_info.part_1.3')}</p>
+              <p className="font-bold uppercase">{t('contact_info.part_1.4')}</p>
             </li>
             <li>
-              <p className="text-gray-900 font-medium">Phone</p>
-              <p className="font-bold">+84 28xxxxxxxx</p>
+              <p className="text-gray-900 font-medium">{t('contact_info.part_1.5')}</p>
+              <p className="font-bold">{t('contact_info.part_1.6')}</p>
             </li>
             <li>
-              <p className="text-gray-900 font-medium">Working time</p>
-              <p className="font-bold">Monday to Friday from 8:30 AM to 05:30 PM</p>
+              <p className="text-gray-900 font-medium">{t('contact_info.part_1.7')}</p>
+              <p className="font-bold">{t('contact_info.part_1.8')}</p>
             </li>
           </ul>
 
-          <p className="text-2xl font-bold my-5">Send us a question</p>
+          <p className="text-2xl font-bold my-5">{t('contact_info.part_2.header')}</p>
           <hr />
           <div className="text-sm space-y-8 mt-12">
-            <TextInput id="name" placeholder="Fullname" type="text" required />
+            <TextInput
+              id="name"
+              placeholder={t('contact_info.part_2.fullname')}
+              type="text"
+              required
+            />
             <div className="grid grid-cols-2 gap-8">
-              <TextInput id="email" placeholder="Email" type="email" required />
-              <TextInput id="phone" placeholder="Phone number" type="tel" required />
+              <TextInput
+                id="email"
+                placeholder={t('contact_info.part_2.email')}
+                type="email"
+                required
+              />
+              <TextInput
+                id="phone"
+                placeholder={t('contact_info.part_2.phone_number')}
+                type="tel"
+                required
+              />
             </div>
-            <Textarea id="message" placeholder="Message" rows={5} required />
+            <Textarea
+              id="message"
+              placeholder={t('contact_info.part_2.message')}
+              rows={5}
+              required
+            />
             <Button size="xs" className="uppercase font-bold px-4 py-3">
-              Submit
+              {t('contact_info.part_2.submit')}
             </Button>
           </div>
         </div>

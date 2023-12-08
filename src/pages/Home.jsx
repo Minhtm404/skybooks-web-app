@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button, Card, Carousel, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
@@ -34,6 +35,8 @@ const Home = () => {
     getAllArtProducts({});
   }, []);
 
+  const [t, i18n] = useTranslation('global');
+
   if (isLoading) {
     return (
       <div className="relative w-full h-screen flex justify-center items-center">
@@ -67,9 +70,9 @@ const Home = () => {
 
         <div className="mx-40 px-6 grid grid-cols-3 gap-4">
           <div className="flex flex-col justify-center items-center gap-4">
-            <p className="uppercase text-3xl">Architecture</p>
+            <p className="uppercase text-3xl">{t('home.architecture')}</p>
             <Button as={Link} to={'/collections/books'} className="uppercase">
-              See more
+              {t('home.see_more')}
             </Button>
           </div>
 
@@ -95,22 +98,21 @@ const Home = () => {
           }}
         >
           <div className="items-center justify-center flex flex-col gap-4">
-            <p className="text-white text-2xl uppercase">Books of the month</p>
-            <p className="text-white">
-              Every month, some books will be chosen by Skybooks and giving out detail
-              information. It helps you save time.
+            <p className="text-white text-2xl uppercase">
+              {t('home.books_of_the_month')}
             </p>
+            <p className="text-white">{t('home.description')}</p>
             <Button as={Link} to={`/new-arrival`} color="light" className="uppercase">
-              This month recommendation
+              {t('home.recommendation')}
             </Button>
           </div>
         </div>
 
         <div className="mx-40 px-6 grid grid-cols-3 gap-4">
           <div className="flex flex-col justify-center items-center gap-4">
-            <p className="uppercase text-3xl">Art</p>
+            <p className="uppercase text-3xl"> {t('home.art')}</p>
             <Button as={Link} to={'/collections/books'} className="uppercase">
-              See more
+              {t('home.see_more')}
             </Button>
           </div>
 
@@ -157,7 +159,9 @@ const Home = () => {
                 }}
               ></div>
               <div className="absolute bottom-0 left-0 p-4">
-                <h2 className="text-white text-2xl font-medium uppercase">About us</h2>
+                <h2 className="text-white text-2xl font-medium uppercase">
+                  {t('home.about_us')}
+                </h2>
               </div>
             </div>
           </Link>
@@ -192,7 +196,7 @@ const Home = () => {
               ></div>
               <div className="absolute bottom-0 left-0 p-4">
                 <h2 className="text-white text-2xl font-medium uppercase">
-                  Our products
+                  {t('home.our_products')}
                 </h2>
               </div>
             </div>

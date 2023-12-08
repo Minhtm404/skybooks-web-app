@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Label, TextInput } from 'flowbite-react';
 
 import { Context as ProductContext } from '../contexts/ProductContext';
@@ -9,6 +10,8 @@ const ProductBar = () => {
   const { getAllProducts } = useContext(ProductContext);
 
   const [keyword, setKeyword] = useState(undefined);
+
+  const [t, i18n] = useTranslation('global');
 
   return (
     <div class="bg-white block sm:flex Dropdown.Items-center justify-between border-b border-gray-200 lg:mt-1.5 py-4">
@@ -20,7 +23,7 @@ const ProductBar = () => {
               <TextInput
                 id="products-search"
                 name="products-search"
-                placeholder="Search product..."
+                placeholder={t('products.search_product')}
                 type="search"
                 value={keyword}
                 onChange={e => {

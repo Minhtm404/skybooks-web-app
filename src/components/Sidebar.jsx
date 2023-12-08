@@ -1,15 +1,18 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Sidebar } from 'flowbite-react';
 import { twMerge } from 'tailwind-merge';
 import { HiOutlineMinusSm, HiOutlinePlusSm } from 'react-icons/hi';
 
 const SidebarCustom = () => {
+  const [t, i18n] = useTranslation('global');
+
   return (
     <Sidebar className="py-5">
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <Sidebar.Collapse
-            label="About us"
+            label={t('header.about_us')}
             renderChevronIcon={(theme, open) => {
               const IconComponent = open ? HiOutlineMinusSm : HiOutlinePlusSm;
               return (
@@ -20,11 +23,11 @@ const SidebarCustom = () => {
               );
             }}
           >
-            <Sidebar.Item href="/about-us/stores">Stores</Sidebar.Item>
-            <Sidebar.Item href="/about-us/contact-info">Contact info</Sidebar.Item>
+            <Sidebar.Item href="/about-us/stores">{t('header.stores')}</Sidebar.Item>
+            <Sidebar.Item href="/about-us/contact-info">{t('header.contact_info')}</Sidebar.Item>
           </Sidebar.Collapse>
           <Sidebar.Collapse
-            label="Products"
+            label={t('header.products')}
             renderChevronIcon={(theme, open) => {
               const IconComponent = open ? HiOutlineMinusSm : HiOutlinePlusSm;
               return (
@@ -35,13 +38,13 @@ const SidebarCustom = () => {
               );
             }}
           >
-            <Sidebar.Item href="/collections/books">Books</Sidebar.Item>
-            <Sidebar.Item href="/collections/posters">Posters</Sidebar.Item>
-            <Sidebar.Item href="/collections/souvenirs">Souvenirs</Sidebar.Item>
+            <Sidebar.Item href="/collections/books">{t('header.books')}</Sidebar.Item>
+            <Sidebar.Item href="/collections/posters">{t('header.posters')}</Sidebar.Item>
+            <Sidebar.Item href="/collections/souvenirs">{t('header.souvenirs')}</Sidebar.Item>
           </Sidebar.Collapse>
-          <Sidebar.Item href="/new-arrival">New arrival</Sidebar.Item>
-          <Sidebar.Item href="/posts">Blog</Sidebar.Item>
-          <Sidebar.Item href="/sale">Sale</Sidebar.Item>
+          <Sidebar.Item href="/new-arrival">{t('header.new_arrival')}</Sidebar.Item>
+          <Sidebar.Item href="/posts">{t('header.blog')}</Sidebar.Item>
+          <Sidebar.Item href="/sale">{t('header.sale')}</Sidebar.Item>
         </Sidebar.ItemGroup>
       </Sidebar.Items>
     </Sidebar>

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb, Button, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
@@ -34,6 +35,8 @@ const ProductDetails = () => {
     productSetIsLoading(true);
     getProductByAlias(alias);
   }, []);
+
+  const [t, i18n] = useTranslation('global');
 
   if (productIsLoading) {
     return (
@@ -87,9 +90,9 @@ const ProductDetails = () => {
         >
           <div className="flex mx-40">
             <Breadcrumb.Item href="/" icon={HiHome}>
-              Home
+              {t('body.home')}
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="/new-arrival">Products</Breadcrumb.Item>
+            <Breadcrumb.Item href="/new-arrival">{t('body.products')}</Breadcrumb.Item>
             <Breadcrumb.Item>{product.name}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
@@ -107,10 +110,14 @@ const ProductDetails = () => {
                 {product.sku}
               </p>
               <p className="text-sm">
-                <span className="font-bold">Supplier: </span>
+                <span className="font-bold">{t('products.supplier')}: </span>
                 {product.vendor}
               </p>
-              {product.quantity === 0 ? <p className="text-sm">Out of stock</p> : <></>}
+              {product.quantity === 0 ? (
+                <p className="text-sm">{t('products.out_of_stock')}</p>
+              ) : (
+                <></>
+              )}
             </div>
 
             <hr />
@@ -142,37 +149,41 @@ const ProductDetails = () => {
             <hr />
 
             <Button onClick={handleAddToCard} className="uppercase w-full">
-              Add to cart
+              {t('products.add_to_cart')}
             </Button>
 
             <div className="space-y-2">
               <p className="text-sm">
-                <span className="font-bold">Description</span>
+                <span className="font-bold">{t('products.description')}</span>
               </p>
               <p className="text-sm">
-                <span className="font-bold">Author: </span>
+                <span className="font-bold">{t('products.author')}: </span>
                 {product.author}
               </p>
               <p className="text-sm">
-                <span className="font-bold">Format: </span>
+                <span className="font-bold">{t('products.format')}: </span>
                 {product.format}
               </p>
               <p className="text-sm">
-                <span className="font-bold">Dimensions: </span>
+                <span className="font-bold">{t('products.dimensions')}: </span>
                 {product.dimensions}
               </p>
               <p className="text-sm">
-                <span className="font-bold">Publish date: </span>
+                <span className="font-bold">{t('products.publish_date')}: </span>
                 {product.publishDate}
               </p>
               <p className="text-sm text-justify">{product.description}</p>
               <p className="text-sm">
-                <span className="font-bold">PRODUCT REVIEWS</span>
+                <span className="font-bold uppercase">
+                  {t('products.product_reviews')}
+                </span>
               </p>
             </div>
           </div>
         </div>
-        <div className="text-center text-2xl font-medium my-8">RELATED PRODUCTS</div>
+        <div className="text-center uppercase text-2xl font-medium my-8">
+          {t('products.related_products')}
+        </div>
       </div>
     );
   }

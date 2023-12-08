@@ -1,9 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 import { Sidebar } from '../../components/index';
 
 const DeliveryPolicy = () => {
+  const [t, i18n] = useTranslation('global');
+
   return (
     <div>
       <Breadcrumb
@@ -12,9 +15,11 @@ const DeliveryPolicy = () => {
       >
         <div className="flex mx-40">
           <Breadcrumb.Item href="/" icon={HiHome}>
-            Home
+            {t('body.home')}
           </Breadcrumb.Item>
-          <Breadcrumb.Item href="/delivery-policy">Delivery Policy</Breadcrumb.Item>
+          <Breadcrumb.Item href="/delivery-policy">
+            {t('footer.delivery_policy')}
+          </Breadcrumb.Item>
         </div>
       </Breadcrumb>
 
@@ -22,44 +27,26 @@ const DeliveryPolicy = () => {
         <Sidebar />
 
         <div className="col-span-3 mb-3">
-          <p className="text-3xl font-semibold my-5">Delivery Policy</p>
+          <p className="text-3xl font-semibold my-5">{t('footer.delivery_policy')}</p>
 
           <div className="text-sm space-y-4 gap-2 text-justify">
             <div className="space-y-2">
-              <p className="text-gray-900">
-                Products can be delivered all over the world.
-              </p>
+              <p className="text-gray-900">{t('delivery_policy.description')}</p>
             </div>
             <div className="space-y-2">
-              <p className="font-semibold">1. Delivery Time</p>
-              <p className="text-gray-900">
-                The domestic delivery time would take approximately 3-4 days.
-              </p>
-              <p className="text-gray-900">
-                For worldwide delivery, it might take up to 1-2 weeks for the item to
-                arrive.
-              </p>
+              <p className="font-semibold">{t('delivery_policy.part_1.header')}</p>
+              <p className="text-gray-900">{t('delivery_policy.part_1.1')}</p>
+              <p className="text-gray-900">{t('delivery_policy.part_1.2')}</p>
             </div>
             <div className="space-y-2">
-              <p className="font-semibold">2. Cancellation</p>
-              <p className="text-gray-900">
-                The order would be cancelled if our staffs failed to contact the customer
-                3 times.
-              </p>
-              <p className="text-gray-900">
-                Customers can cancel the order without being charged, if the order has not
-                been shipped yet.
-              </p>
-              <p className="text-gray-900">
-                If the order is on the way being delivered and you still wish to cancel
-                it, then only delivery fee will be charged.
-              </p>
+              <p className="font-semibold">{t('delivery_policy.part_2.header')}</p>
+              <p className="text-gray-900">{t('delivery_policy.part_2.1')}</p>
+              <p className="text-gray-900">{t('delivery_policy.part_2.2')}</p>
+              <p className="text-gray-900">{t('delivery_policy.part_2.3')}</p>
             </div>
             <div className="space-y-2">
-              <p className="font-semibold">3. International Delivery</p>
-              <p className="text-gray-900">
-                For any delivery outside territory of Vietnam, please contact us.
-              </p>
+              <p className="font-semibold">{t('delivery_policy.part_3.header')}</p>
+              <p className="text-gray-900">{t('delivery_policy.part_3.1')}.</p>
             </div>
           </div>
         </div>

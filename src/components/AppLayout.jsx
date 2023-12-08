@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button, Footer, Label, Navbar, TextInput } from 'flowbite-react';
 import { BsFacebook, BsInstagram, BsTwitter } from 'react-icons/bs';
 import {
@@ -29,11 +30,24 @@ const AppLayout = () => {
     getAllCartItems();
   }, []);
 
+  const [t, i18n] = useTranslation('global');
+
   const handleOpenCart = async () => {
     if (!user || !isAuthenticated) {
       navigate('/account/login');
     } else {
       setOpenCart(true);
+    }
+  };
+
+  const handleChangeLanguage = () => {
+    if (i18n.language === 'vi') {
+      i18n.changeLanguage('en');
+
+      localStorage.setItem('lng', 'en');
+    } else {
+      i18n.changeLanguage('vi');
+      localStorage.setItem('lng', 'vi');
     }
   };
 
@@ -50,33 +64,36 @@ const AppLayout = () => {
         <div className="flex md:order-2 gap-3">
           <Button as={Link} to={`/account`}>
             <MdOutlineAccountCircle className="mr-2 h-5 w-5" />
-            <span>{user ? user.name : 'Account'}</span>
+            <span>{user ? user.name : t('header.account')}</span>
           </Button>
           <Button onClick={handleOpenCart}>
             <MdOutlineShoppingCart className="mr-2 h-5 w-5" />
-            <span>Cart</span>
+            <span> {t('header.cart')}</span>
+          </Button>
+          <Button color="light" onClick={handleChangeLanguage}>
+            <img src={i18n.language === 'vi' ? '/vi.jpg' : 'en.jpg'} alt="" />
           </Button>
           <Navbar.Toggle />
         </div>
 
         <Navbar.Collapse>
           <Navbar.Link href="/about-us" className="text-sm font-semibold uppercase">
-            About Us
+            {t('header.about_us')}
           </Navbar.Link>
           <Navbar.Link
             href="/collections/books"
             className="text-sm font-semibold uppercase"
           >
-            Products
+            {t('header.products')}
           </Navbar.Link>
           <Navbar.Link href="/new-arrival" className="text-sm font-semibold uppercase">
-            New Arrival
+            {t('header.new_arrival')}
           </Navbar.Link>
           <Navbar.Link href="/posts" className="text-sm font-semibold uppercase">
-            Blog
+            {t('header.blog')}
           </Navbar.Link>
           <Navbar.Link href="/sale" className="text-sm font-semibold uppercase">
-            Sale
+            {t('header.sale')}
           </Navbar.Link>
         </Navbar.Collapse>
       </Navbar>
@@ -130,19 +147,19 @@ const AppLayout = () => {
           <div className="flex flex-col md:flex-row items-center justify-center mt-8 space-y-4 md:space-y-0 md:space-x-4">
             <div className="flex items-center justify-center">
               <MdEmail className="mr-2" />
-              <Label htmlFor="email">Sign up for new info</Label>
+              <Label htmlFor="email">{t('body.sign_up_for_new_info')}</Label>
             </div>
             <TextInput
               id="email"
               name="email"
               type="email"
-              placeholder="Your email"
+              placeholder={t('body.your_email')}
               className="py-2 px-4 w-80"
             />
-            <Button>Register</Button>
+            <Button>{t('body.register')}</Button>
             <p className="mt-2 text-sm flex items-center">
               <MdInfo className="mr-2" />
-              Support/purchase: +xx xxxxxxxxxx
+              {t('body.support_purchase')}: +xx xxxxxxxxxx
             </p>
           </div>
         </div>
@@ -152,44 +169,53 @@ const AppLayout = () => {
         <div className="w-full text-gray-900">
           <div className="grid mx-40 grid-cols-2 gap-8 px-6 py-8 md:grid-cols-4">
             <div>
-              <Footer.Title title="About us" className="text-xl" />
+              <Footer.Title title={t('footer.about_us')} className="text-xl" />
               <div className="mt-4 flex space-x-6 sm:mt-0">
                 <Footer.LinkGroup col>
                   <span className="uppercase font-semibold">
-                    Skybooks Company Limited
+                    {t('footer.company_name')}
                   </span>
                   <span>
-                    by Cao Minh Tam
+                    {t('footer.product_by')}
                     <br />
-                    This site has been designed as a school project. It is for educational
-                    purposes only.
+                    {t('footer.description_1')}
                     <br />
-                    All content is based upon a fictional company.
+                    {t('footer.description_2')}
                   </span>
                 </Footer.LinkGroup>
               </div>
             </div>
             <div>
-              <Footer.Title title="Policy" className="text-xl" />
+              <Footer.Title title={t('footer.policy')} className="text-xl" />
               <Footer.LinkGroup col>
-                <Footer.Link href="/terms-of-service">Terms of Service</Footer.Link>
-                <Footer.Link href="/privacy-policy">Privacy Policy</Footer.Link>
-                <Footer.Link href="/payment-policy">Payment Policy</Footer.Link>
-                <Footer.Link href="/delivery-policy">Delivery Policy</Footer.Link>
-                <Footer.Link href="/exchange-policy">Exchange/Return Policy</Footer.Link>
+                <Footer.Link href="/terms-of-service">
+                  {t('footer.terms_of_service')}
+                </Footer.Link>
+                <Footer.Link href="/privacy-policy">
+                  {t('footer.privacy_policy')}
+                </Footer.Link>
+                <Footer.Link href="/payment-policy">
+                  {t('footer.payment_policy')}
+                </Footer.Link>
+                <Footer.Link href="/delivery-policy">
+                  {t('footer.delivery_policy')}
+                </Footer.Link>
+                <Footer.Link href="/exchange-policy">
+                  {t('footer.exchange_policy')}
+                </Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title="Head office" className="text-xl" />
+              <Footer.Title title={t('footer.head_office')} className="text-xl" />
               <Footer.LinkGroup col>
-                <span>Address: 1 Somewhere St., Dist X, HN</span>
-                <span>Hotline: +84 xxxxxxxxxx</span>
+                <span>{t('footer.address')}</span>
+                <span>Hotline: +84 xxx xxx xxxx</span>
                 <span>Office: +8428 xxxx xxxx</span>
                 <span>info@skybooks.io</span>
               </Footer.LinkGroup>
             </div>
             <div>
-              <Footer.Title title="Follow us" className="text-xl" />
+              <Footer.Title title={t('footer.follow_us')} className="text-xl" />
               <div className="mt-4 flex space-x-6 sm:mt-0">
                 <Footer.Icon href="/" icon={BsFacebook} />
                 <Footer.Icon href="/" icon={BsInstagram} />

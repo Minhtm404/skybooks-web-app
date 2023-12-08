@@ -1,9 +1,12 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb } from 'flowbite-react';
 import { HiHome } from 'react-icons/hi';
 import { Sidebar } from '../../components/index';
 
 const ExchangePolicy = () => {
+  const [t, i18n] = useTranslation('global');
+
   return (
     <div>
       <Breadcrumb
@@ -12,9 +15,11 @@ const ExchangePolicy = () => {
       >
         <div className="flex mx-40">
           <Breadcrumb.Item href="/" icon={HiHome}>
-            Home
+            {t('body.home')}
           </Breadcrumb.Item>
-          <Breadcrumb.Item href="/exchange-policy">Exchange Policy</Breadcrumb.Item>
+          <Breadcrumb.Item href="/exchange-policy">
+            {t('footer.exchange_policy')}
+          </Breadcrumb.Item>
         </div>
       </Breadcrumb>
 
@@ -22,77 +27,69 @@ const ExchangePolicy = () => {
         <Sidebar />
 
         <div className="col-span-3 mb-3">
-          <p className="text-3xl font-semibold my-5">Exchange/Return Policy</p>
+          <p className="text-3xl font-semibold my-5">{t('footer.exchange_policy')}</p>
 
           <div className="text-sm space-y-4 gap-2 text-justify">
             <div className="space-y-2">
               <div className="space-y-2">
                 <p className="text-gray-900">
-                  Dear customers!
+                  {t('exchange_policy.part_1.1')}
                   <br />
-                  With our interest to deliver the best shopping online experience.
+                  {t('exchange_policy.part_1.2')}
                   <br />
-                  Skybooks would like to announce our exchange/return policy as below:
+                  {t('exchange_policy.part_1.3')}
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="font-semibold">1. Requirement</p>
+                <p className="font-semibold">{t('exchange_policy.part_2.header')}</p>
                 <p className="text-gray-900">
-                  Skybooks accepts exchanges and returns for the following cases:
-                  <br /> - The product is damaged during the delivery process.
+                  {t('exchange_policy.part_2.1')}
                   <br />
-                  Example: the product is dented, torn, damaged, the product no longer has
-                  the same shape as the original during the delivery process to your
-                  place.
-                  <br /> - The product you receive is not the same as the description on
-                  the website or from a salesman.
+                  {t('exchange_policy.part_2.2')}
                   <br />
-                  Example: wrong code, color, or size, etc.
-                  <br /> - If your product is not on the list above, we have the right to
-                  reject your exchange/ refund request.
+                  {t('exchange_policy.part_2.3')}
+                  <br />
+                  {t('exchange_policy.part_2.4')}
+                  <br />
+                  {t('exchange_policy.part_2.5')}
+                  <br />
+                  {t('exchange_policy.part_2.6')}
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="font-semibold">2. Exchanging time</p>
+                <p className="font-semibold">{t('exchange_policy.part_3.header')}</p>
                 <p className="text-gray-900">
-                  The time depends on customers who send defective goods to Kakapo's
-                  address and the delivery time from the shipping company.
+                  {t('exchange_policy.part_3.1')}
                   <br />
-                  We guarantee to exchange or return products as soon as possible.
+                  {t('exchange_policy.part_3.2')}
                 </p>
               </div>
               <div className="space-y-2">
-                <p className="font-semibold">3. Regulations on exchange/return</p>
+                <p className="font-semibold">{t('exchange_policy.part_4.header')}</p>
                 <p className="text-gray-900">
-                  - Same code: free exchange
-                  <br /> - Different product code but with the same price: free exchange
-                  <br /> - If the product you want that has a higher value than the one
-                  you currently have (based on the bill): You will pay an additional
-                  amount to get the new product according to the following formula:
-                  <pre>
-                    Additional amount = (new product’s value) – (old product’s value)
-                  </pre>
-                  - If the product you want that has a lower value than the one you
-                  currently have (based on the bill): You will receive an amount of money
-                  according to the following formula:
-                  <pre>
-                    The amount you receive = (Old product’s value) – (new product’s value)
-                  </pre>
+                  {t('exchange_policy.part_4.1')}
+                  <br />
+                  {t('exchange_policy.part_4.2')}
+                  <br />
+                  {t('exchange_policy.part_4.3')}
+                  <pre>{t('exchange_policy.part_4.4')}</pre>
+                  {t('exchange_policy.part_4.5')}
+                  <pre>{t('exchange_policy.part_4.6')}</pre>
                 </p>
               </div>
             </div>
 
             <div>
               <p>
-                If you have any further questions, please contact:
+                {t('exchange_policy.part_5.1')}
                 <br />
-                Hotline: +8428xxxxxxxx
+                {t('exchange_policy.part_5.2')}
                 <br />
-                Website: skybooks.xxx
+                {t('exchange_policy.part_5.3')}
                 <br />
-                Email: info@skybooks.io
+                {t('exchange_policy.part_5.4')}
                 <br />
-                Let start shopping with Skybooks.
+                {t('exchange_policy.part_5.5')}
               </p>
             </div>
           </div>

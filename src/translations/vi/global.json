@@ -1,0 +1,250 @@
+{
+  "header": {
+    "about_us": "Về chúng tôi",
+    "stores": "Cửa hàng",
+    "contact_info": "Thông tin liên hệ",
+    "products": "Sản phẩm",
+    "books": "Sách",
+    "posters": "Posters",
+    "souvenirs": "Đồ lưu niệm",
+    "new_arrival": "Sản phẩm mới",
+    "blog": "Blog",
+    "sale": "Đang giảm giá",
+    "account": "Tài khoản",
+    "cart": "Giỏ hàng"
+  },
+  "body": {
+    "home": "Trang chủ",
+    "category": "Danh mục",
+    "products": "Sản phẩm",
+    "sign_up_for_new_info": "Đăng ký nhận tin",
+    "your_email": "Nhập email của bạn",
+    "register": "Đăng ký",
+    "support_purchase": "Hỗ trợ / Mua hàng"
+  },
+  "footer": {
+    "about_us": "Về chúng tôi",
+    "company_name": "Công ty TNHH Skybooks",
+    "product_by": "thực hiện bởi Cao Minh Tâm",
+    "description_1": "Trang web này được thiết kế cho một đồ án ở trường. Hoàn toàn được tạo ra với mục đính giáo dục.",
+    "description_2": "Nội dung trên trang web này được dựa trên một công ty không có thật.",
+    "policy": "Chính sách",
+    "terms_of_service": "Điều khoản dịch vụ",
+    "privacy_policy": "Chính sách bảo mật",
+    "payment_policy": "Chính sách thanh toán",
+    "delivery_policy": "Chính sách vận chuyển",
+    "exchange_policy": "Chính sách đổi trả",
+    "head_office": "Trụ sở chính",
+    "address": "Địa chỉ: Số 1 Đâu Đó, Quận X, Hà Nội",
+    "follow_us": "Kết nối với chúng tôi"
+  },
+  "home": {
+    "architecture": "Kiến trúc",
+    "art": "Nghệ thuật",
+    "see_more": "Xem thêm",
+    "books_of_the_month": "Sách hay của tháng",
+    "description": "Mỗi tháng, Skybooks sẽ giúp bạn chọn ra một vài quyển để đưa ra những cảm nhận và đánh giá, giúp tiết kiệm tối đa thời gian chọn lựa.",
+    "recommendation": "Gợi ý cho bạn",
+    "about_us": "Về chúng tôi",
+    "our_products": "Sản phẩm"
+  },
+  "terms_of_service": {
+    "description_1": {
+      "1": "Nguyên tắc chung",
+      "2": "Trang web điện tử skybooks.xxx được vận hành và điều hành bởi Công ty SKYBOOKS CO., LTD (\"Công ty\").",
+      "3": "Các sản phẩm và dịch vụ tham gia giao dịch trên trang web Thương mại điện tử skybooks.xxx luôn đáp ứng tất cả các quy định pháp luật liên quan, không trong trường hợp cấm kinh doanh, cấm quảng cáo theo quy định của pháp luật.",
+      "4": "Mua bán hàng hóa thông qua trang web Thương mại điện tử skybooks.xxx luôn được thực hiện công khai và minh bạch, đảm bảo quyền lợi của người tiêu dùng.",
+      "5": "Tất cả nội dung trong Quy định này phải tuân thủ hệ thống pháp luật hiện hành của Việt Nam."
+    },
+    "description_2": {
+      "1": "Quy định chung",
+      "2": "Tên miền Trang web Thương mại điện tử:",
+      "3": "Trang web Thương mại điện tử skybooks.xxx được phát triển bởi Công ty Skybooks Limited với tên miền Trang web: www.skybooks.xxx (sau đây được gọi là \"Trang web Thương mại điện tử skybooks.xxx\")",
+      "4": "Định nghĩa chung:",
+      "5": "- Người mua: là các nhà buôn, tổ chức và cá nhân mong muốn tìm hiểu thông tin về sản phẩm và dịch vụ được đăng trên skybooks.xxx. Người mua có thể có hoặc không cần đăng ký tài khoản trên trang web.",
+      "6": "- Các thành viên tham gia giao dịch trên trang web skybooks.xxx là các nhà buôn, tổ chức và cá nhân mong muốn mua bán sản phẩm và dịch vụ trên trang web.",
+      "7": "- Các thành viên đăng ký ban đầu phải khai báo thông tin cá nhân liên quan, được công nhận chính thức bởi Ban Quản trị của skybooks.xxx e-commerce và được phép sử dụng các dịch vụ được cung cấp bởi Trang web Thương mại điện tử skybooks.xxx.",
+      "8": "- Nội dung của Quy định này tuân thủ các quy định hiện hành của Việt Nam. Các thành viên tham gia Trang web Thương mại điện tử skybooks.xxx phải tìm hiểu về trách nhiệm pháp lý của họ đối với luật pháp hiện hành của Việt Nam và cam kết tuân thủ nghiêm ngặt nội dung của Quy định của skybooks.xxx."
+    }
+  },
+  "privacy_policy": {
+    "part_1": {
+      "header": "a. Mục tiêu thu thập thông tin cá nhân",
+      "1": "Dữ liệu được thu thập trên trang web bao gồm:",
+      "2": "- Họ và tên đầy đủ",
+      "3": "- Email",
+      "4": "- Số điện thoại",
+      "5": "- Địa chỉ",
+      "6": "Mục đích: để chúng tôi xác nhận liên kết khi khách hàng đăng ký mua hàng trên trang web để đảm bảo quyền lợi của khách hàng.",
+      "7": "Khách hàng sẽ hoàn toàn chịu trách nhiệm về việc bảo mật và giữ tất cả các hoạt động sử dụng dịch vụ dưới đăng ký của mình gồm tên, mật khẩu và email. Ngoài ra, khách hàng còn có trách nhiệm thông báo ngay cho Skybooks về bất kỳ việc sử dụng trái phép, áp dụng hoặc phạm vi bảo mật thông tin của bên thứ ba để có các giải pháp phù hợp."
+    },
+    "part_2": {
+      "header": "b. Phạm vi sử dụng thông tin",
+      "1": "Skybooks sử dụng thông tin được cung cấp bởi khách hàng để:",
+      "2": "- Cung cấp các dịch vụ liên quan đến khách hàng.",
+      "3": "- Gửi thông báo về các hoạt động trao đổi thông tin giữa khách hàng và Skybooks",
+      "4": "- Ngăn chặn các hoạt động làm hỏng tài khoản người dùng của khách hàng hoặc các hoạt động giả mạo khách hàng",
+      "5": "- Liên hệ và xử lý với khách hàng trong các trường hợp đặc biệt",
+      "6": "- Trong trường hợp yêu cầu của cơ quan luật pháp có thẩm quyền, Skybooks có trách nhiệm hợp tác cung cấp thông tin cá nhân cho khách hàng, bao gồm: Viện kiểm sát, tòa án, cơ quan cảnh sát điều tra hành vi vi phạm bất kỳ luật nào của khách hàng. Ngoài ra, không ai có quyền vi phạm thông tin cá nhân của khách hàng."
+    },
+    "part_3": {
+      "header": "c. Thời gian lưu trữ thông tin",
+      "1": "Skybooks sẽ lưu trữ thông tin cá nhân được cung cấp bởi khách hàng trên các hệ thống nội bộ của chúng tôi trong suốt quá trình cung cấp dịch vụ cho khách hàng hoặc cho đến khi mục đích thu thập thông tin hoàn tất hoặc khi khách hàng yêu cầu hủy thông tin đã cung cấp."
+    },
+    "part_4": {
+      "header": "d. Người hoặc tổ chức có thể tiếp cận thông tin đó",
+      "1": "Thông tin cá nhân trên trang web có thể được truy cập bởi:",
+      "2": "- Quản lý trang web",
+      "3": "- Khách hàng sở hữu thông tin cá nhân đó",
+      "4": "- Các cơ quan luật pháp của Việt Nam (khi cần)"
+    },
+    "part_5": {
+      "header": "e. Địa chỉ của đơn vị thu thập và quản lý thông tin",
+      "1": "Skybooks",
+      "2": "- Địa chỉ: 1Bis Nơi nào đó, Phường Y, Quận X, Thành phố Hà Nội",
+      "3": "- Điện thoại: +8428xxxxxxxx - Email: info@skybooks.io"
+    },
+    "part_6": {
+      "header": "f. Phương tiện và công cụ cho người dùng truy cập và sửa đổi dữ liệu cá nhân của họ",
+      "1": "Khách hàng có thể thực hiện quyền truy cập và sửa đổi dữ liệu cá nhân bằng cách truy cập phần tài khoản trên trang web."
+    }
+  },
+  "payment_policy": {
+    "description": "Với mong muốn mang đến trải nghiệm mua sắm trực tuyến tốt nhất, Skybooks chấp nhận 2 hình thức thanh toán để tăng tính linh hoạt và tiện lợi trong quá trình mua hàng.",
+    "part_1": {
+      "header": "1. COD - Thanh toán khi nhận hàng",
+      "1": "Với COD, khách hàng chỉ thanh toán khi sản phẩm được giao và trả đúng số tiền được ghi trên hóa đơn. Nếu người giao hàng yêu cầu phí bổ sung ngoài hóa đơn, vui lòng liên hệ chúng tôi để được hỗ trợ.",
+      "2": "- Đường dây nóng: +8428xxxxxxxx",
+      "3": "- Email: info@arskybooks.io"
+    },
+    "part_2": {
+      "header": "2. Chuyển khoản ngân hàng",
+      "1": "Với phương thức này, sau khi đặt hàng thành công trên trang web, vui lòng hoàn tất thanh toán theo hướng dẫn.",
+      "2": "Sau khi thanh toán được thực hiện và Skybooks nhận được tiền, chúng tôi sẽ giao sản phẩm theo thời gian được quy định trong Chính sách Giao hàng."
+    },
+    "part_3": {
+      "1": "Nếu bạn có bất kỳ câu hỏi nào khác, vui lòng liên hệ:",
+      "2": "Đường dây nóng: +8428 xxxx xxxx",
+      "3": "Trang web: skybooks.xxx",
+      "4": "Email: info@skybooks.io",
+      "5": "Hãy bắt đầu mua sắm với Skybooks ngay."
+    }
+  },
+  "delivery_policy": {
+    "description": "Sản phẩm có thể được giao tận nơi trên toàn thế giới.",
+    "part_1": {
+      "header": "1. Thời gian Giao hàng",
+      "1": "Thời gian giao hàng nội địa sẽ mất khoảng 3-4 ngày.",
+      "2": "Đối với giao hàng quốc tế, có thể mất từ 1-2 tuần để sản phẩm đến nơi."
+    },
+    "part_2": {
+      "header": "2. Hủy đơn hàng",
+      "1": "Đơn hàng sẽ bị hủy nếu nhân viên của chúng tôi không thể liên hệ được với khách hàng sau 3 lần.",
+      "2": "Khách hàng có thể hủy đơn hàng mà không bị tính phí nếu đơn hàng chưa được gửi đi.",
+      "3": "Nếu đơn hàng đang trên đường giao hàng và bạn vẫn muốn hủy, thì chỉ có phí giao hàng sẽ được tính."
+    },
+    "part_3": {
+      "header": "3. Giao hàng quốc tế",
+      "1": "Đối với bất kỳ giao hàng nào nằm ngoài lãnh thổ của Việt Nam, vui lòng liên hệ với chúng tôi."
+    }
+  },
+  "exchange_policy": {
+    "part_1": {
+      "1": "Kính gửi quý khách hàng!",
+      "2": "Với mong muốn mang đến trải nghiệm mua sắm trực tuyến tốt nhất,",
+      "3": "Skybooks xin thông báo chính sách đổi/trả hàng của chúng tôi như sau:"
+    },
+    "part_2": {
+      "header": "1. Yêu cầu",
+      "1": "Skybooks chấp nhận đổi và trả hàng cho các trường hợp sau:",
+      "2": "- Sản phẩm bị hỏng trong quá trình vận chuyển.",
+      "3": "Ví dụ: sản phẩm bị va đập, rách, hỏng, sản phẩm không còn hình dáng ban đầu trong quá trình vận chuyển đến địa chỉ của bạn.",
+      "4": "- Sản phẩm bạn nhận được không giống như mô tả trên trang web hoặc từ người bán.",
+      "5": "Ví dụ: mã số, màu sắc, hoặc kích thước không đúng, v.v.",
+      "6": "- Nếu sản phẩm của bạn không nằm trong danh sách trên, chúng tôi có quyền từ chối yêu cầu đổi/trả hàng của bạn."
+    },
+    "part_3": {
+      "header": "2. Thời gian đổi/trả hàng",
+      "1": "Thời gian phụ thuộc vào khách hàng gửi sản phẩm hỏng đến địa chỉ của Skybooks và thời gian giao hàng từ công ty vận chuyển.",
+      "2": "Chúng tôi cam kết đổi hoặc trả sản phẩm càng sớm càng tốt."
+    },
+    "part_4": {
+      "header": "3. Quy định về đổi/trả hàng",
+      "1": "- Cùng mã: đổi hàng miễn phí",
+      "2": "- Mã sản phẩm khác nhưng có cùng giá: đổi hàng miễn phí",
+      "3": "- Nếu sản phẩm bạn muốn có giá trị cao hơn sản phẩm hiện tại của bạn (dựa trên hóa đơn): Bạn sẽ phải thanh toán số tiền bổ sung để có được sản phẩm mới theo công thức sau:",
+      "4": "Số tiền bổ sung = (giá trị sản phẩm mới) - (giá trị sản phẩm cũ)",
+      "5": "- Nếu sản phẩm bạn muốn có giá trị thấp hơn sản phẩm hiện tại của bạn (dựa trên hóa đơn): Bạn sẽ nhận được một khoản tiền theo công thức sau:",
+      "6": "Số tiền bạn nhận được = (giá trị sản phẩm cũ) - (giá trị sản phẩm mới)"
+    },
+    "part_5": {
+      "1": "Nếu bạn có bất kỳ câu hỏi nào khác, vui lòng liên hệ:",
+      "2": "Đường dây nóng: +8428 xxxx xxxx",
+      "3": "Trang web: skybooks.xxx",
+      "4": "Email: info@skybooks.io",
+      "5": "Hãy bắt đầu mua sắm với Skybooks ngay."
+    }
+  },
+  "about_us": {
+    "1": "Sau gần hai thập kỷ phát triển, các cửa hàng Skybooks của chúng tôi hiện đang là một chuỗi cửa hàng, bao gồm thủ đô Hà Nội, làng cổ biển cổ Hội An ở trung tâm của Việt Nam, và Thành phố Hồ Chí Minh, nơi bạn có thể tìm thấy sách về Việt Nam bằng ngôn ngữ nước ngoài và quà lưu niệm từ Việt Nam.",
+    "2": "Ngoài việc là nhà phân phối lớn sách tiếng nước ngoài về Việt Nam, Skybooks cũng là nhà phân phối chính thức của các nhà xuất bản nổi tiếng trên thế giới như Cambridge, Cengage, Elsevier, John Wiley, Pearson, McGraw-Hill, Macmillan, Springer, Hachette, Penguin, Random House, Simon & Schuster, Wordsworth, Phaidon, Taschen, Page One, APD, Berkeley…",
+    "3": "Các khách hàng cá nhân luôn là một phần quan trọng của chúng tôi, tuy nhiên, Skybooks tự hào là nhà cung cấp lâu dài cho các Đại học, Viện Nghiên cứu, các khu nghỉ dưỡng/khách sạn quốc tế nổi tiếng và điểm du lịch tại Việt Nam cũng như các nhà phân phối bán lẻ địa phương khác với sách giáo trình, sách tham khảo, sách về kiến trúc quốc tế, thiết kế đồ họa, nghệ thuật tinh tế và văn học, sách giới thiệu về đất nước và con người Việt Nam, cũng như các quà lưu niệm từ Việt Nam.",
+    "4": "Các cửa hàng Skybooks được đề cập nổi bật trong nhiều sách hướng dẫn du lịch cũng như trên các trang web du lịch là 'những điểm không thể bỏ qua khi bạn ở Việt Nam'. Các cửa hàng Skybooks đã trở thành điểm thường xuyên được ghé thăm của nhiều người dân địa phương cũng như du khách nước ngoài đến thăm.",
+    "5": "Ghé thăm Cửa hàng Skybooks cũng có nghĩa là bạn đang ghé thăm một không gian văn hóa Việt Nam ấm cúng, nơi khám phá về Việt Nam của bạn được thỏa mãn."
+  },
+  "stores": {
+    "part_1": {
+      "header": "- Hà Nội",
+      "1": "Số 1 Đâu Đó, Quận X, Hà Nội. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "2": "Số 1 Đâu Đó, Quận X, Hà Nội. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "3": "Số 1 Đâu Đó, Quận X, Hà Nội. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)"
+    },
+    "part_2": {
+      "header": "- Hồ Chí Minh",
+      "1": "Số 1 Đâu Đó, Quận X, Thành phố Hồ Chí Minh. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "2": "Số 1 Đâu Đó, Quận X, Thành phố Hồ Chí Minh. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "3": "Số 1 Đâu Đó, Quận X, Thành phố Hồ Chí Minh. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "4": "Số 1 Đâu Đó, Quận X, Thành phố Hồ Chí Minh. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)"
+    },
+    "part_3": {
+      "header": "- Hội An",
+      "1": "Số 1 Đâu Đó, Hội An, Quảng Nam. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)",
+      "2": "Số 1 Đâu Đó, Hội An, Quảng Nam. TEL: 84 028 xxxx xxxx - (09:00 - 18:00)"
+    }
+  },
+  "contact_info": {
+    "part_1": {
+      "1": "Địa chỉ chúng tôi",
+      "2": "Số 1 Đâu Đó, Quận X, Hà Nội",
+      "3": "Email chúng tôi",
+      "4": "INFO@SKYBOOKS.IO",
+      "5": "Điện thoại",
+      "6": "+84 28 xxxx xxxx",
+      "7": "Thời gian làm việc",
+      "8": "Thứ 2 đến Thứ 6 từ 8h30 đến 17h30"
+    },
+    "part_2": {
+      "header": "Gửi thắc mắc cho chúng tôi",
+      "fullname": "Tên của bạn",
+      "email": "Email của bạn",
+      "phone_number": "Số điện thoại của bạn",
+      "message": "Nội dung",
+      "submit": "Gửi cho chúng tôi"
+    }
+  },
+  "products": {
+    "search_product": "Tìm kiếm sản phẩm...",
+    "previous_label": "Trang trước",
+    "next_label": "Trang tiếp",
+    "supplier": "Nhà cung cấp",
+    "out_of_stock": "Hết hàng",
+    "add_to_cart": "Thêm vào giỏ hàng",
+    "description": "Mô tả",
+    "author": "Tác giả",
+    "format": "Định dạng",
+    "dimensions": "Kích thước",
+    "publish_date": "Ngày xuất bản",
+    "product_reviews": "Nhận xét sản phẩm",
+    "related_products": "Các sản phẩm liên quan"
+  }
+}
