@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
@@ -12,6 +13,8 @@ const Post = () => {
     setIsLoading(true);
     getAllPosts();
   }, []);
+
+  const [t, i18n] = useTranslation('global');
 
   if (isLoading) {
     return (
@@ -42,15 +45,17 @@ const Post = () => {
         >
           <div className="flex mx-40">
             <Breadcrumb.Item href="/" icon={HiHome}>
-              Home
+              {t('body.home')}
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="/posts">Blog</Breadcrumb.Item>
+            <Breadcrumb.Item href="/posts">{t('header.blog')}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
 
         <div className="mx-40 px-5 py-3 grid grid-cols-4">
           <div className="col-span-1 border-2 mt-4 mr-4 py-5">
-            <h3 className="text-center font-semibold uppercase mb-4">New Posts</h3>
+            <h3 className="text-center font-semibold uppercase mb-4">
+              {t('blog.new_posts')}
+            </h3>
 
             <hr />
 
@@ -72,7 +77,7 @@ const Post = () => {
           </div>
 
           <div className="col-span-3 mb-3">
-            <p className="text-3xl font-semibold my-5">Blog</p>
+            <p className="text-3xl font-semibold my-5">{t('header.blog')}</p>
 
             <div className="text-sm text-gray-900 space-y-8">
               {posts.map(p => {
@@ -94,7 +99,9 @@ const Post = () => {
                         {p.title}
                       </Link>
                       <p className="text-sm">
-                        <span className="text-gray-600">Written by {p.user.name} / </span>
+                        <span className="text-gray-600">
+                          {t('blog.written_by')} {p.user.name} /{' '}
+                        </span>
                         {new Date(p.createdAt).toDateString()}
                       </p>
                       <p className="text-sm">

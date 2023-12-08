@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
@@ -15,6 +15,8 @@ const PostDetails = () => {
     setIsLoading(true);
     getPostByAlias(alias);
   }, [alias]);
+
+  const [t, i18n] = useTranslation('global');
 
   if (isLoading) {
     return (
@@ -45,15 +47,15 @@ const PostDetails = () => {
         >
           <div className="flex mx-40">
             <Breadcrumb.Item href="/" icon={HiHome}>
-              Home
+              {t('body.home')}
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="/posts">Blog</Breadcrumb.Item>
+            <Breadcrumb.Item href="/posts">{t('header.blog')}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
 
         <div className="mx-40 px-5 py-3 grid grid-cols-4">
           <div className=" col-span-1 border-2 mt-4 mr-4 py-5">
-            <h3 className="text-center font-semibold uppercase mb-4">New Posts</h3>
+            <h3 className="text-center font-semibold uppercase mb-4">{t('blog.new_posts')}</h3>
 
             <hr />
 
@@ -77,7 +79,7 @@ const PostDetails = () => {
           <div className="col-span-3 my-8 space-y-4">
             <p className="text-center text-2xl font-medium">{post.title}</p>
             <p className="text-center text-sm">
-              <span className="text-gray-600">Written by {post.user.name} on </span>
+              <span className="text-gray-600">{t('blog.written_by')} {post.user.name} {t('blog.on')} </span>
               {new Date(post.createdAt).toDateString()}
             </p>
             <img src={`${post.imageCover}/`} alt="" />

@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb, Card, Pagination, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
@@ -16,6 +17,8 @@ const NewArrival = () => {
     setIsLoading(true);
     getAllProducts({ page: currentPage, limit: 12 });
   }, [currentPage]);
+
+  const [t, i18n] = useTranslation('global');
 
   if (isLoading) {
     return (
@@ -46,14 +49,16 @@ const NewArrival = () => {
         >
           <div className="flex mx-40">
             <Breadcrumb.Item href="/" icon={HiHome}>
-              Home
+              {t('body.home')}
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="/new-arrival">New Arrival</Breadcrumb.Item>
+            <Breadcrumb.Item href="/new-arrival">
+              {t('header.new_arrival')}
+            </Breadcrumb.Item>
           </div>
         </Breadcrumb>
 
         <div className="mx-40 px-6 py-4 mb-4 flex flex-col">
-          <p className="text-3xl font-semibold my-5">New Arrival</p>
+          <p className="text-3xl font-semibold my-5">{t('header.new_arrival')}</p>
 
           <ProductBar />
 
@@ -75,6 +80,8 @@ const NewArrival = () => {
             currentPage={currentPage}
             totalPages={Math.ceil(totalProducts / 12)}
             onPageChange={page => setCurrentPage(page)}
+            previousLabel={t('products.previous_label')}
+            nextLabel={t('products.next_label')}
             className="self-end"
             showIcons
           />

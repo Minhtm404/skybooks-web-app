@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb, Button, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
@@ -22,6 +23,8 @@ const Cart = () => {
     cartItemSetIsLoading(true);
     getAllCartItems();
   }, []);
+
+  const [t, i18n] = useTranslation('global');
 
   const increaseValue = async (cartItemId, currentQuantity) => {
     await updateCartItem({ cartItemId, quantity: currentQuantity + 1 });
@@ -66,22 +69,22 @@ const Cart = () => {
         >
           <div className="flex mx-40">
             <Breadcrumb.Item href="/" icon={HiHome}>
-              Home
+              {t('body.home')}
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="/account">Account</Breadcrumb.Item>
-            <Breadcrumb.Item>Cart</Breadcrumb.Item>
+            <Breadcrumb.Item href="/account">{t('header.account')}</Breadcrumb.Item>
+            <Breadcrumb.Item>{t('header.cart')}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
 
         <div className="mx-40 mb-20 px-5 py-3">
           <div>
-            <p className="text-3xl font-semibold text-center my-4">Your cart</p>
+            <p className="text-3xl font-semibold text-center my-4">
+              {t('cart.your_cart')}
+            </p>
             <p className="text-center mb-8">
-              Have {cartItems.reduce((count, item) => count + item.quantity, 0)} product
-              {cartItems.reduce((count, item) => count + item.quantity, 0) > 1
-                ? 's'
-                : ''}{' '}
-              in your cart
+              {t('cart.products_in_cart', {
+                number: cartItems.reduce((count, item) => count + item.quantity, 0)
+              })}
             </p>
           </div>
 
@@ -135,7 +138,7 @@ const Cart = () => {
             <div className="mt-4 mb-4">
               <div className="flex justify-end items-center mt-4">
                 <p className="text-lg">
-                  Total:
+                  {t('cart.total')}:
                   <span className="text-3xl font-bold">
                     {' '}
                     {(
@@ -153,7 +156,7 @@ const Cart = () => {
 
             <div className=" flex flex-row justify-end gap-2 mt-8">
               <Button as={Link} to={`/account/checkout`} className="w-fit uppercase">
-                Check Out
+                {t('cart.check_out')}
               </Button>
             </div>
           </div>

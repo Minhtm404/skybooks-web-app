@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
@@ -11,6 +12,8 @@ const ForgotPassword = () => {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState(undefined);
+
+  const [t, i18n] = useTranslation('global');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -42,18 +45,18 @@ const ForgotPassword = () => {
       )}
 
       <h3 className="text-4xl font-bold text-center text-gray-900 dark:text-white">
-        Reset your password
+        {t('reset_password.header')}
       </h3>
 
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="email" value="Your email" />
+          <Label htmlFor="email" value={t('reset_password.your_email')} />
         </div>
         <TextInput
           id="email"
           name="email"
           type="email"
-          placeholder="Enter your email"
+          placeholder={t('reset_password.placeholder_email')}
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
@@ -69,11 +72,11 @@ const ForgotPassword = () => {
               <Spinner aria-label="Alternate spinner button example" size="sm" />
             )}
 
-            <span>Submit</span>
+            <span>{t('reset_password.submit_button')}</span>
           </div>
         </Button>
         <Button color="light" as={Link} to="/account/login">
-          Cancel
+        {t('reset_password.cancel_button')}
         </Button>
       </div>
     </form>

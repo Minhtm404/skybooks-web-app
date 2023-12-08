@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   Avatar,
   Button,
@@ -59,6 +60,8 @@ const CheckOut = () => {
     getAllCartItems();
   }, []);
 
+  const [t, i18n] = useTranslation('global');
+
   const handleSubmit = async e => {
     e.preventDefault();
 
@@ -113,7 +116,7 @@ const CheckOut = () => {
 
         <div className="mt-4 grid grid-cols-2">
           <div className="mr-8">
-            <p>Delivery info</p>
+            <p>{t('cart.delivery_info')}</p>
 
             <div className="mt-4 flex items-center gap-2">
               <Avatar size="md" />
@@ -127,13 +130,13 @@ const CheckOut = () => {
               <div className="border rounded p-4 space-y-4">
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="name" value="Name" />
+                    <Label htmlFor="name" value={t('cart.name')} />
                   </div>
                   <TextInput
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="Enter name"
+                    placeholder={t('cart.placeholder_name')}
                     value={name}
                     onChange={e => setName(e.target.value)}
                     required
@@ -142,13 +145,13 @@ const CheckOut = () => {
 
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="phoneNumber" value="Phone number" />
+                    <Label htmlFor="phoneNumber" value={t('cart.phone_number')} />
                   </div>
                   <TextInput
                     id="phoneNumber"
                     name="phoneNumber"
                     type="text"
-                    placeholder="Enter phone number"
+                    placeholder={t('cart.placeholder_phone_number')}
                     value={phoneNumber}
                     onChange={e => setPhoneNumber(e.target.value)}
                     required
@@ -158,7 +161,7 @@ const CheckOut = () => {
 
               <div className="border rounded p-4">
                 <fieldset className="flex max-w-md flex-col gap-4">
-                  <legend className="mb-4 text-sm">Delivery method</legend>
+                  <legend className="mb-4 text-sm">{t('cart.delivery_method')}</legend>
                   <div className="flex items-center gap-2">
                     <Radio
                       id="delivery"
@@ -169,19 +172,19 @@ const CheckOut = () => {
                         setDeliveryCheck(true);
                       }}
                     />
-                    <Label htmlFor="delivery">Delivery</Label>
+                    <Label htmlFor="delivery">{t('cart.delivery')}</Label>
                   </div>
 
                   {deliveryCheck && (
                     <div>
                       <div className="mb-2 block">
-                        <Label htmlFor="address" value="Address" />
+                        <Label htmlFor="address" value={t('cart.address')} />
                       </div>
                       <Textarea
                         id="address"
                         name="address"
                         type="text"
-                        placeholder="Enter address"
+                        placeholder={t('cart.placeholder_address')}
                         rows={4}
                         value={address}
                         onChange={e => setAddress(e.target.value)}
@@ -201,24 +204,24 @@ const CheckOut = () => {
                         setAddress(undefined);
                       }}
                     />
-                    <Label htmlFor="store">Receive at our store</Label>
+                    <Label htmlFor="store">{t('cart.receive_at_store')}</Label>
                   </div>
                 </fieldset>
               </div>
 
               <div className="border rounded p-4">
                 <fieldset className="flex max-w-md flex-col gap-4">
-                  <legend className="mb-4 text-sm">Payment method</legend>
+                  <legend className="mb-4 text-sm">{t('cart.payment_method')}</legend>
                   <div className="flex items-center gap-2">
                     <Radio id="delivery" name="payment" value="Delivery" checked={true} />
-                    <Label htmlFor="delivery">Cash on delivery (COD)</Label>
+                    <Label htmlFor="delivery">{t('cart.cod')}</Label>
                   </div>
                 </fieldset>
               </div>
 
               <div className="flex justify-between">
                 <Button as={Link} to={'/account/cart'} color="light">
-                  Cart
+                  {t('cart.header')}
                 </Button>
                 <Button type="submit">
                   <div className="flex flex-row gap-2">
@@ -227,7 +230,7 @@ const CheckOut = () => {
                     ) : (
                       <Spinner aria-label="Alternate spinner button example" size="sm" />
                     )}
-                    <span> Complete order</span>
+                    <span>{t('cart.complete_order')}</span>
                   </div>
                 </Button>
               </div>
@@ -235,7 +238,7 @@ const CheckOut = () => {
           </div>
 
           <div className="ml-8">
-            <p>Product list</p>
+            <p>{t('cart.product_list')}</p>
 
             <div className="mt-4 items-center gap-2">
               {cartItems.map(item => (
@@ -272,21 +275,21 @@ const CheckOut = () => {
                 id="promoCode"
                 name="promoCode"
                 type="text"
-                placeholder="Promotion code"
+                placeholder={t('cart.promo_code')}
                 className="py-2 w-full col-span-3"
                 value={code}
                 onInput={e => {
                   setCode(e.target.value.toUpperCase());
                 }}
               />
-              <Button className="col-span-1">Apply</Button>
+              <Button className="col-span-1">{t('cart.apply_code_button')}</Button>
             </div>
 
             <hr />
 
             <div className="my-6 space-y-2">
               <div className="flex justify-between">
-                <p className="text-gray-500 text-sm">Amount</p>
+                <p className="text-gray-500 text-sm">{t('cart.amount')}</p>
                 <p className="text-sm">
                   {(
                     cartItems.reduce(
@@ -300,7 +303,7 @@ const CheckOut = () => {
               </div>
 
               <div className="flex justify-between">
-                <p className="text-gray-500 text-sm">Delivery fee</p>
+                <p className="text-gray-500 text-sm">{t('cart.delivery_fee')}</p>
                 <p className="text-sm">
                   {!deliveryCheck
                     ? '---'
@@ -317,7 +320,7 @@ const CheckOut = () => {
             <hr />
 
             <div className="flex justify-between mt-6">
-              <p>Total</p>
+              <p>{t('cart.total')}</p>
               <p className="text-2xl font-medium">
                 {(
                   (cartItems.reduce(

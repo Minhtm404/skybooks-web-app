@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button, Label, Modal, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation, HiOutlineExclamationCircle } from 'react-icons/hi';
 
@@ -64,6 +65,8 @@ const Account = () => {
     }
   }, [isAuthenticated]);
 
+  const [t, i18n] = useTranslation('global');
+
   if (isLoading) {
     return (
       <div className="relative w-full h-screen flex justify-center items-center">
@@ -93,17 +96,19 @@ const Account = () => {
           <div className="flex flex-wrap justify-center gap-1">
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-xl w-full pt-8 m-6">
               <form className="space-y-6" onSubmit={handleUpdateData}>
-                <h3 className="text-2xl font-medium text-gray-900">Update user data</h3>
+                <h3 className="text-2xl font-medium text-gray-900">
+                  {t('account.account_info')}
+                </h3>
 
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="name" value="Your name" />
+                    <Label htmlFor="name" value={t('account.your_name')} />
                   </div>
                   <TextInput
                     id="name"
                     name="name"
                     type="text"
-                    placeholder="Enter your name"
+                    placeholder={t('account.placeholder_name')}
                     className="md:w-1/2 sm:w-full"
                     value={name}
                     onChange={e => setName(e.target.value)}
@@ -112,13 +117,13 @@ const Account = () => {
                 </div>
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="email" value="Your email" />
+                    <Label htmlFor="email" value={t('account.your_email')} />
                   </div>
                   <TextInput
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder={t('account.placeholder_email')}
                     className="md:w-1/2 sm:w-full"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
@@ -127,13 +132,13 @@ const Account = () => {
                 </div>
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="phoneNumber" value="Your phone number" />
+                    <Label htmlFor="phoneNumber" value={t('account.your_phone')} />
                   </div>
                   <TextInput
                     id="phoneNumber"
                     name="phoneNumber"
                     type="tel"
-                    placeholder="Enter your phone number"
+                    placeholder={t('account.placeholder_phone')}
                     className="md:w-1/2 sm:w-full"
                     value={phoneNumber}
                     onChange={e => setPhoneNumber(e.target.value)}
@@ -142,13 +147,13 @@ const Account = () => {
                 </div>
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="address" value="Your address" />
+                    <Label htmlFor="address" value={t('account.your_address')} />
                   </div>
                   <TextInput
                     id="address"
                     name="address"
                     type="text"
-                    placeholder="Enter your address"
+                    placeholder={t('account.placeholder_address')}
                     className="md:w-1/2 sm:w-full"
                     value={address}
                     onChange={e => setAddress(e.target.value)}
@@ -157,7 +162,7 @@ const Account = () => {
                 </div>
 
                 <div className="flex flex-row justify-end">
-                  <Button type="submit">Update data</Button>
+                  <Button type="submit"> {t('account.update_data_button')}</Button>
                 </div>
               </form>
             </div>
@@ -165,17 +170,20 @@ const Account = () => {
             <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-xl w-full pt-8 m-6">
               <form className="space-y-6" onSubmit={handleUpdatePassword}>
                 <h3 className="text-2xl font-medium text-gray-900 dark:text-white">
-                  Update password
+                  {t('account.update_password')}
                 </h3>
 
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="currentPassword" value="Current pasword" />
+                    <Label
+                      htmlFor="currentPassword"
+                      value={t('account.current_password')}
+                    />
                   </div>
                   <TextInput
                     id="currentPassword"
                     type="password"
-                    placeholder="Enter your current password"
+                    placeholder={t('account.placeholder_current_password')}
                     className="md:w-1/2 sm:w-full"
                     value={passwordCurrent}
                     onChange={e => setPasswordCurrent(e.target.value)}
@@ -184,12 +192,12 @@ const Account = () => {
                 </div>
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="newPassword" value="New password" />
+                    <Label htmlFor="newPassword" value={t('account.new_password')} />
                   </div>
                   <TextInput
                     id="newPassword"
                     type="password"
-                    placeholder="Enter your new password"
+                    placeholder={t('account.placeholder_new_password')}
                     className="md:w-1/2 sm:w-full"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
@@ -198,12 +206,15 @@ const Account = () => {
                 </div>
                 <div>
                   <div className="mb-2 block">
-                    <Label htmlFor="confirmPassword" value="Confirm password" />
+                    <Label
+                      htmlFor="confirmPassword"
+                      value={t('account.confirm_password')}
+                    />
                   </div>
                   <TextInput
                     id="confirmPassword"
                     type="password"
-                    placeholder="Enter your confirm password"
+                    placeholder={t('account.placeholder_confirm_password')}
                     className="md:w-1/2 sm:w-full"
                     value={passwordConfirm}
                     onChange={e => {
@@ -212,9 +223,7 @@ const Account = () => {
                     }}
                     helperText={
                       comparePassword ? undefined : (
-                        <span className="text-red-600">
-                          Your password and confirm password must match.
-                        </span>
+                        <span className="text-red-600">{t('account.compare_error')}</span>
                       )
                     }
                     required
@@ -222,7 +231,7 @@ const Account = () => {
                 </div>
 
                 <div className="flex flex-row justify-end">
-                  <Button type="submit">Update password</Button>
+                  <Button type="submit">{t('account.update_password_button')}</Button>
                 </div>
               </form>
             </div>
@@ -235,14 +244,14 @@ const Account = () => {
             <div className="text-center">
               <HiOutlineExclamationCircle className="mx-auto mb-4 h-14 w-14 text-gray-400 dark:text-gray-200" />
               <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
-                Are you sure you want to delete this account?
+                {t('account.delete_modal')}
               </h3>
               <div className="flex justify-center gap-4">
                 <Button color="failure" onClick={() => handleDeleteAccount()}>
-                  {"Yes, I'm sure"}
+                  {t('account.delete_confirm')}
                 </Button>
                 <Button color="gray" onClick={() => setOpenModal(false)}>
-                  No, cancel
+                  {t('account.delete_cancel')}
                 </Button>
               </div>
             </div>

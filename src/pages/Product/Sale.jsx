@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Breadcrumb, Card, Pagination, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
@@ -16,6 +17,8 @@ const Sale = () => {
     setIsLoading(true);
     getAllProducts({ page: currentPage, limit: 100 });
   }, []);
+
+  const [t, i18n] = useTranslation('global');
 
   if (isLoading) {
     return (
@@ -46,14 +49,14 @@ const Sale = () => {
         >
           <div className="flex mx-40">
             <Breadcrumb.Item href="/" icon={HiHome}>
-              Home
+              {t('body.home')}
             </Breadcrumb.Item>
-            <Breadcrumb.Item href="/sale">Sale</Breadcrumb.Item>
+            <Breadcrumb.Item href="/sale">{t('header.sale')}</Breadcrumb.Item>
           </div>
         </Breadcrumb>
 
         <div className="mx-40 px-6 py-4 mb-4 flex flex-col">
-          <p className="text-3xl font-semibold my-5">Sale</p>
+          <p className="text-3xl font-semibold my-5">{t('header.sale')}</p>
 
           <ProductBar />
 
@@ -80,6 +83,8 @@ const Sale = () => {
               products.filter(p => p.discount && p.discount > 0).length / 10
             )}
             onPageChange={page => setCurrentPage(page)}
+            previousLabel={t('products.previous_label')}
+            nextLabel={t('products.next_label')}
             className="self-end"
             showIcons
           />

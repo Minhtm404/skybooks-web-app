@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Badge, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
@@ -16,6 +17,8 @@ const OrderDetails = () => {
     setIsLoading(true);
     getOrder(id);
   }, []);
+
+  const [t, i18n] = useTranslation('global');
 
   if (isLoading) {
     return (
@@ -44,51 +47,59 @@ const OrderDetails = () => {
 
         <div className="col-span-3 m-16 pt-8 space-y-12">
           <p className="text-2xl font-medium text-gray-900 flex items-center gap-2">
-            Order details {`#${order._id}`}
+            {t('orders.order_details')} {`#${order._id}`}
             {' - '}
-            <Badge className="w-fit capitalize">{order.orderStatus}</Badge>
+            <Badge className="w-fit capitalize">{t(`orders.${order.orderStatus}`)}</Badge>
           </p>
 
           <div className="grid grid-cols-3 gap-4">
             <div className="space-y-2">
-              <p className="uppercase text-xs font-semibold">Address</p>
+              <p className="uppercase text-xs font-semibold">{t('orders.address')}</p>
               <div className="border rounded p-2 bg-gray-50 h-full">
                 <p className="uppercase text-sm font-bold">{order.name}</p>
                 {order.address ? (
-                  <p className="text-sm">{`Address: ${order.address}`}</p>
+                  <p className="text-sm">
+                    {t('orders.address')}: {order.address}
+                  </p>
                 ) : (
                   <></>
                 )}
-                <p className="text-sm">{`Phone number: ${order.phoneNumber}`}</p>
+                <p className="text-sm">
+                  {t('orders.phone_number')}: {order.phoneNumber}
+                </p>
               </div>
             </div>
 
             <div className="space-y-2">
-              <p className="uppercase text-xs font-semibold">Delivery</p>
+              <p className="uppercase text-xs font-semibold">
+                {t('orders.delivery_status')}
+              </p>
               <div className="border rounded p-2 bg-gray-50 h-full">
                 {order.address ? (
-                  <p className="text-sm">Deliver by Skybooks's shippers</p>
+                  <p className="text-sm">{t('orders.delivery_by_skybooks')}</p>
                 ) : (
-                  <p className="text-sm">Receive at our store</p>
+                  <p className="text-sm">{t('orders.receive_at_store')}</p>
                 )}
               </div>
             </div>
 
             <div className="space-y-2">
-              <p className="uppercase text-xs font-semibold">Payment</p>
+              <p className="uppercase text-xs font-semibold">
+                {t('orders.payment_status')}
+              </p>
               <div className="border rounded p-2 bg-gray-50 h-full">
-                <p className="text-sm">Cash on delivery</p>
+                <p className="text-sm">{t('orders.cod')}</p>
                 <p className="text-sm italic">
                   {order.paymentStatus === true
-                    ? 'This order has been paid'
-                    : 'Please pay upon receipt'}
+                    ? t('orders.paid_order')
+                    : t('orders.unpaid_order')}
                 </p>
               </div>
             </div>
           </div>
 
           <div className="mt-6 space-y-2 border rounded p-4">
-            <p>Products</p>
+            <p>{t('orders.products')}</p>
 
             <hr />
 
@@ -124,14 +135,14 @@ const OrderDetails = () => {
 
             <div className="my-6 space-y-2">
               <div className="flex justify-between">
-                <p className="text-gray-500 text-sm">Amount</p>
+                <p className="text-gray-500 text-sm">{t('orders.amount')}</p>
                 <p className="text-sm">
                   {Number(order.price).toLocaleString().concat('₫')}
                 </p>
               </div>
 
               <div className="flex justify-between">
-                <p className="text-gray-500 text-sm">Delivery fee</p>
+                <p className="text-gray-500 text-sm">{t('orders.delivery_fee')}</p>
                 <p className="text-sm">---</p>
               </div>
             </div>
@@ -139,7 +150,7 @@ const OrderDetails = () => {
             <hr />
 
             <div className="flex justify-between mt-6">
-              <p>Total</p>
+              <p>{t('orders.total')}</p>
               <p className="text-2xl font-medium">
                 {Number(order.price).toLocaleString().concat('₫')}
               </p>

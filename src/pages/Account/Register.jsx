@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
@@ -14,6 +15,8 @@ const Register = () => {
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
   const [passwordConfirm, setPasswordConfirm] = useState(undefined);
+
+  const [t, i18n] = useTranslation('global');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -45,18 +48,18 @@ const Register = () => {
       )}
 
       <h3 className="text-4xl font-bold text-center text-gray-900 dark:text-white">
-        Register
+        {t('register.header')}
       </h3>
 
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="name" value="Your name" />
+          <Label htmlFor="name" value={t('register.your_name')} />
         </div>
         <TextInput
           id="name"
           name="name"
           type="text"
-          placeholder="Name"
+          placeholder={t('register.placeholder_name')}
           value={name}
           onChange={e => setName(e.target.value)}
           required
@@ -64,13 +67,13 @@ const Register = () => {
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="email" value="Your email" />
+          <Label htmlFor="email" value={t('register.your_email')} />
         </div>
         <TextInput
           id="email"
           name="email"
           type="email"
-          placeholder="Email"
+          placeholder={t('register.placeholder_email')}
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
@@ -78,13 +81,13 @@ const Register = () => {
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="password" value="Your password" />
+          <Label htmlFor="password" value={t('register.your_password')} />
         </div>
         <TextInput
           id="password"
           name="password"
           type="password"
-          placeholder="Password"
+          placeholder={t('register.placeholder_password')}
           minLength={8}
           value={password}
           onChange={e => setPassword(e.target.value)}
@@ -93,13 +96,13 @@ const Register = () => {
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="Confirm" value="Confirm password" />
+          <Label htmlFor="Confirm" value={t('register.confirm_password')} />
         </div>
         <TextInput
           id="passwordConfirm"
           name="passwordConfirm"
           type="password"
-          placeholder="Confirm password"
+          placeholder={t('register.placeholder_confirm_password')}
           minLength={8}
           value={passwordConfirm}
           onChange={e => setPasswordConfirm(e.target.value)}
@@ -116,11 +119,11 @@ const Register = () => {
               <Spinner aria-label="Alternate spinner button example" size="sm" />
             )}
 
-            <span>Register</span>
+            <span>{t('register.register_button')}</span>
           </div>
         </Button>
         <Button color="light" as={Link} to="/account/login">
-          Back
+          {t('register.back_button')}
         </Button>
       </div>
     </form>

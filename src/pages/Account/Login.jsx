@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button, Checkbox, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
@@ -19,6 +20,8 @@ const Login = () => {
       navigate(-1);
     }
   });
+
+  const [t, i18n] = useTranslation('global');
 
   const handleSubmit = async e => {
     e.preventDefault();
@@ -50,18 +53,18 @@ const Login = () => {
       )}
 
       <h3 className="text-4xl font-bold text-center text-gray-900 dark:text-white">
-        Login
+        {t('login.header')}
       </h3>
 
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="email" value="Your email" />
+          <Label htmlFor="email" value={t('login.your_email')} />
         </div>
         <TextInput
           id="email"
           name="email"
           type="email"
-          placeholder="Enter your email"
+          placeholder={t('login.placeholder_email')}
           value={email}
           onChange={e => setEmail(e.target.value)}
           required
@@ -69,7 +72,7 @@ const Login = () => {
       </div>
       <div>
         <div className="mb-2 block">
-          <Label htmlFor="password" value="Your password" />
+          <Label htmlFor="password" value={t('login.your_password')} />
         </div>
         <TextInput
           id="password"
@@ -84,13 +87,13 @@ const Login = () => {
       <div className="flex justify-between">
         <div className="flex items-center gap-2">
           <Checkbox id="remember" />
-          <Label htmlFor="remember">Remember me</Label>
+          <Label htmlFor="remember">{t('login.remember_me')}</Label>
         </div>
         <Link
           to="/account/forgot-password"
           className="text-sm text-cyan-700 hover:underline dark:text-cyan-500"
         >
-          Lost Password?
+          {t('login.lost_password')}
         </Link>
       </div>
       <div className="w-full">
@@ -102,17 +105,17 @@ const Login = () => {
               <Spinner aria-label="Alternate spinner button example" size="sm" />
             )}
 
-            <span>Log in to your account</span>
+            <span>{t('login.login_button')}</span>
           </div>
         </Button>
       </div>
       <div className="flex justify-between text-sm font-medium text-gray-500 dark:text-gray-300">
-        Not registered?&nbsp;
+        {t('login.not_registered')}&nbsp;
         <Link
           to="/account/register"
           className="text-cyan-700 hover:underline dark:text-cyan-500"
         >
-          Create account
+          {t('login.create_account')}
         </Link>
       </div>
     </form>

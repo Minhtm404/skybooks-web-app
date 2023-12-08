@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Badge, Button, Label, Spinner, TextInput, Toast } from 'flowbite-react';
 import { HiExclamation } from 'react-icons/hi';
 
@@ -34,6 +35,8 @@ const Orders = () => {
     getAllOrders();
   }, [isAuthenticated]);
 
+  const [t, i18n] = useTranslation('global');
+
   if (isLoading || orderIsLoading) {
     return (
       <div className="relative w-full h-screen flex justify-center items-center">
@@ -60,12 +63,16 @@ const Orders = () => {
         <UserSidebar />
 
         <div className="col-span-3 m-16 pt-8">
-          <p className="text-2xl font-medium text-gray-900">My orders</p>
+          <p className="text-2xl font-medium text-gray-900">
+            {t('orders.header')}
+          </p>
 
           <div className="mt-6 space-y-6">
             {orders.map(o => (
               <div className="border rounded p-4 space-y-4">
-                <Badge className="capitalize w-fit">{o.orderStatus}</Badge>
+                <Badge className="capitalize w-fit">
+                  {t(`orders.${o.orderStatus}`)}
+                </Badge>
 
                 <hr />
 
@@ -91,7 +98,7 @@ const Orders = () => {
                 <hr />
 
                 <div className="flex justify-between mt-6">
-                  <p>Total</p>
+                  <p>{t('orders.total')}</p>
 
                   <div className="flex flex-col items-end gap-2">
                     <p className="text-2xl font-medium">
@@ -99,7 +106,7 @@ const Orders = () => {
                     </p>
 
                     <Button as={Link} to={`/account/orders/${o._id}`} color="light">
-                      Details
+                    {t('orders.details')}
                     </Button>
                   </div>
                 </div>

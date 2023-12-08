@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Button } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { MdOutlineCancel } from 'react-icons/md';
@@ -10,6 +11,8 @@ const Cart = ({ cartItems = [], closeCart }) => {
   const { updateCartItem, deleteCartItem } = useContext(CartItemContext);
 
   const navigate = useNavigate();
+
+  const [t, i18n] = useTranslation('global');
 
   const increaseValue = async (cartItemId, currentQuantity) => {
     await updateCartItem({ cartItemId, quantity: currentQuantity + 1 });
@@ -41,7 +44,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
     <div className="bg-half-transparent w-full h-full fixed top-0 right-0 p-0 overflow-y-scroll">
       <div className="float-right h-fit duration-1000 ease-in-out transition-all bg-gray-50 md:w-96 p-8">
         <div className="flex justify-between items-center">
-          <p className="font-semibold text-lg">Cart</p>
+          <p className="font-semibold text-lg">{t('cart.header')}</p>
           <button
             type="button"
             onClick={() => closeCart()}
@@ -64,7 +67,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
               <div>
                 <div className="flex justify-between">
                   <p className="font-semibold ">
-                    {item.product?.name ?? 'This product no longer exist'}
+                    {item.product?.name ?? t('cart.product_not_exist')}
                   </p>
                   <button onClick={() => handleDelete(item._id)}>
                     <MdOutlineCancel />
@@ -100,7 +103,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
 
         <div className="mt-3 mb-3">
           <div className="flex justify-between items-center mt-3">
-            <p className="text-gray-500 dark:text-gray-200">Total</p>
+            <p className="text-gray-500 dark:text-gray-200">{t('cart.total')}</p>
             <p className="font-semibold">
               {(
                 cartItems.reduce(
@@ -116,10 +119,10 @@ const Cart = ({ cartItems = [], closeCart }) => {
 
         <div className=" flex flex-row gap-2 mt-4">
           <Button color="light" className="w-full uppercase" onClick={handleViewCart}>
-            View Cart
+            {t('cart.view_cart')}
           </Button>
           <Button className="w-full uppercase" onClick={handleCheckOut}>
-            Check Out
+            {t('cart.check_out')}
           </Button>
         </div>
       </div>
