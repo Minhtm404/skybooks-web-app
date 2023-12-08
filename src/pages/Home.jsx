@@ -62,9 +62,9 @@ const Home = () => {
 
         <div style={{ height: 900 }}>
           <Carousel indicators={false} className="h-full">
-            <img src="fullsizerender_19_be8a22897dfe4aa58443693d6de2da47.jpg" alt="" />
-            <img src="sale_off_banner_b7d0caf598e7497d99bbccb25c6c9ede.jpg" alt="" />
-            <img src="sale_off_banner2_f6407ef7175147969589848aceecef39.jpg" alt="" />
+            <img src="/fullsizerender_19_be8a22897dfe4aa58443693d6de2da47.jpg" alt="" />
+            <img src="/sale_off_banner_b7d0caf598e7497d99bbccb25c6c9ede.jpg" alt="" />
+            <img src="/sale_off_banner2_f6407ef7175147969589848aceecef39.jpg" alt="" />
           </Carousel>
         </div>
 
@@ -142,7 +142,7 @@ const Home = () => {
               }}
             >
               <img
-                src={`about_us_489a2488ef21403788714cb33dbe16ca.jpg`}
+                src={`/about_us_489a2488ef21403788714cb33dbe16ca.jpg`}
                 alt="Background"
                 style={{ display: 'block', width: '100%', height: 'auto' }}
               />
@@ -178,7 +178,7 @@ const Home = () => {
               }}
             >
               <img
-                src={`about_us_489a2488ef21403788714cb33dbe16ca.jpg`}
+                src={`/about_us_489a2488ef21403788714cb33dbe16ca.jpg`}
                 alt="Background"
                 style={{ display: 'block', width: '100%', height: 'auto' }}
               />

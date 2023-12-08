@@ -92,7 +92,8 @@ const Cart = () => {
               <div className="flex items-center leading-8 gap-4 border-b-2 p-4">
                 <img
                   className="rounded-lg h-24 w-20"
-                  src={`${item.product?.imageCover}/-/preview/130x130/-/quality/smart_retina/-/format/auto/`}    alt=""
+                  src={`${item.product?.imageCover}/-/preview/130x130/-/quality/smart_retina/-/format/auto/`}
+                  alt=""
                 />
                 <div className="w-full">
                   <div className="flex justify-between">
