@@ -121,7 +121,7 @@ const OrderDetails = () => {
                       </p>
 
                       <p className="text-sm">
-                        {(product.quantity * product.product.price)
+                        {(product.quantity * product.product.priceDiscount)
                           .toLocaleString()
                           .concat('₫')}
                       </p>
@@ -137,7 +137,7 @@ const OrderDetails = () => {
               <div className="flex justify-between">
                 <p className="text-gray-500 text-sm">{t('orders.amount')}</p>
                 <p className="text-sm">
-                  {Number(order.price).toLocaleString().concat('₫')}
+                  {Number(order.priceDiscount).toLocaleString().concat('₫')}
                 </p>
               </div>
 
@@ -152,7 +152,7 @@ const OrderDetails = () => {
             <div className="flex justify-between mt-6">
               <p>{t('orders.total')}</p>
               <p className="text-2xl font-medium">
-                {Number(order.price).toLocaleString().concat('₫')}
+                {Number(order.priceDiscount).toLocaleString().concat('₫')}
               </p>
             </div>
           </div>

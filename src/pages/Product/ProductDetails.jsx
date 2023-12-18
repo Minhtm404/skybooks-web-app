@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useOutletContext, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Breadcrumb, Button, Spinner, Toast } from 'flowbite-react';
+import { Badge, Breadcrumb, Button, Spinner, Toast } from 'flowbite-react';
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
@@ -122,10 +122,23 @@ const ProductDetails = () => {
 
             <hr />
 
-            <div>
+            <div className="flex gap-2">
               <p className="font-bold" style={{ color: '#0e7490' }}>
-                {product.price?.toLocaleString().concat('₫')}
+                {product.priceDiscount?.toLocaleString().concat('₫')}{' '}
               </p>
+              {product.discount ? (
+                <div className="flex gap-2">
+                  <p className="line-through text-gray-500">
+                    {product.price?.toLocaleString().concat('₫')}
+                  </p>
+                  <Badge
+                    color="failure"
+                    className="w-fit"
+                  >{`-${product.discount}%`}</Badge>
+                </div>
+              ) : (
+                <></>
+              )}
             </div>
 
             <hr />

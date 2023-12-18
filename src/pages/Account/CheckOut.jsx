@@ -72,11 +72,11 @@ const CheckOut = () => {
       address: deliveryCheck ? address : undefined,
       products: cartItems,
       price:
-        (cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) ??
+        (cartItems.reduce((sum, item) => sum + item.product.priceDiscount * item.quantity, 0) ??
           0) +
         (!deliveryCheck
           ? 0
-          : cartItems.reduce((sum, item) => sum + item.product.price * item.quantity, 0) >
+          : cartItems.reduce((sum, item) => sum + item.product.priceDiscount * item.quantity, 0) >
             500000
           ? 0
           : 50000)
@@ -258,7 +258,7 @@ const CheckOut = () => {
                       </p>
 
                       <p className="text-sm">
-                        {(item.quantity * item.product.price)
+                        {(item.quantity * item.product.priceDiscount)
                           .toLocaleString()
                           .concat('₫')}
                       </p>
@@ -293,7 +293,7 @@ const CheckOut = () => {
                 <p className="text-sm">
                   {(
                     cartItems.reduce(
-                      (sum, item) => sum + item.product.price * item.quantity,
+                      (sum, item) => sum + item.product.priceDiscount * item.quantity,
                       0
                     ) ?? 0
                   )
@@ -308,7 +308,7 @@ const CheckOut = () => {
                   {!deliveryCheck
                     ? '---'
                     : cartItems.reduce(
-                        (sum, item) => sum + item.product.price * item.quantity,
+                        (sum, item) => sum + item.product.priceDiscount * item.quantity,
                         0
                       ) > 500000
                     ? '---'
@@ -324,13 +324,13 @@ const CheckOut = () => {
               <p className="text-2xl font-medium">
                 {(
                   (cartItems.reduce(
-                    (sum, item) => sum + item.product.price * item.quantity,
+                    (sum, item) => sum + item.product.priceDiscount * item.quantity,
                     0
                   ) ?? 0) +
                   (!deliveryCheck
                     ? 0
                     : cartItems.reduce(
-                        (sum, item) => sum + item.product.price * item.quantity,
+                        (sum, item) => sum + item.product.priceDiscount * item.quantity,
                         0
                       ) > 500000
                     ? 0

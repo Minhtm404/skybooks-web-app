@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { Breadcrumb, Card, Pagination, Spinner, Toast } from 'flowbite-react';
+import { Badge, Breadcrumb, Card, Pagination, Spinner, Toast } from 'flowbite-react';
 import { HiExclamation, HiHome } from 'react-icons/hi';
 
 import { Context as ProductContext } from '../../contexts/ProductContext';
@@ -72,9 +72,23 @@ const Products = () => {
                 href={`/products/${p.slug}`}
               >
                 <p className="uppercase text-sm">{p.name}</p>
-                <p className="text-sm font-semibold">
-                  {p.price?.toLocaleString().concat('₫')}
-                </p>
+                <div>
+                  <p className="text-sm font-semibold flex gap-2">
+                    {p.priceDiscount?.toLocaleString().concat('₫')}
+                    {p.discount ? (
+                      <Badge color="failure" className="w-fit">{`-${p.discount}%`}</Badge>
+                    ) : (
+                      <></>
+                    )}
+                  </p>
+                  {p.discount ? (
+                    <p className="text-sm line-through text-gray-500">
+                      {p.price?.toLocaleString().concat('₫')}
+                    </p>
+                  ) : (
+                    <></>
+                  )}
+                </div>
               </Card>
             ))}
           </div>

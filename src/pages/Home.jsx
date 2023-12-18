@@ -83,7 +83,7 @@ const Home = () => {
             >
               <p className="uppercase text-sm">{i.name}</p>
               <p className="text-sm font-semibold">
-                {Number(i.price)?.toLocaleString().concat('₫')}
+                {Number(i.priceDiscount)?.toLocaleString().concat('₫')}
               </p>
             </Card>
           ))}
@@ -123,7 +123,7 @@ const Home = () => {
             >
               <p className="uppercase text-sm">{i.name}</p>
               <p className="text-sm font-semibold">
-                {Number(i.price)?.toLocaleString().concat('₫')}
+                {Number(i.priceDiscount)?.toLocaleString().concat('₫')}
               </p>
             </Card>
           ))}

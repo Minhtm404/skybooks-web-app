@@ -109,7 +109,7 @@ const Cart = () => {
                     {item.product.mainCollection.name}
                   </p>
                   <p className="text-sm">
-                    {item.product.price.toLocaleString().concat('₫')}
+                    {item.product.priceDiscount.toLocaleString().concat('₫')}
                   </p>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center border-2 rounded w-fit mt-2">
@@ -128,7 +128,7 @@ const Cart = () => {
                       </p>
                     </div>
                     <p className="font-medium">
-                      {(item.quantity * item.product.price).toLocaleString().concat('₫')}
+                      {(item.quantity * item.product.priceDiscount).toLocaleString().concat('₫')}
                     </p>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ const Cart = () => {
                     {' '}
                     {(
                       cartItems.reduce(
-                        (sum, item) => sum + item.product.price * item.quantity,
+                        (sum, item) => sum + item.product.priceDiscount * item.quantity,
                         0
                       ) ?? 0
                     )

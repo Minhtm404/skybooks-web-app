@@ -102,7 +102,7 @@ const Orders = () => {
 
                   <div className="flex flex-col items-end gap-2">
                     <p className="text-2xl font-medium">
-                      {o.price.toLocaleString().concat('₫')}
+                      {o.priceDiscount.toLocaleString().concat('₫')}
                     </p>
 
                     <Button as={Link} to={`/account/orders/${o._id}`} color="light">

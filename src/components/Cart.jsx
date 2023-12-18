@@ -79,7 +79,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
                 </p>
                 <div className="flex gap-4 mt-2 items-center">
                   <p className="font-semibold text-lg">
-                    {(item.product?.price ?? 0).toLocaleString().concat('₫')}
+                    {(item.product?.priceDiscount ?? 0).toLocaleString().concat('₫')}
                   </p>
                   <div className="flex items-center border-2 rounded">
                     <p
@@ -107,7 +107,7 @@ const Cart = ({ cartItems = [], closeCart }) => {
             <p className="font-semibold">
               {(
                 cartItems.reduce(
-                  (sum, item) => sum + (item.product?.price ?? 0) * item.quantity,
+                  (sum, item) => sum + (item.product?.priceDiscount ?? 0) * item.quantity,
                   0
                 ) ?? 0
               )
