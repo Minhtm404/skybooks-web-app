@@ -234,6 +234,7 @@
   },
   "products": {
     "search_product": "Tìm kiếm sản phẩm...",
+    "no_product": "Không tìm thấy sản phẩm theo yêu cầu",
     "previous_label": "Trang trước",
     "next_label": "Trang tiếp",
     "supplier": "Nhà cung cấp",

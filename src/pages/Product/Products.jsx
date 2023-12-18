@@ -79,6 +79,8 @@ const Products = () => {
             ))}
           </div>
 
+          {products.length === 0 ? <div>{t('products.no_product')}</div> : <></>}
+
           <Pagination
             currentPage={currentPage}
             totalPages={Math.ceil(totalProducts / 12)}

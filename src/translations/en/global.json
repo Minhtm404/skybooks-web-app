@@ -234,6 +234,7 @@
   },
   "products": {
     "search_product": "Search product...",
+    "no_product": "No products found matching the request",
     "previous_label": "Previous",
     "next_label": "Next",
     "supplier": "Supplier",
