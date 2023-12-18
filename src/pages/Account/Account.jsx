@@ -212,7 +212,7 @@ const Account = () => {
                     />
                   </div>
                   <TextInput
-                    id="confirmPassword"
+                    id="passwordConfirm"
                     type="password"
                     placeholder={t('account.placeholder_confirm_password')}
                     className="md:w-1/2 sm:w-full"

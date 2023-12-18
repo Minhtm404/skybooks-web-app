@@ -15,18 +15,21 @@ const Register = () => {
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
   const [passwordConfirm, setPasswordConfirm] = useState(undefined);
+  const [comparePassword, setComparePassword] = useState(true);
 
   const [t, i18n] = useTranslation('global');
 
   const handleSubmit = async e => {
     e.preventDefault();
 
-    if (!name || !email || !password || !passwordConfirm) return;
+    if (comparePassword) {
+      if (!name || !email || !password || !passwordConfirm) return;
 
-    setIsLoading(true);
-    await register({ name, email, password, passwordConfirm });
+      setIsLoading(true);
+      await register({ name, email, password, passwordConfirm });
 
-    navigate('/account');
+      navigate('/account');
+    }
   };
 
   return (
@@ -105,7 +108,15 @@ const Register = () => {
           placeholder={t('register.placeholder_confirm_password')}
           minLength={8}
           value={passwordConfirm}
-          onChange={e => setPasswordConfirm(e.target.value)}
+          onChange={e => {
+            setPasswordConfirm(e.target.value);
+            setComparePassword(e.target.value === password);
+          }}
+          helperText={
+            comparePassword ? undefined : (
+              <span className="text-red-600">{t('account.compare_error')}</span>
+            )
+          }
           required
         />
       </div>
